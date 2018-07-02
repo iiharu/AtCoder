@@ -1,0 +1,24 @@
+---
+Language:        Cpp
+BasedOnStyle:  LLVM
+AlignConsecutiveAssignments: true
+AlignOperands: true
+AlignTrailingComments: true
+AllowShortBlocksOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AlwaysBreakTemplateDeclarations: false
+BreakBeforeBraces: Attach
+ColumnLimit:     80
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+IndentWidth:     2
+SortIncludes:    true
+SpaceAfterCStyleCast: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+Standard:        Cpp11
+TabWidth:        4
+UseTab:          Never
+...
