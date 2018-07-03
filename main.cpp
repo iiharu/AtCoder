@@ -3,7 +3,7 @@
 using namespace std;
 
 /* clang-format off */
-#define int long long
+// #define int long long
 struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
 
 #define reps(i, a, n) for (int i = (a); i < (int)(n); ++i)
@@ -24,9 +24,10 @@ template <typename T> inline void debug(T x) { cerr << x << " " << "(L:" << __LI
 
 signed main(void) {
   /* */
-  int num = 0; // num
-  // int num = numeric_limits<int>::min(); // max
-  // int num = numeric_limits<int>::max(); // min
+  int num;
+  // num = 0; // counter
+  // num = numeric_limits<int>::min(); // max
+  num = numeric_limits<int>::max(); // min
   int N;
   array<int, 200000> A;
   string S;
@@ -34,15 +35,16 @@ signed main(void) {
 
   cin >> N;
 
-  rep(i, N) {
-    cin >> A[i];
-    A[i] -= i + 1;
+  for (int i = 0; i < N; ++i) {
+    int a;
+    cin >> a;
+    int tmp = 0;
+    while (a % 10 == 0) {
+      a /= 10;
+      ++tmp;
+    }
+    num = min(num, tmp);
   }
-
-  sort(A.begin(), A.begin() + N);
-
-  int b = A[N / 2];
-  rep(i, N) num += abs(A[i] - b);
 
   cout << num << endl;
   return 0;
