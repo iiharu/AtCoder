@@ -3,8 +3,8 @@
 using namespace std;
 
 /* clang-format off */
-#define int long long
-#define double long double
+// #define int long long
+// #define double long double
 struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
 
 template <typename T> inline size_t maxElement(T beginIt, T endIt) { return max_element(beginIt, endIt); }
@@ -24,16 +24,14 @@ signed main(void) {
   // num = numeric_limits<int>::max(); // min
   int N;
   // array<int, 200000> A;
-  // string S;
+  string S;
   /* */
 
-  int a, b;
+  cin >> S;
+  cin >> N;
 
-  cin >> a >> b;
-
-  if (a * b == 15) cout << "*" << endl;
-  else if (a + b == 15) cout << "+" << endl;
-  else cout << "x" << endl;
+  for (unsigned int i = 0; i < S.size(); ++i) if (i % N == 0) cout << S[i];
+  cout << endl;
 
   // cout << num << endl;
   return 0;
