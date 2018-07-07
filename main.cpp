@@ -3,15 +3,9 @@
 using namespace std;
 
 /* clang-format off */
-// #define int long long
+#define int long long
+#define double long double
 struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
-
-#define reps(i, a, n) for (int i = (a); i < (int)(n); ++i)
-#define rep(i, n) reps(i, 0, n)
-#define rrep(i, n) reps(i, 1, n+1)
-#define deps(i, a, n) for (int i = (a); i >= (int)(n); --i)
-#define dep(i, n) deps(i, n, 0)
-#define each(i, n) for (auto&& i : n)
 
 template <typename T> inline size_t maxElement(T beginIt, T endIt) { return max_element(beginIt, endIt); }
 template <typename T> inline size_t minElement(T beginIt, T endIt) { return min_element(beginIt, endIt); }
@@ -25,27 +19,22 @@ template <typename T> inline void debug(T x) { cerr << x << " " << "(L:" << __LI
 signed main(void) {
   /* */
   int num;
-  // num = 0; // counter
+  num = 0; // count
   // num = numeric_limits<int>::min(); // max
-  num = numeric_limits<int>::max(); // min
+  // num = numeric_limits<int>::max(); // min
   int N;
-  array<int, 200000> A;
-  string S;
+  // array<int, 200000> A;
+  // string S;
   /* */
 
-  cin >> N;
+  int a, b;
 
-  for (int i = 0; i < N; ++i) {
-    int a;
-    cin >> a;
-    int tmp = 0;
-    while (a % 10 == 0) {
-      a /= 10;
-      ++tmp;
-    }
-    num = min(num, tmp);
-  }
+  cin >> a >> b;
 
-  cout << num << endl;
+  if (a * b == 15) cout << "*" << endl;
+  else if (a + b == 15) cout << "+" << endl;
+  else cout << "x" << endl;
+
+  // cout << num << endl;
   return 0;
 }
