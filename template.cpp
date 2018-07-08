@@ -41,5 +41,6 @@ signed main(void) {
   cin >> N;
 
   cout << num << endl;
+  // cout << fixed << setprecision(10) << num << endl;
   return 0;
 }
