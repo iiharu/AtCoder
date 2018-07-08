@@ -26,9 +26,13 @@ template <typename T> inline void debug(T x) { cerr << x << " " << "(L:" << __LI
 signed main(void) {
   /* */
   int num; // num
-  num = 0; // counter
+  num = 0; // count, result
   num = numeric_limits<int>::min(); // max
   num = numeric_limits<int>::max(); // min
+  // double num; // num
+  // num = 0; // count, result
+  // num = numeric_limits<double>::min(); // max
+  // num = numeric_limits<double>::max(); // min
   int N;
   array<int, 10000> A;
   string S;
