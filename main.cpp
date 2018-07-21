@@ -3,7 +3,7 @@
 using namespace std;
 
 /* clang-format off */
-// #define int long long
+#define int long long
 // #define double long double
 struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
 
@@ -18,21 +18,69 @@ template <typename T> inline void debug(T x) { cerr << x << " " << "(L:" << __LI
 
 signed main(void) {
   /* */
-  int num;
-  num = 0; // count
+  int num; // num
+  num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
-  int N;
-  // array<int, 200000> A;
+  // double num; // num
+  // num = 0; // count, result
+  // num = numeric_limits<double>::min(); // max
+  // num = numeric_limits<double>::max(); // min
+  int N, M;
+  // array<int, 100000> A;
+  // array<int, 100000> B;
   string S;
   /* */
 
-  cin >> S;
-  cin >> N;
+  array<pair<int, int>, 100000> A;
+  vector<int> B; // Bridge
+  cin >> N >> M;
+  for (int i = 0; i < M; ++i) {
+    int a, b;
+    cin >> a >> b;
+    A[i] = make_pair(a, b);
+  }
 
-  for (unsigned int i = 0; i < S.size(); ++i) if (i % N == 0) cout << S[i];
-  cout << endl;
+  sort(A.begin(), A.begin() + M);
 
-  // cout << num << endl;
+  for (int i = 0; i < M; ++i) {
+    int Ai1, Ai2;
+    Ai1 = A[i].first;
+    Ai2 = A[i].second;
+    if (Ai1 == Ai2) {
+        continue;
+    }
+    b = Ai1;
+    for (int j = i + 1; j < M; ++j) {
+      int Aj1, Aj2;
+      Aj1 = A[j].first;
+      Aj2 = A[j].second;
+      if (Aj1 == Aj2) {
+        continue;
+      }
+      // cout << "[" << Aj1 << "," << Aj2 << ")" << endl;
+      if (Aj1 <= Ai1 && Ai2 < Aj2) {
+        A[j] = make_pair(0,0);
+      } else if (Ai1 <= Aj2 && Aj1 < Ai2 && Ai2 <= Aj2) {
+        Ai1 = Aj1;
+        A[j] = make_pair(0,0);
+      } else if (Aj1 <= Ai1 && Ai1 < Aj2 && Aj2 <= Ai2) {
+        Ai2 = Aj2;
+        A[j] = make_pair(0,0);
+      } else if (Ai1 <= Aj1 && Aj1 < Ai2 && Aj2 <= Ai2) {
+        Ai1 = Aj1;
+        Ai2 = Aj2;
+        A[j] = make_pair(0,0);
+      }
+      // cout << i << "[" << Ai1 << "," << Ai2 << ")" << endl;
+    }
+    // cout << i << "[" << Ai1 << "," << Ai2 << ")" << endl;
+    
+    A[i] = make_pair(0,0);
+    num += 1;
+  }
+  
+  cout << num << endl;
+  // cout << fixed << setprecision(10) << num << endl;
   return 0;
 }
