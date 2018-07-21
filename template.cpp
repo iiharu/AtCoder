@@ -33,12 +33,15 @@ signed main(void) {
   // num = 0; // count, result
   // num = numeric_limits<double>::min(); // max
   // num = numeric_limits<double>::max(); // min
-  int N;
+  int N, M;
   array<int, 10000> A;
-  string S;
+  string S, T;
   /* */
 
   cin >> N;
+  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
+
+  for (auto it = A.begin(); it < A.begin() + N; ++it) cout << *it << endl;
 
   cout << num << endl;
   // cout << fixed << setprecision(10) << num << endl;

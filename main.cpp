@@ -20,21 +20,22 @@ signed main(void) {
   /* */
   int num; // num
   num = 0; // count, result
-  // num = numeric_limits<int>::min(); // max
-  // num = numeric_limits<int>::max(); // min
+  num = numeric_limits<int>::min(); // max
+  num = numeric_limits<int>::max(); // min
   // double num; // num
   // num = 0; // count, result
   // num = numeric_limits<double>::min(); // max
   // num = numeric_limits<double>::max(); // min
   int N, M;
-  array<int, 100000> A;
+  array<int, 10000> A;
   string S, T;
   /* */
 
-  int A1, A2, A3;
-  cin >> A1 >> A2 >> A3;
-  num = max({A1, A2, A3}) - min({A1, A2, A3});
-    
+  cin >> N;
+  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
+
+  for (auto it = A.begin(); it < A.begin() + N; ++it) cout << *it << endl;
+
   cout << num << endl;
   // cout << fixed << setprecision(10) << num << endl;
   return 0;
