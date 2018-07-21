@@ -31,18 +31,11 @@ signed main(void) {
   string S, T;
   /* */
 
-  cin >> S;
-  cin >> T;
-  for (int i = 0; i < S.length(); ++i) {
-    if (S == T) {
-      cout << "Yes" << endl;
-      return 0;
-    }
-    S = S.back() + S.substr(0, S.length() - 1);
-  }
-
-  cout << "No" << endl;
-  // cout << num << endl;
+  int A1, A2, A3;
+  cin >> A1 >> A2 >> A3;
+  num = max({A1, A2, A3}) - min({A1, A2, A3});
+    
+  cout << num << endl;
   // cout << fixed << setprecision(10) << num << endl;
   return 0;
 }
