@@ -3,7 +3,7 @@
 using namespace std;
 
 /* clang-format off */
-#define int long long
+// #define int long long
 // #define double long double
 struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
 
@@ -28,15 +28,21 @@ signed main(void) {
   // num = numeric_limits<double>::max(); // min
   int N, M;
   array<int, 100000> A;
-  string S;
+  string S, T;
   /* */
 
-  cin >> N;
-  for (int i = 0; i < N; ++i) cin >> A[i];
+  cin >> S;
+  cin >> T;
+  for (int i = 0; i < S.length(); ++i) {
+    if (S == T) {
+      cout << "Yes" << endl;
+      return 0;
+    }
+    S = S.back() + S.substr(0, S.length() - 1);
+  }
 
-  for (int i = 0; i < N; ++i) num += A[i] - 1;
-  
-  cout << num << endl;
+  cout << "No" << endl;
+  // cout << num << endl;
   // cout << fixed << setprecision(10) << num << endl;
   return 0;
 }
