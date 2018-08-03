@@ -1,9 +1,5 @@
 
-#include <algorithm>
-#include <iostream>
-#include <limits>
-#include <string>
-#include <array>
+#include "bits/stdc++.h"
 using namespace std;
 
 /* clang-format off */
@@ -34,7 +30,6 @@ signed main(void) {
   array<int, 10000> A;
   string S, T;
   /* */
-
 
   cin >> N;
   for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
