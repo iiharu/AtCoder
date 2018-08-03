@@ -13,9 +13,5 @@ $(TARGET): $(addsuffix .o, $(TARGET))
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-format:
-	@$(foreach file, $(wildcard *.cpp), clang-format -i $(file);)
-	@$(foreach file, $(wildcard *.hpp), clang-format -i $(file);)
-
 clean:
 	$(RM) $(basename $(wildcard *.cpp)) $(addsuffix .o, $(basename $(wildcard *.cpp)))

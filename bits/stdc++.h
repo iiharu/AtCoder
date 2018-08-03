@@ -1,7 +1,7 @@
-// C++
+// Headers for C++
 #include <algorithm>
 #include <array>
-#include <deque>
+#include <iomanip>
 #include <iostream>
 #include <iterator>
 #include <limits>
