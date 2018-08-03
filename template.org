@@ -1,22 +1,20 @@
+#+TITLE: Template
 
-#include <algorithm>
-#include <iostream>
-#include <limits>
-#include <string>
-#include <array>
+* C++
+** template.cpp
+
+This is my template for AtCoder.
+
+"bits/stdc++.h" is subset of standard C++ Library and it contains well used header include statement.
+
+#+begin_src cpp
+#include "bits/stdc++.h"
 using namespace std;
 
 /* clang-format off */
 // #define int long long
 // #define double long double
 struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
-
-// #define reps(i, a, n) for (int i = (a); i < (int)(n); ++i)
-// #define rep(i, n) reps(i, 0, n)
-// #define rrep(i, n) reps(i, 1, n+1)
-// #define deps(i, a, n) for (int i = (a); i >= (int)(n); --i)
-// #define dep(i, n) deps(i, n, 0)
-// #define each(i, n) for (auto&& i : n)
 
 template <typename T> inline size_t maxElement(T beginIt, T endIt) { return max_element(beginIt, endIt); }
 template <typename T> inline size_t minElement(T beginIt, T endIt) { return min_element(beginIt, endIt); }
@@ -51,3 +49,43 @@ signed main(void) {
   // cout << fixed << setprecision(10) << num << endl;
   return 0;
 }
+#+end_src
+
+
+** bits/stdc++.h
+#+begin_src cpp
+// C++
+#include <algorithm>
+#include <array>
+#include <deque>
+#include <iostream>
+#include <iterator>
+#include <limits>
+#include <list>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <tuple>
+#include <utility>
+#include <vector>
+#+end_src
+
+*** Algorithm
+*** Array
+*** Deque
+*** IOstream
+*** Iterator
+*** Limits
+*** List
+*** Map
+*** Numeric
+*** Queue
+*** Set
+*** Stack
+*** String
+*** Tuple
+*** Utility
+*** Vector
