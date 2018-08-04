@@ -25,8 +25,17 @@ signed main(void) {
   string S, T;
   /* */
 
+  cin >> N;
   cin >> S;
-  if(S.substr(0, 5) == "MUJIN") cout << "Yes" << endl;
+
+  num = N;
+  for (auto it = S.begin(); it != S.end(); ++it) {
+    if (num == 0) continue;
+    else if (*it == '+') ++num;
+    else --num;
+  }
+
+  if (num == 0) cout << "Yes" << endl;
   else cout << "No" << endl;
   
   return 0;
