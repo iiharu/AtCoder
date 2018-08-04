@@ -18,23 +18,16 @@ signed main(void) {
   /* */
   int num; // num
   num = 0; // count, result
-  num = numeric_limits<int>::min(); // max
-  num = numeric_limits<int>::max(); // min
-  // double num; // num
-  // num = 0; // count, result
-  // num = numeric_limits<double>::min(); // max
-  // num = numeric_limits<double>::max(); // min
+  // num = numeric_limits<int>::min(); // max
+  // num = numeric_limits<int>::max(); // min
   int N, M;
   array<int, 10000> A;
   string S, T;
   /* */
 
-  cin >> N;
-  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
-
-  for (auto it = A.begin(); it < A.begin() + N; ++it) cout << *it << endl;
-
-  cout << num << endl;
-  // cout << fixed << setprecision(10) << num << endl;
+  cin >> S;
+  if(S.substr(0, 5) == "MUJIN") cout << "Yes" << endl;
+  else cout << "No" << endl;
+  
   return 0;
 }
