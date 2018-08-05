@@ -76,6 +76,10 @@ This header includes sub-set of standard C++ Library.
   - std::prev_permutation
 - array:
   - std::array (C++11)
+- cmath:
+  - std::abs
+  - std::pow
+  - std::sqrt
 - iomanip:
   - std::setprecision
 - iostream:
@@ -115,6 +119,7 @@ This header includes sub-set of standard C++ Library.
 // Headers for C++
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
