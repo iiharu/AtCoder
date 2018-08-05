@@ -17,7 +17,6 @@ int gcd(int n, int m) { if (m == 0) return n; else return gcd(m, m % n); }
 int lcm(int n, int m) { return n * m / gcd(n, m); }
 
 signed main(void) {
-  /* */
   int num; // num
   num = 0; // count, result
   num = numeric_limits<int>::min(); // max
@@ -29,7 +28,6 @@ signed main(void) {
   int N, M;
   array<int, 10000> A;
   string S, T;
-  /* */
 
   cin >> N;
   for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;

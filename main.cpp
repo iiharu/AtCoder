@@ -6,33 +6,23 @@ using namespace std;
 struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
 
 signed main(void) {
-  // int num; // num
-  // num = 0; // count, result
-  // num = numeric_limits<int>::min(); // max
+  int num; // num
+  num = 0; // count, result
+  num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
-  double num;
-  num = numeric_limits<double>::min();
   int N;
-  int M;
-  // array<int, 10000> A;
+  // int M;
+  array<int, 10000> A;
   // string S;
   // string T;
-  
-  cin >> N >> M;
 
-  for (int i = 0; i <= N; ++i) {
-    for (int j = 0; i + j <= N; ++j) {
-      int k = N - i - j;
+  cin >> N;
+  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
 
-      if (M == i * 10000 + j * 5000 + k * 1000) {
-        cout << i << " " << j << " " << k << endl;
-        return 0;
-      }
-      
-    }
-  }
+  for (auto it = A.begin(); it < A.begin() + N; ++it)
+    cout << it - A.begin() << " :" << *it << endl;
 
-  cout << "-1 -1 -1" << endl;
-  // cout << num << endl;
+  cout << num << endl;
+  // cout << fixed << setprecision(10) << num << endl;
   return 0;
 }
