@@ -24,7 +24,8 @@ signed main(void) {
 
   for (auto it = A.begin(); it < A.begin() + N; ++it)
     cout << it - A.begin() << " :" << *it << endl;
-    
+
+  
   cout << num << endl;
   return 0;
 }
