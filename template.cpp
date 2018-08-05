@@ -13,6 +13,8 @@ template <typename T> inline size_t minIndex(T beginIt, T endIt) { return distan
 template <typename T> inline int sum(T beginIt, T endIt) { return accumulate(beginIt, endIt, 0); }
 template <typename T> inline int mean(T beginIt, T endIt) { return sum(beginIt, endIt) / distance(beginIt, endIt); }
 template <typename T> inline void debug(T x) { cerr << x << " " << "(L:" << __LINE__ << ")" << endl; }
+int gcd(int n, int m) { if (m == 0) return n; else return gcd(m, m % n); }
+int lcm(int n, int m) { return n * m / gcd(n, m); }
 
 signed main(void) {
   /* */
@@ -32,7 +34,8 @@ signed main(void) {
   cin >> N;
   for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
 
-  for (auto it = A.begin(); it < A.begin() + N; ++it) cout << *it << endl;
+  for (auto it = A.begin(); it < A.begin() + N; ++it)
+    cout << it - A.begin() << " :" << *it << endl;
 
   cout << num << endl;
   // cout << fixed << setprecision(10) << num << endl;

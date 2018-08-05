@@ -4,10 +4,11 @@
 - GNU Emacs
 - GNU Make
 - GNU Compiler Collection (>= 5.1) (C++14 or above)
+- LLVM Clang Compiler
 
 In Debian GNU/LINUX:
 #+BEGIN_SRC shell
-sudo apt install build-essential emacs-nox
+sudo apt install build-essential emacs-nox clang
 #+END_SRC
 
 
