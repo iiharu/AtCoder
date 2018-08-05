@@ -33,9 +33,3 @@ main
 *.exe
 *.out
 *.app
-
-# Cmake
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-compile_commands.json
