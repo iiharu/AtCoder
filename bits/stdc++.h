@@ -1,6 +1,7 @@
 // Headers for C++
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
