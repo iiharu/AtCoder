@@ -40,6 +40,8 @@ This header includes sub-set of standard C++ Library.
   - std::prev_permutation
 - array:
   - std::array (C++11)
+- bitset:
+  - std::bitset
 - cmath:
   - std::abs
   - std::pow

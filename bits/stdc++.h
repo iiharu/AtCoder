@@ -1,6 +1,7 @@
 // Headers for C++
 #include <algorithm>
 #include <array>
+#include <bitset>
 #include <cmath>
 #include <iomanip>
 #include <iostream>
@@ -9,10 +10,10 @@
 #include <list>
 #include <map>
 #include <numeric>
-#include <queue>
+/* #include <queue> */
 #include <set>
-#include <stack>
+/* #include <stack> */
 #include <string>
-#include <tuple>
+/* #include <tuple> */
 #include <utility>
 #include <vector>
