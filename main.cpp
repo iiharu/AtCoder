@@ -7,44 +7,62 @@ struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
 
 signed main(void) {
   int num; // num
-  num = 0; // count, result
+  // num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
-  // num = numeric_limits<int>::max(); // min
+  num = numeric_limits<int>::max(); // min
   // int N;
   // int M;
-  array<int, 10000> A;
-  string S;
+  // array<int, 10000> A;
+  // string S;
   // string T;
 
-  cin >> S;
+  int D, G;
+  array<int, 10> P;
+  array<int, 10> C;
 
-  if (S.length() == 1) {
-    cout << S << endl;
-    return 0;
+  cin >> D >> G;
+  for (int i = 0; i < D; ++i) {
+    cin >> P[i] >> C[i];
   }
-  
-  for (int i = 0; i < pow(2, S.length() - 1); ++i) {
-    int res = 0;
-    int tmp = 0;
-    bitset<9> bs(i);
 
-    for (int j = 0; j < S.length() - 1; ++j) {
-      if (j == 0) {
-        tmp = S[0] - '0';
+  for (int i = 0; i < pow(2, D); ++i) {
+    int score = 0;
+    int tmp = 0;
+    bitset<10> bs(i);
+    
+    for (int j = 0; j < D; ++j) {
+
+      if (bs.test(j)) {
+        tmp += P[j];
+        score += P[j] * (j + 1) * 100 + C[j];
       }
-      if(bs[j] == 1) {
-        res += tmp;
-        tmp = 0;
-      } else {
-        tmp *= 10;
-      }
-      tmp += S[j + 1] - '0';
-      if (j == S.length() - 2) {
-        res += tmp;
-      }
+
+      if (score >= G) {
+        num = min(num, tmp);
+        break;
+      };
     }
 
-    num += res;
+    for (int j = D - 1; 0 <= j; --j) {
+
+      if (score >= G) {
+        num = min(num, tmp);
+        break;
+      }
+
+      if(bs[j] == 0) {
+        int k = 0;
+        while (k < P[j] && score < G) {
+          score+= (j + 1) * 100;
+          tmp += 1;
+          k += 1;
+        }
+      }
+    }
+    // cout << bs << endl;
+    // cout << score << endl;
+    num = min(num, tmp);
+
   }
   
   cout << num << endl;
