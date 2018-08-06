@@ -28,60 +28,39 @@ xcode-select --install
 
 This header includes sub-set of standard C++ Library.
 
-- algorithm: Algorithms that operate on containers
-  - std::sort: sorts a range into ascending order (function template)
-  # - std::unique: removes consecutive duplicate elements in a range (function template)
-  # - std::max: returns the greater of the given values (function template)
-  # - std::max_element: returns the largest element in a range (function template)
-  # - std::min: returns the smaller of the given values (function template)
-  # - std::min_element: returns the smallest element in a range (function template)
-  # - std::next_permutation: generates the next greater lexicographic permutation of a range of elements (function template)
-  # - std::prev_permutation: generates the next smaller lexicographic permutation of a range of elements (function template)
-- array: std::array container (since C++11)
-  - std::array: static contiguous array (class template)
-- bitset: std::bitset class template
+- algorithm
+  - std::sort
+- array
+  - std::array
+- bitset
   - std::bitset
-- cmath: Common mathmatics functions
-  - std::abs: absolute value of a floating point value ( $|x|$ ) (function)
-  - std::pow: raises a number to the given power ( $x^{y}$ ) (function)
-  - std::sqrt: computes square root ( $\sqrt{x}$ ) (function) 
-- deque: std::deque container (currently not included)
-  - std::deque: double-ended queue (class template)
-- iomanip: Helper functions to control the format of input and typedefs
+- cmath
+  - std::abs
+  - std::pow
+  - std::sqrt
+- iomanip
   - std::setprecision
-- iostream: several standard stream objects
-  - std::cin: standard input
-  - std::cout: standard output
-  - std::cerr: standard error
-  - std::endl (from ostream): output '\n' and flushes the output stream (function template)
-- iterator: Container operater (currently not included)
-  - std::distance: returns the distance between two iterators (function)
-- limits: standardized way to query properties of arithmetic types
+- iostream
+  - std::cin
+  - std::cout
+  - std::cerr
+  - std::endl
+- limits
   - std::numeric_limits
-- list: std::list container (currently not included)
-  - std::list: doubly-linked list (class template)
-- map: std::map and std::multimap associative container
-  - std::map: collection of key-value pairs, sorted by keys, keys are unique (class template)
-  - std::multimap: collection of key-value pairs, sorted by keys (class template)
-- numeric: Numeric operations on values in containers
-  - std::accumulate: sums up a range of elements (function template)
-- queue: std::queue and std::priority_queue container adaptor (currently not included)
-  - std::queue: adapts a container to provide queue (FIFO data structure) (class template)
-- set: std::set and std::multiset associative container
-  - std::set: collection of unique keys, sorted by keys (class template)
-  - std::multiset: collection of keys, sorted by keys (class template)
-- stack: std::stack container adaptor (currently not included)
-  - std::stack: adapts a container to provide stack (LIFO data structure) (class template)
-- string: std::basic_string class template
-  - std::string: \verb|std::basic_string<char>| (typedef)
-- tuple: std::tuple class template (since C++11) (currently not included)
-  - std::tuple: implements fixed size container, which holds elements of possibly different types (class template)
-- utility: Various utility components
-  # - std::swap: swaps the values of two objects (function template)
-  # - std::exchange: replaces the arguments with a new value and returns its previous value (function template) (C++14)
-  - std::pair: implements binary tuple, i.e. a pair of values (class template) (C++11)
-- vector: std::vector container
-  - std::vector: dynamic contiguous array (class template)
+- map
+  - std::map
+  - std::multimap
+- numeric
+  - std::accumulate
+- set
+  - std::set
+  - std::multiset
+- string
+  - std::string
+- utility
+  - std::pair
+- vector
+  - std::vector
 
 
 ** Makefile
