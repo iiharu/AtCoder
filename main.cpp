@@ -10,19 +10,41 @@ signed main(void) {
   num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
-  int N;
+  // int N;
   // int M;
-  array<int, 10000> A;
-  // string S;
+  array<int, 4> A;
+  string S;
   // string T;
 
-  cin >> N;
-  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
+  cin >> S;
 
-  for (auto it = A.begin(); it < A.begin() + N; ++it)
-    cout << it - A.begin() << " :" << *it << endl;
+  for (int i = 0; i < 4; ++i) {
+    A[i] = (int)(S[i] - '0');
+  }
+
+  for (int i = 0; i < pow(2, 3); ++i) {
+    int tmp = A[0];
+    bitset<3> bs(i);
+
+    for (int j = 0; j < 3; j++) {
+      if (bs.test(j)) tmp += A[j + 1];
+      else tmp -= A[j + 1];
+    }
+
+    if (tmp == 7) {
+      cout << A[0];
+      for (int j = 0; j < 3; j++) {
+        if (bs.test(j)) cout << "+";
+        else cout << "-";
+        cout << A[j + 1];
+      }
+      cout << "=7" << endl;
+      return 0;
+    }
+    
+  }
   
-  cout << num << endl;
+  // cout << num << endl;
   // cout << fixed << setprecision(10) << num << endl;
   return 0;
 }
