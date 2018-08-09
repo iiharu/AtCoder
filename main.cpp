@@ -2,36 +2,56 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-#define int long long
+// #define int long long
 struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
 
 signed main(void) {
   int num; // num
   // num = 0; // count, result
-  // num = numeric_limits<int>::min(); // max
-  num = numeric_limits<int>::max(); // min
+  num = numeric_limits<int>::min(); // max
+  // num = numeric_limits<int>::max(); // min
   int N;
-  // int M;
-  array<int, 4> A;
+  int M;
+  // array<int, 10000> A;
   // string S;
   // string T;
 
-  cin >> N;
-  for (int i = 0; i < N; ++i) cin >> A[i];
+  array<int, 100> X;
+  array<int, 100> Y;
+  vector<pair<int, int>> R;
 
-  for (int i = 0; i < pow(2, N); ++i) {
-    int t1 = 0;
-    int t2 = 0;
+  cin >> N >> M;
+  for (int i = 0; i < M; ++i) {
+    cin >> X[i] >> Y[i];
+    R.push_back(make_pair(X[i] - 1, Y[i] - 1));
+  }
 
-    bitset<4> bs(i);
+  num = 1;
+
+  for (int b = 0; b < pow(2, N); ++b) {
+    bitset<12> bs(b);
+
+    bool canFaction = true;
     
-    for (int j = 0; j < N; ++j) {
-      if(bs.test(j)) t1 += A[j];
-      else t2 += A[j];
+    for (int i = 0; i < N; ++i) {
+      if(bs.test(i)) {
+        for (int j = i + 1; j < N; ++j) {
+          if(bs.test(j)) {
+            if (R.end() == find(R.begin(), R.end(), make_pair(i, j))) {
+              canFaction = false;
+              break;
+            } 
+          }
+        }
+      }
+      
+      if (!canFaction) 
+        break;
     }
 
-    num = min(num, max(t1, t2));
-    
+    if (canFaction) 
+      num = max(num, (int)bs.count());
+
   }
   
   cout << num << endl;
