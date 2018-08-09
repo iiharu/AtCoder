@@ -1,17 +1,16 @@
 CXX := g++
 CXXFLAGS := -std=c++14 -Wall
 LDFLAGS := -lc -lstdc++
-TARGET := main
-SOURCE := $(wildcard *.cpp)
-OBJ := $(addsuffix .o, $(basename $(wildcard *.cpp)))
 
-all: $(TARGET)
+.PHONY: all clean
 
-$(TARGET): $(addsuffix .o, $(TARGET))
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $<
+all: main
+
+main: main.o
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $<
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 clean:
-	$(RM) $(basename $(wildcard *.cpp)) $(addsuffix .o, $(basename $(wildcard *.cpp)))
+	$(RM) $(wildcard *.d) $(wildcard *.o) $(wildcard *.out)
