@@ -30,6 +30,7 @@ This header includes sub-set of standard C++ Library.
 
 - algorithm
   - std::sort
+  - std::find
 - array
   - std::array
 - bitset
