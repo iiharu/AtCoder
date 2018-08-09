@@ -25,12 +25,15 @@ signed main(void) {
   // num = 0; // count, result
   // num = numeric_limits<double>::min(); // max
   // num = numeric_limits<double>::max(); // min
-  int N, M;
+  int N;
+  int M;
   array<int, 10000> A;
-  string S, T;
+  string S;
+  string T;
 
   cin >> N;
-  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
+  for (auto it = A.begin(); it < A.begin() + N; ++it)
+    cin >> *it;
 
   for (auto it = A.begin(); it < A.begin() + N; ++it)
     cout << it - A.begin() << " :" << *it << endl;
