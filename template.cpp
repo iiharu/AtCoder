@@ -38,6 +38,9 @@ signed main(void) {
   for (auto it = A.begin(); it < A.begin() + N; ++it)
     cout << it - A.begin() << " :" << *it << endl;
 
+  for (auto it = A.begin(); it < A.begin() + N; ++it)
+    if (*it % 2 == 0) ++num;
+
   cout << num << endl;
   // cout << fixed << setprecision(10) << num << endl;
   return 0;
