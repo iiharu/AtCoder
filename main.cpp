@@ -20,11 +20,11 @@ signed main(void) {
 
   vector<pair<int, int>> Q;
 
-  while (true) {
+  do {
+    bool isQueen = true;
 
-    if ((int)Q.size() == N) {
-      bool isQueen = true;
-
+    // cout << "Check" << endl;
+    if (Q.size() > 0) {
       for (auto it0 = Q.begin(); it0 < Q.end(); ++it0) {
         pair<int, int> p = *it0;
         for (auto it1 = it0 + 1; it1 < Q.end(); ++it1) {
@@ -37,32 +37,29 @@ signed main(void) {
         if (!isQueen) break;
       }
 
-      if (isQueen) {
+      // cout << "Print" << endl;
+      if (isQueen && (int)Q.size() == N) {
         for (pair<int, int> p : Q) cout << "(" << p.first << ", " << p.second << ")" << " ";
         cout << endl;
       }
     }
 
-    if ((int) Q.size() == N) {
-      bool isEnd = true;
-      for (auto it = Q.begin(); it < Q.end(); ++it) if ((*it).second != N) isEnd = false;
-      if (isEnd) break;
-    }
-
-    if ((int) Q.size() < N) Q.push_back(make_pair(Q.size() + 1, 1));
+    // cout << "Update" << endl;
+    if (isQueen && (int) Q.size() < N) Q.push_back(make_pair(Q.size() + 1, 1));
     else {
-      while (true) {
+      do {
         pair<int, int> &p = Q.back();
+        pair<int, int> q = make_pair(p.first, p.second);
         Q.pop_back();
 
-        if (p.second < N) {
-          p.second = p.second + 1;
-          Q.push_back(p);
+        if (q.second < N) {
+          q.second = q.second + 1;
+          Q.push_back(q);
           break;
-        }
-      }
+        }       
+      } while (Q.size() > 0);
     }
-  }
+  } while (Q.size() > 0);
     
   // for (auto it = A.begin(); it < A.begin() + N; ++it)
   //   cin >> *it;
