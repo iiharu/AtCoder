@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -std=c++14 -Wall
+CXXFLAGS := -std=c++14 -Wall -Wextra -Wc++14-compat
 LDFLAGS := -lc -lstdc++
 
 .PHONY: all clean
