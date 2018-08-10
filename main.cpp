@@ -23,7 +23,6 @@ signed main(void) {
   do {
     bool isQueen = true;
 
-    // cout << "Check" << endl;
     if (Q.size() > 0) {
       for (auto it0 = Q.begin(); it0 < Q.end(); ++it0) {
         pair<int, int> p = *it0;
@@ -37,14 +36,13 @@ signed main(void) {
         if (!isQueen) break;
       }
 
-      // cout << "Print" << endl;
       if (isQueen && (int)Q.size() == N) {
         for (pair<int, int> p : Q) cout << "(" << p.first << ", " << p.second << ")" << " ";
         cout << endl;
+        ++num;
       }
     }
 
-    // cout << "Update" << endl;
     if (isQueen && (int) Q.size() < N) Q.push_back(make_pair(Q.size() + 1, 1));
     else {
       do {
@@ -57,17 +55,11 @@ signed main(void) {
           Q.push_back(q);
           break;
         }       
-      } while (Q.size() > 0);
+      } while (!Q.empty());
     }
-  } while (Q.size() > 0);
+  } while (!Q.empty());
     
-  // for (auto it = A.begin(); it < A.begin() + N; ++it)
-  //   cin >> *it;
-
-  // for (auto it = A.begin(); it < A.begin() + N; ++it)
-  //   if (*it % 2 == 0) ++num;
-  
-  // cout << num << endl;
+  cout << num << endl;
   
   return 0;
 }
