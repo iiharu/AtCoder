@@ -15,11 +15,14 @@ signed main(void) {
   array<int, 10000> A;
   // string S;
   // string T;
+  
+  // for (auto it = A.begin(); it < A.begin() + N; ++it)
+  //   cin >> *it;
 
-  cin >> N >> M;
+  // for (auto it = A.begin(); it < A.begin() + N; ++it)
+  //   if (*it % 2 == 0) ++num;
 
-  if (N % M == 0) cout << 0 << endl;
-  else cout << 1 << endl;
+  // cout << num << end;
   
   return 0;
 }
