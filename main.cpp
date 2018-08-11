@@ -11,20 +11,15 @@ signed main(void) {
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
   int N;
-  // int M;
+  int M;
   array<int, 10000> A;
   // string S;
   // string T;
 
-  cin >> N;
+  cin >> N >> M;
 
-  for (auto it = A.begin(); it < A.begin() + N; ++it)
-    cin >> *it;
-
-  for (auto it = A.begin(); it < A.begin() + N; ++it)
-    if (*it % 2 == 0) ++num;
-
-  cout << num << endl;
+  if (N % M == 0) cout << 0 << endl;
+  else cout << 1 << endl;
   
   return 0;
 }
