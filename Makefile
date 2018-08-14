@@ -6,6 +6,11 @@ LDFLAGS := -lc -lstdc++
 
 all: main
 
+release: main
+
+debug: main.cpp
+	$(CXX) -g -O0 $(CXXFLAGS) $(LDFLAGS) $<
+
 main: main.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $<
 
