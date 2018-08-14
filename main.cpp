@@ -2,7 +2,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-// #define int long long
+#define int long long
 struct Fast {Fast() {cin.tie(0); ios::sync_with_stdio(false);}} fast;
 
 signed main(void) {
@@ -14,31 +14,34 @@ signed main(void) {
   int N;
   // int M;
   // array<int, 10000> A;
-  string yes = "Yes";
-  string no = "No";
-  // string S;
+  // string yes = "Yes";
+  // string no = "No";
+  string S;
   // string T;
 
-  cin >> N;
+  S = "";
   
-  for (int i = 0; i <= N / 4; ++i) {
-    for (int j = 0; j <= N / 7; ++j) {
-      if (4 * i + 7 * j == N) {
-        cout << yes << endl;
-        return 0;
-      }
+  cin >> N;
+
+  while (N < 0 || 1 < N) {
+    int Q, R;
+    Q = N / -2;
+    R = N - -2 * Q;
+
+    if (R < 0) {
+      Q += 1; R += 2;
     }
+
+    if (R == 1) S = "1" + S;
+    else S = "0" + S;
+
+    N = Q;   
   }
 
-  cout << no << endl;
-  
-  // for (auto it = A.begin(); it < A.begin() + N; ++it)
-  //   cin >> *it;
+  if (N == 1) S = "1" + S;
+  else S = "0" + S;
 
-  // for (auto it = A.begin(); it < A.begin() + N; ++it)
-  //   if (*it % 2 == 0) ++num;
-
-  // cout << num << end;
+  cout << S << endl;
   
   return 0;
 }
