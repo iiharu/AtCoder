@@ -28,6 +28,8 @@ signed main(void) {
   int N;
   int M;
   array<int, 10000> A;
+  // string yes = "Yes";
+  // string no = "No";
   string S;
   string T;
 
