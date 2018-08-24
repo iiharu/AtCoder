@@ -15,36 +15,45 @@ signed main(void) {
   // string S;
   // string T;
 
-  int H, W;
-  array<string, 50> S;
-  array<string, 50> T;
-  
-  cin >> H >> W;
+  array<int, 50> A;
+  array<int, 50> B;
 
-  for (int i = 0; i < H; ++i) {
-    cin >> S[i];
+  cin >> N >> M;
+
+  for (int i = 0; i < M; ++i) {
+    cin >> A[i] >> B[i];
+    A[i] -= 1;
+    B[i] -= 1;
   }
 
-  for (int x = 0; x < H; ++x) {
-    T[x] = "";
-    for (int y = 0; y < W; ++y) {
-      if (S[x][y] == '#') T[x] = T[x] + '#';
-      else {
-        int tmp = 0;
-        for (int i = x - 1; i <= x + 1; ++i) {
-          for (int j = y - 1; j <= y + 1; ++j) {
-            if (i < 0 || H <= i) continue;
-            if (j < 0 || W <= j) continue;
-            if (S[i][j] == '#') ++tmp;
-          }
+  for (int i = 0; i < M; ++i) {
+    array<bool, 50> visited;
+    vector<int> stack;
+    
+    for (auto it = visited.begin(); it < visited.begin() + N; ++it) *it = false;
+    stack.push_back(0);
+    visited[0] = true;
+
+    while(stack.size() > 0) {
+      int v = stack.back();
+      stack.pop_back();
+
+      for (int j = 0; j < M; ++j) {
+        if (i == j) continue;
+        if (A[j] == v && !visited[B[j]]) {
+          visited[B[j]] = true;
+          stack.push_back(B[j]);
         }
-        T[x]= T[x] + to_string(tmp);
+        if (B[j] == v && !visited[A[j]]) {
+          visited[A[j]] = true;
+          stack.push_back(A[j]);
+        }
       }
     }
-  }
 
-  for (int i = 0; i < H; ++i) {
-    cout << T[i] << endl;
+    bool flag = true;
+    for (auto it = visited.begin(); it < visited.begin() + N; ++it) if (!*it) flag &= false;
+    if (!flag) ++num;
   }
   
   // cin >> N;
@@ -52,7 +61,7 @@ signed main(void) {
   //   cin >> *it;
   // for (auto it = A.begin(); it < A.begin() + N; ++it)
   //   if (*it % 2 == 0) ++num;
-  // cout << num << endl;
+  cout << num << endl;
   
   return 0;
 }
