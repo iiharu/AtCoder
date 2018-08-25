@@ -14,13 +14,19 @@ signed main(void) {
   array<int, 10000> A;
   // string S;
   // string T;
+
+  int i;
+
+  cin >> N >> i;
+  cout << N - i + 1 << endl;
   
-  cin >> N;
-  for (auto it = A.begin(); it < A.begin() + N; ++it)
-    cin >> *it;
-  for (auto it = A.begin(); it < A.begin() + N; ++it)
-    if (*it % 2 == 0) ++num;
-  cout << num << endl;
+  
+  // cin >> N;
+  // for (auto it = A.begin(); it < A.begin() + N; ++it)
+  //   cin >> *it;
+  // for (auto it = A.begin(); it < A.begin() + N; ++it)
+  //   if (*it % 2 == 0) ++num;
+  // cout << num << endl;
   
   return 0;
 }
