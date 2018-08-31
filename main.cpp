@@ -15,21 +15,37 @@ signed main(void) {
   // string S;
   // string T;
 
-  int K;
+  int S;
+  int T;
 
-  cin >> N >> K;
+  // vector<int> N;
+  deque<pair<int, int>> tree;
+  
+  cin >> N >> S >> T;
 
-  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
-
-  sort(A.begin(), A.begin() + N, greater<int>());
-
-  for (auto it = A.begin(); it < A.begin() + N; ++it) {
-    if (K <= 0) break;
-    K -= *it;
-    ++num;
+  num = -1;
+  
+  
+  if (S == T) {
+    num = 0;
+  } else if (S > T) {
+    num = -1;
+  } else {
+    tree.push_back(make_pair(0, S));
+    int treeMax = pow(2, N);
+    
+    while (!tree.empty()) {
+      pair<int, int> n = tree.front();
+      tree.pop_front();
+      if (n.second == T) {
+        num = n.first;
+        break;
+      }
+      if (n.second * 2 < treeMax) tree.push_back(make_pair(n.first + 1, n.second * 2));
+      if (n.second * 2 + 1< treeMax) tree.push_back(make_pair(n.first + 1, n.second * 2 + 1));
+    }
   }
-
-  if (K > 0) num = -1;
+  
 
   cout << num << endl;
   
