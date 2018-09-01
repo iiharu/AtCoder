@@ -11,16 +11,12 @@ signed main(void) {
   // num = numeric_limits<int>::max(); // min
   int N;
   // int M;
-  array<int, 1000000> A;;
+  // array<int, 1000000> A;;
   // string S;
   // string T;
-  
+
   cin >> N;
-  for (auto it = A.begin(); it < A.begin() + N; ++it)
-    cin >> *it;
-  for (auto it = A.begin(); it < A.begin() + N; ++it)
-    if (*it % 2 == 0) ++num;
-  cout << num << endl;
+  cout << (N / 2) * (N / 2 + N % 2) << endl;
   
   return 0;
 }
