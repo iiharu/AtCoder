@@ -4,6 +4,13 @@ using namespace std;
 
 #define int long long
 
+int gcd(int a, int b) {
+  if (b == 0) return a;
+  else if (a < b) return gcd(b, a);
+  else return gcd(b, a % b);
+}
+
+
 signed main(void) {
   int num; // num
   num = 0; // count, result
@@ -11,38 +18,25 @@ signed main(void) {
   // num = numeric_limits<int>::max(); // min
   int N;
   // int M;
-  // array<int, 1000000> A;;
+  array<int, 100000> A;;
   // string S;
   // string T;
 
-  array<string, 100> W;
-  bool flag = true;
+  int X;
+  
+  cin >> N >> X;
+  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
 
-  cin >> N;
+  for (auto it = A.begin(); it < A.begin() + N; ++it) *it = abs(X - *it);
+  
+  sort(A.begin(), A.begin() + N);
 
-  for (int i = 0; i < N; ++i) {
-    cin >> W[i];
+  for (auto it = A.begin(); it < A.begin() + N; ++it) {
+    if (it == A.begin()) num = *it;
+    else num = gcd(num, *it);
   }
 
-  for (int i = 0; i < N; ++i) {
-
-    if (i > 0) {
-      if (W[i-1][W[i-1].length() - 1] != W[i][0]) {
-        flag = false;
-        break;
-      }
-    }
-
-    for (int j = 0; j < i; ++j) {
-      if (W[j] == W[i]) {
-        flag = false;
-        break;
-      }
-    }
-  }
-
-  if (flag) cout << "Yes" << endl;
-  else cout << "No" << endl;
+  cout << num << endl;
   
   return 0;
 }
