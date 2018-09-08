@@ -15,11 +15,33 @@ signed main(void) {
   // string S;
   // string T;
 
-  int A, B;
+  array<string, 100> W;
+  bool flag = true;
 
-  cin >> A >> B;
+  cin >> N;
 
-  if (A % 2 == 1 && B % 2 == 1) cout << "Yes" << endl;
+  for (int i = 0; i < N; ++i) {
+    cin >> W[i];
+  }
+
+  for (int i = 0; i < N; ++i) {
+
+    if (i > 0) {
+      if (W[i-1][W[i-1].length() - 1] != W[i][0]) {
+        flag = false;
+        break;
+      }
+    }
+
+    for (int j = 0; j < i; ++j) {
+      if (W[j] == W[i]) {
+        flag = false;
+        break;
+      }
+    }
+  }
+
+  if (flag) cout << "Yes" << endl;
   else cout << "No" << endl;
   
   return 0;
