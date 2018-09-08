@@ -1,21 +1,17 @@
 CXX := g++
 CXXFLAGS := -std=c++14 -Wall -Wextra -Wc++14-compat
 LDFLAGS := -lc -lstdc++
+TARGET := main
 
 .PHONY: all clean
 
 all: main
 
-release: main
-
-debug: main.cpp
-	$(CXX) -g -O0 $(CXXFLAGS) $(LDFLAGS) $<
-
 main: main.o
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $<
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $< -o $@
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $<
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(wildcard *.d) $(wildcard *.o) $(wildcard *.out)
+	$(RM) $(TARGET) $(wildcard *.d) $(wildcard *.o) $(wildcard *.out)
