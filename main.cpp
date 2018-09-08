@@ -15,8 +15,12 @@ signed main(void) {
   // string S;
   // string T;
 
-  cin >> N;
-  cout << (N / 2) * (N / 2 + N % 2) << endl;
+  int A, B;
+
+  cin >> A >> B;
+
+  if (A % 2 == 1 && B % 2 == 1) cout << "Yes" << endl;
+  else cout << "No" << endl;
   
   return 0;
 }
