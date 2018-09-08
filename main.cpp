@@ -22,19 +22,10 @@ signed main(void) {
   // string S;
   // string T;
 
-  int X;
-  
-  cin >> N >> X;
+  cin >> N;
   for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
 
-  for (auto it = A.begin(); it < A.begin() + N; ++it) *it = abs(X - *it);
-  
-  sort(A.begin(), A.begin() + N);
-
-  for (auto it = A.begin(); it < A.begin() + N; ++it) {
-    if (it == A.begin()) num = *it;
-    else num = gcd(num, *it);
-  }
+  for (auto it = A.begin(); it < A.begin() + N; ++it) if (*it % 2 == 0) ++num;
 
   cout << num << endl;
   
