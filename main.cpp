@@ -17,22 +17,34 @@ signed main(void) {
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
   int N;
-  // int M;
-  // array<int, 100000> A;;
+  int M;
+  // array<int, 100000> A;
   // string S;
   // string T;
+  int A, B, C;
+  // array<int, 100> O;
+  array<int, 100> L;
+  array<int, 100> R;
+  array<bool, 100> flag;
 
-  int A, B, C, S;
+  for (int i = 0; i < 100; ++i) flag[i] = false;
+  
+  cin >> N >> M >> A >> B;
 
-  cin >> A;
-  cin >> B;
-  cin >> C;
-  cin >> S;
+  for (int i = 0; i < M; i++) {
+    int l, r;
+    cin >> l >> r;
+    for (int j = l - 1; j <= r - 1; ++j) flag[j] = true;
+  }
 
-  if (A + B + C <= S && S <= A + B + C + 3) cout << "Yes" << endl;
-  else cout << "No" << endl;
+  C = max(A, B);
+  for (int i = 0; i < N; ++i) {
+    if (flag[i]) num += A;
+    else num += C;
+  }
 
   
+  cout << num << endl;
   // cin >> N;
   // for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
 
