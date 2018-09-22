@@ -18,16 +18,27 @@ signed main(void) {
   // num = numeric_limits<int>::max(); // min
   int N;
   // int M;
-  array<int, 100000> A;;
+  // array<int, 100000> A;;
   // string S;
   // string T;
 
-  cin >> N;
-  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
+  int A, B, C, S;
 
-  for (auto it = A.begin(); it < A.begin() + N; ++it) if (*it % 2 == 0) ++num;
+  cin >> A;
+  cin >> B;
+  cin >> C;
+  cin >> S;
 
-  cout << num << endl;
+  if (A + B + C <= S && S <= A + B + C + 3) cout << "Yes" << endl;
+  else cout << "No" << endl;
+
+  
+  // cin >> N;
+  // for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
+
+  // for (auto it = A.begin(); it < A.begin() + N; ++it) if (*it % 2 == 0) ++num;
+
+  // cout << num << endl;
   
   return 0;
 }
