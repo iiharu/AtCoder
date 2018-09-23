@@ -16,18 +16,43 @@ signed main(void) {
   num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
-  // int N;
-  // int M;
+  int N;
+  int M;
   array<int, 100000> A;;
   // string S;
   // string T;
 
-  cin >> A[0] >> A[1] >> A[2];
+  int X, Y;
 
-  sort(A.begin(), A.begin() + 3, greater<int>());
+  cin >> N >> M >> X >> Y;
 
-  cout << 10 * A[0] + A[1] + A[2] << endl;
-  
+  int XM, Ym;
+
+  for (int i = 0; i < N; ++i) {
+    int x;
+    cin >> x;
+    if (i == 0) XM = x;
+    else XM = max(XM, x);
+  }
+
+  for (int j = 0; j < M; j++) {
+    int y;
+    cin >> y;
+    if (j == 0) Ym = y;
+    else Ym = min(Ym, y);
+  }
+
+  bool flag = false;
+  if (XM <= Ym) {
+    for (int i = XM + 1; i <= Ym; ++i) {
+      if (i > Ym) break;
+      if (X < i && i <= Y) flag = true;
+    }
+  }
+
+  if (flag) cout << "No War" << endl;
+  else cout << "War" << endl;
+
   // cin >> N;
   // for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
 
