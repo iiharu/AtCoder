@@ -16,18 +16,24 @@ signed main(void) {
   num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
-  int N;
+  // int N;
   // int M;
   array<int, 100000> A;;
   // string S;
   // string T;
 
-  cin >> N;
-  for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
+  cin >> A[0] >> A[1] >> A[2];
 
-  for (auto it = A.begin(); it < A.begin() + N; ++it) if (*it % 2 == 0) ++num;
+  sort(A.begin(), A.begin() + 3, greater<int>());
 
-  cout << num << endl;
+  cout << 10 * A[0] + A[1] + A[2] << endl;
+  
+  // cin >> N;
+  // for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
+
+  // for (auto it = A.begin(); it < A.begin() + N; ++it) if (*it % 2 == 0) ++num;
+
+  // cout << num << endl;
   
   return 0;
 }
