@@ -21,30 +21,17 @@ signed main(void) {
   array<int, 100000> A;
   // string S;
   // string T;
-  map<int, int> m;
 
-  vector<pair<int, int>> v;
-  
   cin >> N;
-  for (int i = 0; i < N; ++i) {
-    for (int j = 0; j < i; ++j) {
-      m[i]++;
-    }
-  }
 
-  for (auto it = m.begin(); it != m.end(); ++it) {
-    cout << (*it).first << ": " << (*it).second << endl;
-    v.push_back(make_pair((*it).second,(*it).first));
+  if (N == 1) {
+    cout << "Hello World" << endl;
+  } else {
+    int a, b;
+    cin >> a;
+    cin >> b;
+    cout << a + b << endl;
   }
-
-  sort(v.begin(), v.end());
-
-  cout << "Reverse" << endl;
-  
-  for (auto it = v.begin(); it != v.end(); ++it) {
-    cout << (*it).first << ": " << (*it).second << endl;
-  }
-  
   
   // cin >> N;
   // for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
