@@ -15,30 +15,30 @@ signed main(void) {
   int num; // num
   num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
-  // num = numeric_limits<int>::max(); // min
+  num = numeric_limits<int>::max(); // min
   int N;
   // int M;
   array<int, 100000> A;
   // string S;
   // string T;
+  int T;
 
-  cin >> N;
 
-  if (N == 1) {
-    cout << "Hello World" << endl;
-  } else {
-    int a, b;
-    cin >> a;
-    cin >> b;
-    cout << a + b << endl;
+  cin >> N >> T;
+  for (int i = 0; i < N; ++i) {
+    int c, t;
+    cin >> c >> t;
+    if (t <= T) {
+      num = min(num, c);
+    }
   }
-  
-  // cin >> N;
-  // for (auto it = A.begin(); it < A.begin() + N; ++it) cin >> *it;
 
-  // for (auto it = A.begin(); it < A.begin() + N; ++it) if (*it % 2 == 0) ++num;
+  if (num == numeric_limits<int>::max()) {
+    cout << "TLE" << endl;
+  } else {
+    cout << num << endl;
+    
+  }
 
-  // cout << num << endl;;
-  
   return 0;
 }
