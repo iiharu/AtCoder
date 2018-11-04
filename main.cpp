@@ -9,19 +9,11 @@ signed main(void) {
   num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
-  // int N;
+  int N;
   // int M;
-  // array<int, 100000> A;
+  array<int, 100000> A;
   // string S;
   // string T;
-
-  int X, Y;
-
-  cin >> X;
-  cin >> Y;
-
-  cout << X + Y / 2 << endl;
-
 
   return 0;
 }
