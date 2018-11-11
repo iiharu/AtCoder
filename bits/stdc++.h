@@ -1,9 +1,12 @@
-// Headers for C++
+/* Headers for C++
+   This header is sub-set of standard C++ library.
+   To use:
+   #include "bits/stdc++.h";
+*/
 #include <algorithm>
 #include <array>
 #include <bitset>
 #include <cmath>
-#include <deque>
 #include <iomanip>
 #include <iostream>
 #include <limits>
