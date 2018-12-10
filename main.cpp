@@ -1,4 +1,3 @@
-
 #include "bits/stdc++.h"
 using namespace std;
 
@@ -7,28 +6,23 @@ using namespace std;
 signed main(void)
 {
   int num; // num
-  num = 0; // count, result
+  // num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
-  // num = numeric_limits<int>::max(); // min
-  int N;
-  int M;
-  array<int, 100000> P;
-  array<int, 100000> Y;
-  array<vector<int>, 100001> YD;
-  cin >> N >> M;
+  num = numeric_limits<int>::max(); // min
+  int n;
+  int k;
+  array<int, 100000> a;
 
-  for (int i = 0; i < M; i++) {
-    cin >> P[i] >> Y[i];
-    YD[P[i] - 1].push_back(Y[i]);
+  cin>> n >> k;
+  for(auto it = a.begin(); it < a.begin() + n; ++it){
+    cin >> *it;
   }
 
-  for (int i = 0; i < N; i++)
-    sort(YD[i].begin(), YD[i].end());
+  sort(a.begin(),a.begin() + n,greater<int>());
 
-  for (int i = 0; i < M; i++) {
-    cout << setfill('0') << setw(6) << right << P[i]
-         << setfill('0') << setw(6) << right << (lower_bound(YD[P[i] - 1].begin(), YD[P[i] - 1].end(), Y[i]) - YD[P[i] - 1].begin()) + 1 << endl;
-  }
+  for(auto it = a.begin(); it + k - 1< a.begin() + n; ++it)
+    num = min(num, *it - *(it + k - 1));
 
+  cout << num << endl;
   return 0;
 }
