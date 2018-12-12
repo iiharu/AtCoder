@@ -8,11 +8,13 @@
   - GNU Compiler Collection (g++)
   - LLVM Clang Compiler (clang++)
 - GNU Make
+- Boost C++ Libraries
 
 In Debian GNU/Linux:
 #+BEGIN_SRC shell
-sudo apt install astyle emacs-nox g++ make
+sudo apt install astyle emacs-nox g++ make libboost-dev
 #+END_SRC
+
 
 * C++
 
