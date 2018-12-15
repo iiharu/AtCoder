@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -std=c++14 -Wall -Wextra -Wc++14-compat # -I/usr/include/boost
+CXXFLAGS := -std=c++14 -Iinclude -Wall -Wextra -Wc++14-compat
 LDFLAGS := -lc -lstdc++
 TARGET := main
 ASTYLE := astyle
