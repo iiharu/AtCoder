@@ -14,28 +14,19 @@ In Debian GNU/Linux:
 sudo apt install astyle emacs-nox g++ make
 #+END_SRC
 
-* LICENSE
-- include/boost
-Boost Software License - Version 1.0 - August 17th, 2003
 
-* C++
+* Libraries
 
-** Data Structures
-- array
-- bitset
-- list
-- map
-- pair
-- set
-- vector
-
-
-** Algorithms
+** stdc++
 - algorithm
   - std::sort
   - std::find
   - std::lower_bound
   - std::upper_bound
+- array
+  - std::array
+- bitset
+  - std::bitset
 - cmath
   - std::abs
   - std::pow
@@ -49,14 +40,33 @@ Boost Software License - Version 1.0 - August 17th, 2003
   - std::endl
 - limits
   - std::numeric_limits
+- map
+  - std::map
 - numeric
   - std::accumulate
+- set
+  - std::set
+- string
+  - std::string
+- utility
+  - std::pair
+- vector
+  - std::vector
+
+** boost
+- algorithm
+  - clamp.hpp
+    - boost::algorithm::clamp
+- math
+  - common_factor_rt.hpp
+    - boost::math::gcd
+    - boost::math::lcm
 
 
-* Boost
-- boost/math/common_factor_rt.hpp
-  - gcd
-  - lcm
+* LICENSE
+- include/boost
+Boost Software License - Version 1.0 - August 17th, 2003
+
 
 * Reference
 - [[https://en.cppreference.com/w/][C++ Reference]]
