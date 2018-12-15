@@ -63,12 +63,6 @@ In Debian GNU/Linux:
         -   boost::math::gcd
         -   boost::math::lcm
 
-## LICENSE
-
--   include/boost
-
-Boost Software License Version 1.0 August 17th, 2003
-
 ## Reference
 
 -   [C++ Reference](https://en.cppreference.com/)
