@@ -17,5 +17,8 @@ main: main.o
 astyle: $(TARGET).cpp
 	$(ASTYLE) $(TARGET).cpp
 
+version: version.o
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $< -o $@
+
 clean:
 	$(RM) $(TARGET) $(wildcard *.d) $(wildcard *.o) $(wildcard *.out)
