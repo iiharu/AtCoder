@@ -69,5 +69,6 @@ Boost Software License - Version 1.0 - August 17th, 2003
 
 
 * Reference
-- [[https://en.cppreference.com/w/][C++ Reference]]
-- [[https://www.boost.org/][boost C++ LIBRARIES]]
+- [[https://en.cppreference.com/][C++ Reference]]
+- [[https://cpprefjp.github.io/][C++日本語リファレンス]]
+- [[https://www.boost.org/][Boost C++ Libraries]]
