@@ -29,6 +29,7 @@ Boost Software License - Version 1.0 - August 17th, 2003
 - set
 - vector
 
+
 ** Algorithms
 - algorithm
   - std::sort
@@ -51,6 +52,11 @@ Boost Software License - Version 1.0 - August 17th, 2003
 - numeric
   - std::accumulate
 
+
+* Boost
+- boost/math/common_factor_rt.hpp
+  - gcd
+  - lcm
 
 * Reference
 - [[https://en.cppreference.com/w/][C++ Reference]]
