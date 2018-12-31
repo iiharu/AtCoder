@@ -25,7 +25,7 @@ int main() {
 #ifdef __clang_minor__
   cout << "." << __clang_minor__;
 #ifdef __clang_patchlevel__
-  cout << "." << __clang_patchlevel;
+  cout << "." << __clang_patchlevel__;
 #endif
 #endif
 #endif
