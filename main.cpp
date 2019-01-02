@@ -10,12 +10,22 @@ signed main(void) {
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
   int n;
-  int a, b, c;
-  string s;
-  cin >> a;
-  cin >> b >> c;
-  cin >> s;
+  string c;
+  int M = 0;
+  int m = 100;
+  
+  cin >> n;
+  cin >> c;
+  
+  for (char i = '1'; i <= '4'; ++i) {
+    int tmp = 0;
+    for (auto it = c.begin(); it != c.end(); ++it) {
+      if (*it == i) tmp++;
+    }
+    M = max(M, tmp);
+    m = min(m, tmp);
+  }
 
-  cout << (a + b + c) << " " << s << endl;
+  cout << M << " " << m << endl;
   return 0;
 }
