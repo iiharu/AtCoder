@@ -11,20 +11,21 @@ signed main(void) {
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
   int n;
-  array<int, 1000> r;
+  string s;
 
+  cin >> s;
   cin >> n;
-  for(int i = 0; i < n; ++i) cin >> r[i];
-  sort(r.begin(), r.begin() + n);
 
-  for (int i = n - 1; 0 <= i; i-=2){
-    num += r[i] * r[i] * M_PI;
+  for (int i = 0; i < n; ++i) {
+    int l,r;
+    cin >> l >> r;
+    --l;
+    --r;
+    string t = s.substr(l, r - l + 1);
+    for(int j = l; j <= r; ++j) {
+      s[j] = t[r - l - (j - l)];
+    }
   }
-  for (int i = n - 2; 0 <= i; i-=2) {
-    num -= r[i] * r[i] * M_PI;
-  }
-
-  cout << setprecision(10) << num << endl;
-
+  cout << s << endl;
   return 0;
 }
