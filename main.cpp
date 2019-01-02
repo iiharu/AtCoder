@@ -11,21 +11,9 @@ signed main(void) {
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
   int n;
-  string s;
 
-  cin >> s;
   cin >> n;
 
-  for (int i = 0; i < n; ++i) {
-    int l,r;
-    cin >> l >> r;
-    --l;
-    --r;
-    string t = s.substr(l, r - l + 1);
-    for(int j = l; j <= r; ++j) {
-      s[j] = t[r - l - (j - l)];
-    }
-  }
-  cout << s << endl;
+  cout << num << endl;
   return 0;
 }
