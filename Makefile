@@ -5,6 +5,9 @@ ASTYLE   := astyle
 TARGET   := main
 
 all: $(TARGET)
+	./$(TARGET)
+
+build: $(TARGET)
 
 clean:
 	$(RM) $(wildcard *.d) $(wildcard *.o) $(wildcard *.out) $(wildcard *.orig)
@@ -15,4 +18,4 @@ distclean: clean
 format: $(addsuffix .cpp,$(TARGET))
 	$(ASTYLE) $<
 
-.PHONY: clean distclean format
+.PHONY: build clean distclean format
