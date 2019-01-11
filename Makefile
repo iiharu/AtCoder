@@ -1,5 +1,5 @@
 CXX      := g++
-CXXFLAGS := -std=gnu++14 -O2 -Iinclude -Wall -Wextra -Wc++14-compat
+CXXFLAGS := -std=gnu++14 -O2 -Wall -Wextra -Wc++14-compat
 LDFLAGS  := -lc -lstdc++
 ASTYLE   := astyle
 TARGET   := main
