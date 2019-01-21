@@ -1,0 +1,21 @@
+#+TITLE: C++ for AtCoder
+
+* C++ for AtCoder 
+
+** Requirements
+- Artistic Style (astyle)
+- GNU Emacs (Optional)
+- C++ Compiler
+  - GNU Compiler Collection (g++)
+  - LLVM Clang Compiler (clang++)
+- GNU Make (make)
+
+In Debian GNU/Linux:
+#+BEGIN_SRC shell
+$ sudo apt install astyle emacs g++ make
+#+END_SRC
+
+** Reference
+
+- [[https://en.cppreference.com/][C++ Reference]]
+- [[https://cpprefjp.github.io/][C++ 日本語リファレンス]]
