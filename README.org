@@ -22,4 +22,5 @@ $ sudo apt install emacs # or emacs-nox
 - [[https://cpprefjp.github.io/][C++ 日本語リファレンス]]
 
 ** TODO
+- clang-format integration.
 - In project library, build tools and compiler.
