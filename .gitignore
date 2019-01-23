@@ -8,6 +8,8 @@ main
 *.out
 *.orig
 
+!.dir-locals.el
+
 CMakeCache.txt
 CMakeFiles/
 Makefile
