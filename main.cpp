@@ -1,15 +1,30 @@
 
-#include "bits/stdc++.h"
-// #include "boost/math/common_factor.hpp" // gcd, lcm
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cmath>
+#include <iomanip>
+#include <iostream>
+#include <limits>
+#include <map>
+#include <numeric>
+#include <set>
+#include <string>
+#include <utility>
+#include <vector>
+
+// #define rep(i, n) for(int i = 0; i < (int)(n); i++)
+// #define all(a) (a).begin(),(a).end()
+// #define UNIQUE(v) v.erase(unique(v.begin(), v.end()), v.end());
+// int gcd(int a, int b){return b ? gcd(b, a%b) : a;}
+
+#define int long long
+
 using namespace std;
 
-// #define int long long
-
 signed main(void) {
-  {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-  }
+  cin.tie(0);
+  ios::sync_with_stdio(false);
 
   int num; // num
   num = 0; // count, result
