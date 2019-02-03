@@ -6,28 +6,22 @@ using namespace std;
 // #define int long long
 
 signed main(void) {
+  {
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+  }
+
   int num; // num
   num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
   int n;
-  int s;
   array<int, 1000000> a;
-  cin >> s;
 
-  for (auto it = a.begin(); it < a.end(); ++it) {
-    ++num;
-    if (it == a.begin())
-      *it = s;
-    else
-      if (*(it - 1) % 2 == 0)
-        *it = *(it - 1) / 2;
-      else
-        *it = 3 * *(it - 1) + 1;
-    
-    if (find(a.begin(), it, *it) != it)
-      break;
-  }
+  cin >> n;
+  for (auto it = a.begin(); it < a.begin() + n; ++it) cin >> *it;
+
+  for (auto it = a.begin(); it < a.begin() + n; ++it) num += *it;
 
   cout << num << endl;
   return 0;
