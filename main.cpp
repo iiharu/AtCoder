@@ -1,18 +1,5 @@
 
-#include <algorithm>
-#include <array>
-#include <bitset>
-#include <cmath>
-#include <iomanip>
-#include <iostream>
-#include <limits>
-#include <map>
-#include <numeric>
-#include <set>
-#include <string>
-#include <utility>
-#include <vector>
-
+#include "bits/stdc++.h"
 // #define rep(i, n) for(int i = 0; i < (int)(n); i++)
 // #define all(a) (a).begin(),(a).end()
 // #define UNIQUE(v) v.erase(unique(v.begin(), v.end()), v.end());
