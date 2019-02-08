@@ -6,6 +6,7 @@
 // int gcd(int a, int b){return b ? gcd(b, a%b) : a;}
 
 #define int long long
+#define SIZE 100000
 
 using namespace std;
 
@@ -17,13 +18,29 @@ signed main(void) {
   num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
-  int n;
-  array<int, 1000000> a;
+  int n; cin >> n;
+  int m; cin >> m;
 
-  cin >> n;
-  for (auto it = a.begin(); it < a.begin() + n; ++it) cin >> *it;
+  vector<int> point(m);
+  for (auto it = point.begin(); it < point.end(); ++it) cin >> *it;
 
-  for (auto it = a.begin(); it < a.begin() + n; ++it) num += *it;
+  if (n >= m) {
+    num = 0;
+  } else {
+
+    sort(point.begin(), point.end());
+
+    vector<int> diff(m - 1);
+    for (int i = 0; i < m - 1; ++i) diff[i] = abs(point[i+1] - point[i]);
+
+    sort(diff.begin(), diff.end());
+
+    for (int i = 0; i < m - 1 - (n - 1); ++i) num += diff[i];
+  }
+  
+  // array<int, 1000000> a;
+  // for (auto it = a.begin(); it < a.begin() + n; ++it) cin >> *it;
+  // for (auto it = a.begin(); it < a.begin() + n; ++it) num += *it;
 
   cout << num << endl;
   return 0;
