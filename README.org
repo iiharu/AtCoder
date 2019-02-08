@@ -21,6 +21,35 @@ $ sudo apt install emacs # or emacs-nox
 - C++ Standard Library (C++14)
 - Boost (1.60)
 
+*** Standard Template Library
+- std::max_element, std::min_element
+
+#+BEGIN_SRC C++
+std::vector<int> vec(100);
+for (size_t i = 0; i < vec.size(); ++i) vec[i] = i;
+std::random_shuffle(vec.begin(), vec.end());
+
+int min = *std::min_element(vec.begin(), vec.end());
+int max = *std::max_element(vec.begin(), vec.end());
+
+std::vector<int>::iterator minIt = std::min_element(vec.begin(), vec.end());
+std::vector<int>::iterator maxIt = std::max_element(vec.begin(), vec.end());
+
+size_t minIndex = std::distance(vec.begin(), vec.end());
+size_t maxIndex = std::distance(vec.begin(), vec.end());
+#+END_SRC
+
+- std::copy
+#+BEGIN_SRC C++
+std::vector<int> vec(100);
+for (size_t i = 0; i < vec.size(); ++i) vec[i] = i;
+std::random_shuffle(vec.begin(), vec.end());
+
+std::ostream_iterator<int> out_it (std::cout, ", ");
+std::copy(vec.begin(), vec.end(), out_it);
+#+END_SRC
+
+
 
 ** Reference
 
