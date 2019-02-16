@@ -1,5 +1,6 @@
 
 #include "bits/stdc++.h"
+#include <boost/math/common_factor_rt.hpp>
 // #define rep(i, n) for(int i = 0; i < (int)(n); i++)
 // #define all(a) (a).begin(),(a).end()
 // #define UNIQUE(v) v.erase(unique(v.begin(), v.end()), v.end());
@@ -18,41 +19,23 @@ signed main(void) {
   num = 0; // count, result
   // num = numeric_limits<int>::min(); // max
   // num = numeric_limits<int>::max(); // min
-  // int n; cin >> n;
+  int n; cin >> n;
 
-  int k; cin >> k;
-  int a; cin >> a;
-  int b; cin >> b;
+  vector<int> a(n);
+  for (auto it = a.begin(); it < a.end(); ++it) cin >> *it;
 
-  num = 1;
-  int yen = 0;
-  
-  // if (a < b) {
-  if (b - a > 2) {
-    
-    for (int i = 0; i < k; ++i) {
-
-      if (yen > 0) {
-        --yen;
-        num += b;
-      } else { // yen == 0 => true
-        if (num < a) {
-          ++num;
-        } else {
-          if (i == k - 1) {
-            ++num;
-          } else {
-            ++yen;
-            num -= a;
-          }
-        }
-      }
-      // cout << "num: " << num << " yen: " << yen << endl;
+  while (a.size() != 1) {
+    sort(a.begin(), a.end());
+    auto it = lower_bound(a.begin(), a.end(), 1);
+    a.erase(a.begin(), it);
+    for (auto it = a.begin() + 1; it < a.end(); ++it) {
+      *it = *it % *(a.begin());
     }
-    
-  } else {
-    num += k;
+    // ostream_iterator<int> oit(cout, " ");
+    // copy(a.begin(), a.end(), oit); cout << endl;
   }
+
+  num = a.front();
   
   // array<int, SIZE> a;
   // for (auto it = a.begin(); it < a.begin() + n; ++it) cin >> *it;
