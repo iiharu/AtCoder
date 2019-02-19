@@ -59,4 +59,6 @@ std::copy(vec.begin(), vec.end(), out_it);
 
 ** TODO
 - Add formatter (such as astyle or clang-format)
+- Add clang
+  curl http://releases.llvm.org/3.8.1/clang+llvm-3.8.1-x86_64-linux-gnu-debian8.tar.xz | tar xf -C $HOME/.local
 
