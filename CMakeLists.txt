@@ -1,6 +1,14 @@
 # CMakeLists.txt
 
 cmake_minimum_required(VERSION 3.1)
+
+find_program(CLANG_C_EXECUTABLE clang)
+find_program(CLANG_CXX_EXECUTABLE clang++)
+if(CLANG_C_EXECUTABLE AND CLANG_CXX_EXECUTABLE)
+  set(CMAKE_C_COMPILER ${CLANG_C_EXECUTABLE})
+  set(CMAKE_CXX_COMPILER ${CLANG_CXX_EXECUTABLE})
+endif()
+
 enable_language(CXX)
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
