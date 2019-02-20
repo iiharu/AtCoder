@@ -1,9 +1,23 @@
 
-#include "bits/stdc++.h"
+#include <algorithm>
+#include <bitset>
+#include <iomanip>
+#include <iostream>
+#include <iterator>
+#include <limits>
+#include <list>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <utility>
+#include <vector>
+
 // #define rep(i, n) for(int i = 0; i < (int)(n); i++)
 // #define all(a) (a).begin(),(a).end()
 // #define UNIQUE(v) v.erase(unique(v.begin(), v.end()), v.end());
-// int gcd(int a, int b){return b ? gcd(b, a%b) : a;}
 
 template <typename T> T clamp(T val, T min, T max) { return val < min ? min : (max < val ? max : val); }
 template <typename T> T gcd(T a, T b) { return b == 0 ? a : gcd(b, a % b); }
