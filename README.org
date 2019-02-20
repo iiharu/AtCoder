@@ -19,7 +19,6 @@ $ sudo apt install emacs # or emacs-nox
 
 ** Libraries
 - C++ Standard Library (C++14)
-- Boost (1.60)
 
 *** Standard Template Library
 - std::max_element, std::min_element
@@ -59,8 +58,5 @@ std::copy(vec.begin(), vec.end(), out_it);
 
 ** TODO
 - Add formatter (such as astyle or clang-format)
-- Add clang
-  wget http://releases.llvm.org/3.8.1/clang+llvm-3.8.1-x86_64-linux-gnu-debian8.tar.xz
-  tar xf clang+llvm-3.8.1-x86_64-linux-gnu-debian8.tar.xz
-  cp -R clang+llvm-3.8.1-x86_64-linux-gnu-debian8/{bin,include,lib,libexec,share} $HOME/.local
-
+- Boost
+  - boost::dynamic_bitset
