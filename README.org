@@ -50,6 +50,15 @@ std::copy(vec.begin(), vec.end(), out_it);
 
 
 
+** Templates
+*** Macros
+#+BEGIN_SRC C++
+// #define rep(i, n) for(int i = 0; i < (int)(n); i++)
+// #define all(a) (a).begin(),(a).end()
+// #define UNIQUE(v) v.erase(unique(v.begin(), v.end()), v.end());
+#+END_SRC
+
+
 ** Reference
 
 - [[https://en.cppreference.com/][C++ Reference]]
