@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <algorithm>
 #include <bitset>
+#include <deque>
+#include <functional>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
@@ -32,7 +34,7 @@ signed main(void) {
   ios::sync_with_stdio(false);
 
   int num = 0;
-  int c; cin >> n;
+  int n; cin >> n;
   vector<int> v(n);
   for (auto it = v.begin(); it < v.end(); ++it) cin >> *it;
   for (auto it = v.begin(); it < v.end(); ++it) num += *it;
