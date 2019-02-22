@@ -1,10 +1,10 @@
 
-#include <cmath>
-#include <climits>
-#include <cstddef>
-#include <cstdlib>
 #include <algorithm>
 #include <bitset>
+#include <climits>
+#include <cmath>
+#include <cstddef>
+#include <cstdlib>
 #include <deque>
 #include <functional>
 #include <iomanip>
@@ -21,9 +21,9 @@
 #include <utility>
 #include <vector>
 
-template <typename T> T clamp(T val, T min, T max) { return val < min ? min : (max < val ? max : val); }
 template <typename T> T gcd(T a, T b) { return b == 0 ? a : gcd(b, a % b); }
 template <typename T> T lcm(T a, T b) { return a * b / gcd(a, b); }
+template <typename T> T clamp(T val, T min, T max) { return val < min ? min : (max < val ? max : val); }
 
 #define int long long
 
@@ -34,7 +34,8 @@ signed main(void) {
   ios::sync_with_stdio(false);
 
   int num = 0;
-  int n; cin >> n;
+  int n;
+  cin >> n;
   vector<int> v(n);
   for (auto it = v.begin(); it < v.end(); ++it) cin >> *it;
   for (auto it = v.begin(); it < v.end(); ++it) num += *it;
