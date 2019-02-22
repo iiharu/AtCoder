@@ -26,6 +26,7 @@ template <typename T> T lcm(T a, T b) { return a * b / gcd(a, b); }
 template <typename T> T clamp(T val, T min, T max) { return val < min ? min : (max < val ? max : val); }
 
 #define int long long
+#define forit(begin, end) for(auto it = begin; it != end; ++it)
 
 using namespace std;
 
