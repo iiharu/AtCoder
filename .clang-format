@@ -1,0 +1,16 @@
+﻿---
+BasedOnStyle: LLVM
+AllowShortBlocksOnASingleLine: 'true'
+AllowShortCaseLabelsOnASingleLine: 'true'
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: 'true'
+AllowShortLoopsOnASingleLine: 'true'
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+ColumnLimit: '120'
+Cpp11BracedListStyle: 'true'
+ForEachMacros: [forit]
+Standard: Cpp11
+UseTab: Never
+
+...
