@@ -21,9 +21,9 @@
 #include <utility>
 #include <vector>
 
-template <typename T> T clamp(T val, T min, T max) { return val < min ? min : (max < val ? max : val); }
-template <typename T> T gcd(T a, T b) { return b == 0 ? a : gcd(b, a % b); }
-template <typename T> T lcm(T a, T b) { return a * b / gcd(a, b); }
+template <typename T> T gcd (T a, T b) { return b == 0 ? a : gcd(b, a % b); }
+template <typename T> T lcm (T a, T b) { return a * b / gcd(a, b); }
+template <typename T> T clamp (T val, T min, T max) { return val < min ? min : (max < val ? max : val); }
 
 #define int long long
 
