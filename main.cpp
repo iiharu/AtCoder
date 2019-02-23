@@ -26,7 +26,9 @@ template <typename T> T lcm(T a, T b) { return a * b / gcd(a, b); }
 template <typename T> T clamp(T val, T min, T max) { return val < min ? min : (max < val ? max : val); }
 
 #define int long long
-#define forit(begin, end) for(auto it = begin; it != end; ++it)
+#define all(a) (a).begin(),(a).end()
+#define rep(i,n) for (int i=0;i<(n);++i)
+#define forit(beginIt, endIt) for(auto it=(beginIt);it!=(endIt);++it)
 
 using namespace std;
 
@@ -38,7 +40,7 @@ signed main(void) {
   int n;
   cin >> n;
   vector<int> v(n);
-  for (auto it = v.begin(); it < v.end(); ++it) cin >> *it;
+  forit (v.begin(), v.end()) cin >> *it;
   for (auto it = v.begin(); it < v.end(); ++it) num += *it;
   cout << num << endl;
 
