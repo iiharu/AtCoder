@@ -1,19 +1,24 @@
-#+TITLE: C++ for AtCoder
 
 * C++ for AtCoder 
 
+** 注意
+- モチベーションを維持するためにコードをアップするレポジトリ.
+- コンテスト中にアップはしない.
+- コードは自分で解いたものと解説を見て解いたものがごっちゃになってます.
+
 ** Requirements
-- GNU Emacs (Optional)
 - C++ Compiler
   - GNU Compiler Collection (g++)
   - LLVM Clang Compiler (clang++)
 - GNU Make (make)
+
+*** Optional Requirements
 - CMake (cmake)
 
 In Debian GNU/Linux:
 #+BEGIN_SRC shell
-$ sudo apt install cmake g++ make
-$ sudo apt install emacs # or emacs-nox
+$ sudo apt install g++ make
+$ sudo apt install cmake # optional
 #+END_SRC
 
 
@@ -64,8 +69,3 @@ std::copy(vec.begin(), vec.end(), out_it);
 - [[https://en.cppreference.com/][C++ Reference]]
 - [[https://cpprefjp.github.io/][C++ 日本語リファレンス]]
 
-
-** TODO
-- Add formatter (such as astyle or clang-format)
-- Boost
-  - boost::dynamic_bitset
