@@ -34,11 +34,11 @@ using namespace std;
 signed main(void) {
   cin.tie(0);
   ios::sync_with_stdio(false);
-
+  
   int num = 0;
   int n; cin >> n;
   vector<int> v(n);
-  forit (v.begin(), v.end()) cin >> *it;
+  for (auto it = v.begin(); it < v.end(); ++it) cin >> *it;
   for (auto it = v.begin(); it < v.end(); ++it) num += *it;
   cout << num << endl;
 
