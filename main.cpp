@@ -37,22 +37,13 @@ signed main(void) {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
-  int p;
-  cin >> p;
-  int n = 1789997546303;
+  int n; cin >> n;
 
-  // algorithm:
-  // n <- 1789997546303
-  // f(n) = p
-  // f(n) = f(3 * n + 1) + 1 = p => f(3 * n + 1) = p - 1
-
-  for (int i = 1000; i > p; --i) {
-    if (n % 2 == 0)
-      n = n / 2;
-    else
-      n = n * 3 + 1;
+  cout << "1";
+  for (int i = 1; i < n; ++i) {
+    cout << "0";
   }
-  cout << n << endl;
+  cout << endl;
 
   // int num = 0;
   // int n;
