@@ -1,6 +1,0 @@
-{
-  "files.associations": {
-    "Vagrantfile": "ruby",
-    "cstdlib": "cpp"
-  }
-}
