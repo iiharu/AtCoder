@@ -21,13 +21,15 @@
 #include <utility>
 #include <vector>
 
+// clang-format off
 template <typename T> T gcd(T a, T b) { return b == 0 ? a : gcd(b, a % b); }
 template <typename T> T lcm(T a, T b) { return a * b / gcd(a, b); }
 template <typename T> T clamp(T val, T min, T max) { return val < min ? min : (max < val ? max : val); }
 template <typename T> size_t max_index(T begin, T end) { return distance(begin, max_element(begin, end)); }
 template <typename T> size_t min_index(T begin, T end) { return distance(begin, min_element(begin, end)); }
+// clang-format on
 
-// #define int long long
+#define int long long
 
 using namespace std;
 
@@ -35,13 +37,30 @@ signed main(void) {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
-  int num = 0;
-  int n;
-  cin >> n;
-  vector<int> v(n);
-  for (auto it = v.begin(); it < v.end(); ++it) cin >> *it;
-  for (auto it = v.begin(); it < v.end(); ++it) num += *it;
-  cout << num << endl;
+  int p;
+  cin >> p;
+  int n = 1789997546303;
+
+  // algorithm:
+  // n <- 1789997546303
+  // f(n) = p
+  // f(n) = f(3 * n + 1) + 1 = p => f(3 * n + 1) = p - 1
+
+  for (int i = 1000; i > p; --i) {
+    if (n % 2 == 0)
+      n = n / 2;
+    else
+      n = n * 3 + 1;
+  }
+  cout << n << endl;
+
+  // int num = 0;
+  // int n;
+  // cin >> n;
+  // vector<int> v(n);
+  // for (auto it = v.begin(); it < v.end(); ++it) cin >> *it;
+  // for (auto it = v.begin(); it < v.end(); ++it) num += *it;
+  // cout << num << endl;
 
   return 0;
 }
