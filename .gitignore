@@ -9,7 +9,6 @@ main
 *.orig
 
 !.dir-locals.el
-.vscode/
 
 CMakeCache.txt
 CMakeFiles/
