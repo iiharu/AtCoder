@@ -7,7 +7,7 @@ AllowShortIfStatementsOnASingleLine: 'true'
 AllowShortLoopsOnASingleLine: 'true'
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
-ColumnLimit: '120'
+ColumnLimit: '80'
 Cpp11BracedListStyle: 'true'
 ForEachMacros: [forit]
 Standard: Cpp11
