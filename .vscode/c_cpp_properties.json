@@ -1,21 +1,17 @@
 {
-  "configurations": [
-    {
-      "name": "Mac",
-      "//": {
-        "includePath": [
-          "${workspaceFolder}/**",
-          "/Library/Developer/CommandLineTools/usr/include/c++/v1"
-        ],
-        "defines": [],
-        "macFrameworkPath": [
-          "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"
-        ],
-        "compilerPath": "/usr/bin/clang",
-        "intelliSenseMode": "clang-x64"
-      },
-      "compileCommands": "${workspaceFolder}/compile_commands.json"
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+            "compileCommands": "${workspaceFolder}/compile_commands.json"
+        }
+    ],
+    "version": 4
 }
