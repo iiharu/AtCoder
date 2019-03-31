@@ -30,6 +30,8 @@ template <typename T> size_t min_index(T begin, T end) { return distance(begin, 
 // clang-format on
 
 #define int long long
+#define YES "Yes"
+#define NO  "No"
 
 using namespace std;
 
@@ -37,21 +39,9 @@ signed main(void) {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
-  int n; cin >> n;
+  int num = 0;
 
-  cout << "1";
-  for (int i = 1; i < n; ++i) {
-    cout << "0";
-  }
-  cout << endl;
-
-  // int num = 0;
-  // int n;
-  // cin >> n;
-  // vector<int> v(n);
-  // for (auto it = v.begin(); it < v.end(); ++it) cin >> *it;
-  // for (auto it = v.begin(); it < v.end(); ++it) num += *it;
-  // cout << num << endl;
-
+  cout << num << endl;
+  
   return 0;
 }
