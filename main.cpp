@@ -39,9 +39,44 @@ signed main(void) {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
-  int num = 0;
+  // int num = 0;
 
-  cout << num << endl;
+  int x, y, z, k;
+  cin >> x >> y >> z >> k;
+  vector<int> a(x);
+  vector<int> b(y);
+  vector<int> c(z);
+
+  for (int i = 0; i < x; ++i) cin >> a[i];
+  for (int i = 0; i < y; ++i) cin >> b[i];
+  for (int i = 0; i < z; ++i) cin >> c[i];
+
+  sort(a.begin(), a.end(), greater<int>());
+  sort(b.begin(), b.end(), greater<int>());
+  sort(c.begin(), c.end(), greater<int>());
+
+
+  vector<int> e(x * y);
+  for (int i = 0; i < x; ++i) {
+    for (int j = 0; j < y; ++j) {
+      e[i * y + j] = a[i] + b[j];
+    }
+  }
+
+  sort(e.begin(), e.end(), greater<int>());
+
+  vector<int> g(k * z);
+  for (int i = 0; i < min(x * y, k); ++i) {
+    for (int j = 0; j < z; ++j) {
+      g[i * z + j] = e[i] + c[j];
+    }
+  }
+
+  sort(g.begin(), g.end(), greater<int>());
+
+  for (int i = 0; i < k; ++i) cout << g[i] << endl;
+  
+  // cout << num << endl;
   
   return 0;
 }
