@@ -41,40 +41,18 @@ signed main(void) {
 
   // int num = 0;
 
-  int x, y, z, k;
-  cin >> x >> y >> z >> k;
-  vector<int> a(x);
-  vector<int> b(y);
-  vector<int> c(z);
+  int x1, y1, x2, y2;
+  cin >> x1 >> y1 >> x2 >> y2;
 
-  for (int i = 0; i < x; ++i) cin >> a[i];
-  for (int i = 0; i < y; ++i) cin >> b[i];
-  for (int i = 0; i < z; ++i) cin >> c[i];
+  int x3, y3, x4, y4;
 
-  sort(a.begin(), a.end(), greater<int>());
-  sort(b.begin(), b.end(), greater<int>());
-  sort(c.begin(), c.end(), greater<int>());
+  x3 = x2 - (y2 - y1);
+  y3 = y2 + (x2 - x1);
+  x4 = x1 - (y2 - y1);
+  y4 = y1 + (x2 - x1);
 
+  cout << to_string(x3) + " " + to_string(y3) + " " + to_string(x4) + " " + to_string(y4) << endl;
 
-  vector<int> e(x * y);
-  for (int i = 0; i < x; ++i) {
-    for (int j = 0; j < y; ++j) {
-      e[i * y + j] = a[i] + b[j];
-    }
-  }
-
-  sort(e.begin(), e.end(), greater<int>());
-
-  vector<int> g(k * z);
-  for (int i = 0; i < min(x * y, k); ++i) {
-    for (int j = 0; j < z; ++j) {
-      g[i * z + j] = e[i] + c[j];
-    }
-  }
-
-  sort(g.begin(), g.end(), greater<int>());
-
-  for (int i = 0; i < k; ++i) cout << g[i] << endl;
   
   // cout << num << endl;
   
