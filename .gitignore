@@ -10,3 +10,9 @@ main
 
 !.dir-locals.el
 !.vscode/c_cpp_properties.json
+
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+compile_commands.json
