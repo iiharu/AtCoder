@@ -36,25 +36,31 @@ template <typename T> size_t min_index(T begin, T end) { return distance(begin, 
 using namespace std;
 
 signed main(void) {
-  cin.tie(0);
   ios::sync_with_stdio(false);
+  cin.tie(0);
+  cout.tie(0);
 
-  // int num = 0;
+  int num;
 
-  int x1, y1, x2, y2;
-  cin >> x1 >> y1 >> x2 >> y2;
+  int n; cin >> n;
+  string s; cin >> s;
 
-  int x3, y3, x4, y4;
+  vector<int> mem(n);
 
-  x3 = x2 - (y2 - y1);
-  y3 = y2 + (x2 - x1);
-  x4 = x1 - (y2 - y1);
-  y4 = y1 + (x2 - x1);
+  int white = 0;
+  for (int i = 0; i < n; ++i) {
+    if (s[i] != '#') ++white;
+    mem[i] = white;
+  }
 
-  cout << to_string(x3) + " " + to_string(y3) + " " + to_string(x4) + " " + to_string(y4) << endl;
+  int tmp = mem[n - 1];
+  num = min(tmp, n - tmp);
 
+  for (int i = 1; i < n; ++i) {
+    num = min(num, i + tmp - 2 * mem[i - 1]);
+  }
   
-  // cout << num << endl;
+  cout << num << endl;
   
   return 0;
 }
