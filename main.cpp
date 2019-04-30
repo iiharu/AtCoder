@@ -1,25 +1,5 @@
 
-#include <algorithm>
-#include <bitset>
-#include <climits>
-#include <cmath>
-#include <cstddef>
-#include <cstdlib>
-#include <deque>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <iterator>
-#include <limits>
-#include <list>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <utility>
-#include <vector>
+#include "bits/stdc++.h"
 
 // clang-format off
 template <typename T> T gcd(T a, T b) { return b == 0 ? a : gcd(b, a % b); }
@@ -40,25 +20,7 @@ signed main(void) {
   cin.tie(0);
   cout.tie(0);
 
-  int num;
-
-  int n; cin >> n;
-  string s; cin >> s;
-
-  vector<int> mem(n);
-
-  int white = 0;
-  for (int i = 0; i < n; ++i) {
-    if (s[i] != '#') ++white;
-    mem[i] = white;
-  }
-
-  int tmp = mem[n - 1];
-  num = min(tmp, n - tmp);
-
-  for (int i = 1; i < n; ++i) {
-    num = min(num, i + tmp - 2 * mem[i - 1]);
-  }
+  int num = 0;
   
   cout << num << endl;
   
