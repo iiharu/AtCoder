@@ -10,9 +10,11 @@ char capitalize(char c) { return static_cast<char>(std::toupper(static_cast<unsi
 // template <typename T> size_t min_index(T begin, T end) { return distance(begin, min_element(begin, end)); }
 // clang-format on
 
-// #define int long long
+#define int long long
 #define YES "YES"
 #define NO  "NO"
+#define MOD 1000000000+7
+#define forit(v) for(auto it = v.begin(); it != v.end(); ++it)
 
 using namespace std;
 
@@ -27,7 +29,6 @@ signed main(void) {
   bool flag = false;
   // flag = true;
 
-  
   // cout << num << endl;
   // cout << (flag ? YES : NO) << endl;
   
