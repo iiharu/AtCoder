@@ -1,7 +1,9 @@
 # .gitignore
 
+# Project
 main
 
+# C/C++
 *.gch
 *.d
 *.o
@@ -15,6 +17,7 @@ main
 .vscode/*
 !.vscode/*.json
 
+# CMake
 CMakeCache.txt
 CMakeFiles/
 Makefile
