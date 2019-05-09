@@ -8,8 +8,12 @@ main
 *.out
 *.orig
 
+# Emacs
 !.dir-locals.el
-!.vscode/c_cpp_properties.json
+
+# VS Code
+.vscode/*
+!.vscode/*.json
 
 CMakeCache.txt
 CMakeFiles/
