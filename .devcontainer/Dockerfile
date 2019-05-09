@@ -9,7 +9,7 @@ FROM debian:9
 RUN apt-get update && apt-get -y install git procps
 
 # Install C++ tools
-RUN apt-get -y install build-essential cmake cppcheck valgrind
+RUN apt-get -y install clang clang-format cmake lldb
 
 # Clean up
 RUN apt-get autoremove -y \
