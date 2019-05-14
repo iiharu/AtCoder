@@ -5,13 +5,12 @@
 
 FROM debian:9
 
-# Install git, process tools
-RUN apt-get update && apt-get -y install git procps
-
-# Install C++ tools
-RUN apt-get -y install clang clang-format cmake lldb
-
-# Clean up
-RUN apt-get autoremove -y \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get -y update \
+ # Install git, process tools
+ && apt-get -y install git procps \
+ # Install C++ tools
+ && apt-get -y install clang clang-format cmake lldb \
+ # Clean up
+ && apt-get -y autoremove \
+ && apt-get -y clean \
+ && rm -rf /var/lib/apt/lists/*
