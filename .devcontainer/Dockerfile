@@ -9,7 +9,7 @@ RUN apt-get -y update \
  # Install git, process tools
  && apt-get -y install git procps \
  # Install C++ tools
- && apt-get -y install clang clang-format cmake lldb \
+ && apt-get -y --no-install-recommends install make cmake clang clang-format lldb \
  # Clean up
  && apt-get -y autoremove \
  && apt-get -y clean \
