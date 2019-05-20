@@ -1,36 +1,50 @@
 
 #include "bits/stdc++.h"
 
-// clang-format off
-template <typename T> T gcd(T a, T b) { return b == 0 ? a : gcd(b, a % b); }
-template <typename T> T lcm(T a, T b) { return a * b / gcd(a, b); }
-template <typename T> T clamp(T val, T min, T max) { return val < min ? min : (max < val ? max : val); }
-char capitalize(char c) { return static_cast<char>(std::toupper(static_cast<unsigned char>(c))); }
-// template <typename T> size_t max_index(T begin, T end) { return distance(begin, max_element(begin, end)); }
-// template <typename T> size_t min_index(T begin, T end) { return distance(begin, min_element(begin, end)); }
-// clang-format on
-
-#define int long long
-#define YES "YES"
-#define NO  "NO"
-#define MOD 1000000000+7
-#define forit(v) for(auto it = v.begin(); it != v.end(); ++it)
-
 using namespace std;
 
-signed main(void) {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  cout.tie(0);
+int n;
+vector<vector<pair<int, int>>> e;
+vector<bool> visited;
+vector<bool> color;
 
-  int num = 0;
-  // num = numeric_limits<int>::max();
-  // num = numeric_limits<int>::min();
-  bool flag = false;
-  // flag = true;
+void dfs(int u, int v, int w) {
+  visited[v] = true;
+  if (w % 2 == 0)
+    color[v] = color[u];
+  else
+    color[v] = !color[u];
 
-  // cout << num << endl;
-  // cout << (flag ? YES : NO) << endl;
+  for (auto it = e[v].begin(); it != e[v].end(); ++it) {
+    if (!visited[(*it).first])
+      dfs(v, (*it).first, (*it).second);
+  }
   
+}
+
+signed main(void) {
+
+  cin >> n;
+  e = vector<vector<pair<int, int>>>(n);
+  visited = vector<bool>(n, false);
+  color = vector<bool>(n, false);
+
+  for (int i = 0; i < n - 1; ++i) {
+    int u, v, w; cin >> u >> v >> w;
+    e[u - 1].push_back({v - 1, w});
+    e[v - 1].push_back({u - 1, w});
+  }
+
+  dfs(0, 0, 0);
+
+  for (int i = 0; i < n; ++i) {
+    if (color[i])
+      cout << "1" << endl;
+    else
+      cout << "0" << endl;
+  }
+
+  
+
   return 0;
 }
