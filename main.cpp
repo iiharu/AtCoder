@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// #define int long long
+#define int long long
 struct Fast { Fast(){ std::cin.tie(0); std::cout.tie(0); ios::sync_with_stdio(false); }} fast;
 
 #define ALL(v) begin(v), end(v)
@@ -18,10 +18,21 @@ const int MOD = 1e9 + 7;
 signed main(void) {
   
   int n; cin >> n;
-  vector<int> a(n);
-  for (auto it = a.begin(); it != a.end(); ++it) cin >> *it;
+  int k; cin >> k;
+  vector<pair<int, int>> p(n);
+  for (auto it = p.begin(); it != p.end(); ++it) {
+    *it = make_pair(0, 0);
+    cin >> (*it).first >> (*it).second;
+  }
+  sort(p.begin(), p.end());
   
-  cout << accumulate(a.cbegin(), a.cend(), 0) << endl;
+  int m = 0;
+  for (auto it = p.begin(); it != p.end(); ++it) {
+    m += (*it).second;
+    if (m >= k) {
+      cout << (*it).first << endl;
+      break;
+    }
+  }
 
-  return 0;
 }
