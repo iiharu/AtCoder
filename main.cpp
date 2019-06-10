@@ -1,8 +1,22 @@
 
-#include "bits/stdc++.h"
+#include <cmath>
+#include <cstdlib>
+#include <algorithm>
+#include <bitset>
+#include <iostream>
+#include <deque>
+#include <functional>
+#include <iterator>
+#include <limits>
+#include <map>
+#include <numeric>
+#include <string>
+#include <vector>
+#include <vector>
+
 using namespace std;
 
-// #define int long long
+#define int long long
 struct Fast { Fast(){ std::cin.tie(0); std::cout.tie(0); ios::sync_with_stdio(false); }} fast;
 
 #define ALL(v) begin(v), end(v)
