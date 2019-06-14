@@ -17,7 +17,15 @@
 using namespace std;
 
 #define int long long
-struct Fast { Fast(){ std::cin.tie(0); std::cout.tie(0); ios::sync_with_stdio(false); }} fast;
+struct Fast
+{
+  Fast()
+  {
+    std::cin.tie(0);
+    std::cout.tie(0);
+    ios::sync_with_stdio(false);
+  }
+} fast;
 
 #define ALL(v) begin(v), end(v)
 #define RALL(v) rbegin(v), rend(v)
@@ -29,9 +37,17 @@ struct Fast { Fast(){ std::cin.tie(0); std::cout.tie(0); ios::sync_with_stdio(fa
 
 const int MOD = 1e9 + 7;
 
-signed main(void) {
+signed main(void)
+{
 
-  int num = 0;
-
-  cout << num << endl;
+  int n;
+  cin >> n;
+  vector<int> a(n);
+  for (int i = 0; i < n; i++)
+    cin >> a[i];
+  for (auto it = a.begin(); it != a.end(); ++it)
+  {
+    cout << *it << ",";
+  }
+  cout << endl;
 }
