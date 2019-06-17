@@ -40,14 +40,9 @@ const int MOD = 1e9 + 7;
 signed main(void)
 {
 
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  for (int i = 0; i < n; i++)
-    cin >> a[i];
-  for (auto it = a.begin(); it != a.end(); ++it)
-  {
-    cout << *it << ",";
-  }
-  cout << endl;
+  int W, H, x, y; cin >> W >> H >> x >> y;
+  cout << W * H / 2. << " ";
+  if (2 * x == W && 2 * y == H) cout << 1 << endl;
+  else cout << 0 << endl;
+
 }
