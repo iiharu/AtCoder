@@ -1,25 +1,8 @@
 # .gitignore
 
-# Project
-main
-
-# C/C++
-*.gch
-*.d
-*.o
-*.out
-*.orig
-
 # Emacs
 !.dir-locals.el
 
 # VS Code
 .vscode/*
 !.vscode/*.json
-
-# CMake
-CMakeCache.txt
-CMakeFiles/
-Makefile
-cmake_install.cmake
-compile_commands.json
