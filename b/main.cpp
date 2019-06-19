@@ -30,25 +30,15 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int num;
-  int n; cin >> n;
-  int x; cin >> x;
-  vector<int> l(n);
-  for (int i = 0; i < n; ++i) {
-    cin >> l[i];
-  }
+  int a; cin >> a;
+  int b; cin >> b;
+  int k; cin >> k;
 
-  num = 0;
-  vector<int> d(n + 1);
-  d[0] = 0;
-  for (int i = 0; i < n + 1; ++i) {
-    if (i > 0) {
-      d[i] = d[i - 1] + l[i - 1];
+  int i = a;
+  while (i <= b) {
+    if (i < a + k || (b - k + 1 <= i && i <= b)) {
+      cout << i << endl;
     }
-    if (d[i] <= x) {
-      ++num;
-    }
+    ++i;
   }
-
-  cout << num << endl;
 }
