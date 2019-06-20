@@ -30,15 +30,26 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int a; cin >> a;
-  int b; cin >> b;
-  int k; cin >> k;
+  int num;
+  map<string, int> mem;
 
-  int i = a;
-  while (i <= b) {
-    if (i < a + k || (b - k + 1 <= i && i <= b)) {
-      cout << i << endl;
-    }
-    ++i;
+  int n; cin >> n;
+  for (int i = 0; i < n; ++i) {
+    string s; cin >> s;
+    ++mem[s];
   }
+  int m; cin >> m;
+  for (int i = 0; i < m; ++i) {
+    string t; cin >> t;
+    --mem[t];
+  }
+
+  // num = (*(mem.cbegin())).second;
+  num = 0;
+  for (auto it = mem.cbegin(); it != mem.cend(); ++it) {
+    num = max(num,(*it).second);
+  }
+
+  cout << num << endl;
+  
 }
