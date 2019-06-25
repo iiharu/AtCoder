@@ -30,26 +30,21 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int num;
-  map<string, int> mem;
 
   int n; cin >> n;
-  for (int i = 0; i < n; ++i) {
-    string s; cin >> s;
-    ++mem[s];
-  }
-  int m; cin >> m;
-  for (int i = 0; i < m; ++i) {
-    string t; cin >> t;
-    --mem[t];
-  }
+  int l; cin >> l;
 
-  // num = (*(mem.cbegin())).second;
-  num = 0;
-  for (auto it = mem.cbegin(); it != mem.cend(); ++it) {
-    num = max(num,(*it).second);
-  }
+  vector<int> a(n);
+  for (int i = 0; i < n; ++i) a[i] = l + i;
 
-  cout << num << endl;
+  int sum = accumulate(a.begin(), a.end(), 0);
+  if (l <= 0 && 0 <= l + n - 1) {
+    cout << sum;
+  } else if (l > 0) {
+    cout << sum - a[0];
+  } else { // L + N - 1 < 0
+    cout << sum - a[n - 1];
+  }
+  cout << endl;
   
 }
