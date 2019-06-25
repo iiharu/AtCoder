@@ -30,7 +30,11 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int x; cin >> x;
-  int a; cin >> a;
-  cout << (x < a ? 0 : 10) << endl;
+  bool flag = true;
+  string s; cin >> s;
+  for (int i = 1; i < s.length(); ++i) {
+    if (s[i - 1] == s[i]) flag = false;
+  }
+
+  cout << (flag ? "Good" : "Bad") << endl;
 }
