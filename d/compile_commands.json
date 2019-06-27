@@ -1,0 +1,5 @@
+[{
+    "directory": ".",
+    "command": "clang++ -Wall -Wextra -O2 -o main main.cpp",
+    "file": "main.cpp"
+}]
