@@ -30,7 +30,10 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int W, H; cin >> W >> H;
-  int x, y; cin >> x >> y;
-  cout << W * H / 2. << " " << (2 * x == W && 2 * y == H ? 1 : 0) << endl;
+
+  int n; cin >> n;
+  vector<int> a(n);
+  for (int i = 0; i < n; ++i) cin >> a[i];
+
+  cout << accumulate(ALL(a), 0) << endl;
 }
