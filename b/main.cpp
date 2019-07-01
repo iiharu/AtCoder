@@ -31,20 +31,17 @@ const int MOD = 1e9 + 7;
 signed main(void)
 {
 
+  int num;
   int n; cin >> n;
-  int l; cin >> l;
+  vector<int> p(n);
+  for (int i = 0; i < n; ++i) cin >> p[i];
 
-  vector<int> a(n);
-  for (int i = 0; i < n; ++i) a[i] = l + i;
+  num = 0;
+  for (int i = 1; i < n - 1; ++i) {
+    if ((p[i - 1] <= p[i] && p[i] <= p[i + 1]) || (p[i + 1] <= p[i] && p[i] <= p[i - 1])) ++num;
 
-  int sum = accumulate(a.begin(), a.end(), 0);
-  if (l <= 0 && 0 <= l + n - 1) {
-    cout << sum;
-  } else if (l > 0) {
-    cout << sum - a[0];
-  } else { // L + N - 1 < 0
-    cout << sum - a[n - 1];
   }
-  cout << endl;
+
+  cout << num << endl;
   
 }
