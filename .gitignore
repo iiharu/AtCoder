@@ -2,7 +2,3 @@
 
 # Emacs
 !.dir-locals.el
-
-# VS Code
-.vscode/*
-!.vscode/*.json
