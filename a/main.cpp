@@ -32,9 +32,11 @@ signed main(void)
 {
   bool flag = true;
   string s; cin >> s;
-  for (int i = 1; i < s.length(); ++i) {
-    if (s[i - 1] == s[i]) flag = false;
-  }
+  vector<int> a('Z' - 'A' + 1, 0);
+  for (int i = 0; i < 4; ++i) a[s[i] - 'A']++;
 
-  cout << (flag ? "Good" : "Bad") << endl;
+  for (int i = 0; i < 26; ++i) {
+    if (a[i] != 2 && a[i] != 0) flag = false;
+  }
+  cout << (flag ? "Yes" : "No") << endl;
 }
