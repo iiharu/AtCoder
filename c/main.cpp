@@ -31,19 +31,32 @@ const int MOD = 1e9 + 7;
 signed main(void)
 {
   int num;
-  int n; cin >> n;
-  vector<int> d(n);
-  for (int i = 0; i < n; ++i) cin >> d[i];
-  sort(d.begin(), d.end());
+  int M = 2019;
+  int l, r;
+  cin >> l >> r;
 
-  num = 0;
-  for (int i = d.front(); i <= d.back(); ++i) {
-    int dist = distance(d.cbegin(), lower_bound(d.cbegin(), d.cend(), i));
-    if (n / 2 == dist) {
-      ++num;
-    } else if (n / 2 < dist) break;
+  int a = l % M;
+  int b = r % M;
 
+  num = 2018;
+  if (l + M <= r) {
+    num = 0;
   }
-
+  else if (l + M > r) {
+    if (a < b) {
+      for (int i = a; i < b; ++i) {
+        for (int j = a + 1; j <= b; ++j) {
+          num = min(num, (i * j) % 2019);
+        }
+      }
+    } else {
+      for (int i = a; i != b; i = (i + 1) % 2019) {
+        for (int j = (i + 1) % 2019; j != b + 1; j = (j + 1) % 2019) {
+          num = min(num, (i * j) % 2019);
+        }
+      }
+    }
+  }
   cout << num << endl;
+  
 }
