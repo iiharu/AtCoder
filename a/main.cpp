@@ -30,13 +30,11 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  bool flag = true;
-  string s; cin >> s;
-  vector<int> a('Z' - 'A' + 1, 0);
-  for (int i = 0; i < 4; ++i) a[s[i] - 'A']++;
+  int n;
+  int a;
+  int b;
+  cin >> n >> a >> b;
 
-  for (int i = 0; i < 26; ++i) {
-    if (a[i] != 2 && a[i] != 0) flag = false;
-  }
-  cout << (flag ? "Yes" : "No") << endl;
+  cout << min(n * a, b) << endl;
+  
 }
