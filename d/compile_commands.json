@@ -1,5 +1,7 @@
-[{
-    "directory": ".",
-    "command": "clang++ -std=gnu++14 -O2 -Wall -Wextra -o main main.cpp",
-    "file": "main.cpp"
-}]
+[
+{
+  "directory": "/Users/iiharu/Work/AtCoder/d",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++    -Wall -Wextra -O2 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk   -std=c++14 -o CMakeFiles/main.dir/main.cpp.o -c /Users/iiharu/Work/AtCoder/d/main.cpp",
+  "file": "/Users/iiharu/Work/AtCoder/d/main.cpp"
+}
+]
