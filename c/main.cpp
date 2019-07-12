@@ -30,40 +30,28 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
+  int n; cin >> n;
+  vector<int> a(n);
+  for (int i = 0; i < n; ++i) cin >> a[i];
 
-  string s;
-  string t;
-  cin >> s;
-  cin >> t;
-  int n = s.length();
-  int m = t.length();
-
-  vector<string> v;
-  for (int i = 0; i < n - m + 1; ++i) {
-    bool flag = true;
-    string _s = s;
-
-    for (int j = i; j < i + m; ++j) {
-      if (s[j] != t[j - i]) {
-        if (s[j] == '?') _s[j] = t[j - i];
-        else flag = false;
-      }
-      if (!flag) break;
-    }
-    
-    if (flag) {
-      for (auto it = _s.begin(); it != _s.end(); ++it) {
-        if (*it == '?') *it = 'a';
-      }
-      v.push_back(_s);
-    }
-    
+  deque<int> b;
+  for (int i = 0; i < n; ++i) {
+    if (i % 2 == 0)
+      b.push_back(a[i]);
+    else
+      b.push_front(a[i]);
   }
 
-  if (v.size() == 0) {
-    cout << "UNRESTORABLE" << endl;
+  if (n % 2 == 0) {
+    for (auto it = b.cbegin(); it != b.cend(); ++it) {
+      cout << *it << " ";
+    }
   } else {
-    sort(ALL(v));
-    cout << v[0] << endl;
+    for (auto it = b.crbegin(); it != b.crend(); ++it) {
+      cout << *it << " ";
+    }
   }
+  
+  cout << endl;
+  
 }
