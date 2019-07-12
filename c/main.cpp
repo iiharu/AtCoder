@@ -30,31 +30,40 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int num;
 
-  int n; cin >> n;
-  vector<vector<int>> c(n);
-  for (int i = 0; i < n; ++i) {
-    string s; cin >> s;
-    c[i] = vector<int>(26);
-    for (auto it = s.cbegin(); it != s.cend(); ++it) {
-      ++c[i][(*it) - 'a'];
+  string s;
+  string t;
+  cin >> s;
+  cin >> t;
+  int n = s.length();
+  int m = t.length();
+
+  vector<string> v;
+  for (int i = 0; i < n - m + 1; ++i) {
+    bool flag = true;
+    string _s = s;
+
+    for (int j = i; j < i + m; ++j) {
+      if (s[j] != t[j - i]) {
+        if (s[j] == '?') _s[j] = t[j - i];
+        else flag = false;
+      }
+      if (!flag) break;
     }
-  }
-  for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < 26; ++j) {
-      c[0][j] = min(c[0][j], c[i][j]);
+    
+    if (flag) {
+      for (auto it = _s.begin(); it != _s.end(); ++it) {
+        if (*it == '?') *it = 'a';
+      }
+      v.push_back(_s);
     }
+    
   }
 
-  string t = "";
-  for (int i = 0; i < 26; ++i) {
-    if (c[0][i] == 0) continue;
-    for (int j = 0; j < c[0][i]; ++j) {
-      t += i + 'a';
-    }
+  if (v.size() == 0) {
+    cout << "UNRESTORABLE" << endl;
+  } else {
+    sort(ALL(v));
+    cout << v[0] << endl;
   }
-  
-  cout << t << endl;
-  
 }
