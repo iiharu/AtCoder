@@ -34,6 +34,4 @@ signed main(void)
   vector<int> a(n);
   for (int i = 0; i < n; ++i) cin >> a[i];
 
-  // If b_{i} is found, any i b_{i} will be known.
-  // find smaller dam.
 }
