@@ -30,10 +30,10 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-
   int n; cin >> n;
   vector<int> a(n);
   for (int i = 0; i < n; ++i) cin >> a[i];
 
-  cout << accumulate(ALL(a), 0) << endl;
+  // If b_{i} is found, any i b_{i} will be known.
+  // find smaller dam.
 }
