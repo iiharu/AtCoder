@@ -27,30 +27,29 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 
+template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
+template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
+
 signed main(void)
 {
-  int n; cin >> n;
-  vector<int> a(n);
-  for (int i = 0; i < n; ++i) cin >> a[i];
+  int num;
+  int a, b, c, d; cin >> a >> b >> c >> d;
 
-  deque<int> b;
-  for (int i = 0; i < n; ++i) {
-    if (i % 2 == 0)
-      b.push_back(a[i]);
-    else
-      b.push_front(a[i]);
+  if (c > d) {
+    swap(c, d);
   }
 
-  if (n % 2 == 0) {
-    for (auto it = b.cbegin(); it != b.cend(); ++it) {
-      cout << *it << " ";
-    }
+  num = b - max(a - 1, 0ll);
+  if (c == d) {
+    num -= b / c;
+    num += max(a - 1, 0ll) / c;
+  } else if (lcm(c, d) == d) {
+    num -= b / c;
+    num += max(a - 1, 0ll) / c;
   } else {
-    for (auto it = b.crbegin(); it != b.crend(); ++it) {
-      cout << *it << " ";
-    }
+    num -= b / c + b / d - b / lcm(c, d);
+    num += max(a - 1, 0ll) / c + max(a - 1, 0ll) / d - max(a - 1, 0ll) / lcm(c, d);
   }
-  
-  cout << endl;
-  
+
+  cout << num << endl;
 }
