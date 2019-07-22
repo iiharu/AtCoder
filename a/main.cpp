@@ -29,11 +29,7 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int n;
-  int a;
-  int b;
-  cin >> n >> a >> b;
-
-  cout << min(n * a, b) << endl;
+  int r; cin >> r;
+  cout << 3 * r * r << endl;
   
 }
