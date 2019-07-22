@@ -33,23 +33,29 @@ template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 signed main(void)
 {
   int num;
-  int a, b, c, d; cin >> a >> b >> c >> d;
 
-  if (c > d) {
-    swap(c, d);
+  int n; cin >> n;
+  vector<int> a(n);
+  for (int i = 0; i < n; ++i) cin >> a[i];
+
+  vector<int> b(n);
+  vector<int> c(n);
+  b[0] = a[0];
+  c[n - 1] = a[n - 1];
+  
+  for (int i = 1; i < n; ++i) {
+    b[i] = max(a[i], b[i - 1]);
+    c[n - 1 - i] = max(a[n - 1 - i], c[n - i]);
   }
 
-  num = b - max(a - 1, 0ll);
-  if (c == d) {
-    num -= b / c;
-    num += max(a - 1, 0ll) / c;
-  } else if (lcm(c, d) == d) {
-    num -= b / c;
-    num += max(a - 1, 0ll) / c;
-  } else {
-    num -= b / c + b / d - b / lcm(c, d);
-    num += max(a - 1, 0ll) / c + max(a - 1, 0ll) / d - max(a - 1, 0ll) / lcm(c, d);
+  for (int i = 0; i < n; ++i) {
+    if (i == 0) {
+      cout << c[i + 1] << endl;
+    } else if (i == n - 1) {
+      cout << b[i - 1] << endl;
+    } else {
+      cout << max(b[i - 1], c[i + 1]) << endl;
+    }
   }
-
-  cout << num << endl;
+  
 }
