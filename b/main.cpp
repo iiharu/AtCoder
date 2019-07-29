@@ -29,16 +29,25 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int num;
-  int n;
-  int d;
-  cin >> n >> d;
+  int n; cin >> n;
+  vector<int> p(n);
+  for (int i = 0; i < n; ++i) cin >> p[i];
 
-  for (int i = 0; i <= n; ++i) {
-    if (n <= (2 * d + 1) * i) {
-      cout << i << endl;
-      break;
+  bool flag = false;
+  flag = is_sorted(begin(p), end(p));
+  
+  for (int i = 0; i < n; ++i) {
+    if (flag) break;
+    for (int j = i + 1; j < n; ++j) {
+      swap(p[i], p[j]);
+      flag = is_sorted(begin(p), end(p));
+      swap(p[i], p[j]);
+      if (flag) break;
     }
+    if (flag) break;
   }
 
+  if (flag) cout << "YES" << endl;
+  else cout << "NO" << endl;
+  
 }
