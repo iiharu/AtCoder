@@ -29,7 +29,8 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int r; cin >> r;
-  cout << 3 * r * r << endl;
+  int a, b; cin >> a >> b;
+  if ((a + b) % 2 == 0) cout << (a + b) / 2 << endl;
+  else cout << "IMPOSSIBLE" << endl;
   
 }
