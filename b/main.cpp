@@ -29,25 +29,26 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
+  int num = 0;
   int n; cin >> n;
-  vector<int> p(n);
-  for (int i = 0; i < n; ++i) cin >> p[i];
 
-  bool flag = false;
-  flag = is_sorted(begin(p), end(p));
-  
-  for (int i = 0; i < n; ++i) {
-    if (flag) break;
-    for (int j = i + 1; j < n; ++j) {
-      swap(p[i], p[j]);
-      flag = is_sorted(begin(p), end(p));
-      swap(p[i], p[j]);
-      if (flag) break;
+  int i = 1;
+  while(i <= n) {
+
+    ++num;
+    
+    if (i == 9) {
+      i = 100;
+    } else if (i == 999) {
+      i = 10000;
+    } else if (i == 99999) {
+      i = 1000000;
+    } else {
+      ++i;
     }
-    if (flag) break;
-  }
+    
 
-  if (flag) cout << "YES" << endl;
-  else cout << "NO" << endl;
+  }
+    cout << num << endl;
   
 }

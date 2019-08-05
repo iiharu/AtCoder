@@ -15,7 +15,7 @@
 
 using namespace std;
 
-#define int long long
+// #define int long long
 
 #define ALL(v) begin(v), end(v)
 #define RALL(v) rbegin(v), rend(v)
@@ -29,8 +29,7 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int a, b; cin >> a >> b;
-  if ((a + b) % 2 == 0) cout << (a + b) / 2 << endl;
-  else cout << "IMPOSSIBLE" << endl;
+  int a, b, c; cin >> a >> b >> c;
+  cout << max(0, c - (a - b)) << endl;
   
 }
