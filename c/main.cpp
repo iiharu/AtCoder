@@ -32,26 +32,23 @@ template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
 signed main(void)
 {
-  bool flag = true;
-  // bool issorted = true;
+  int num = 0;
   int n; cin >> n;
-  vector<int> h(n);
+  // vector<string> s(n);
+  // string t;
+  string s;
+  map<string, int> mem;
   for (int i = 0; i < n; ++i) {
-    cin >> h[i];
+    cin >> s;
+    sort(begin(s), end(s));
+    ++mem[s];
   }
 
-  vector<bool> d(n, false);
-  for (int i = n - 1; 0 < i; --i) {
-    if (h[i] < h[i - 1]) {
-      h[i - 1] -= 1;
-      d[i - 1] = true;
-    }
+  for (auto it = begin(mem); it != end(mem); ++it) {
+    int val = (*it).second;
+    if (val > 1) num += val * (val - 1) / 2;
   }
 
-  flag = is_sorted(h.begin(), h.end());
-
-  if (flag) cout << "Yes";
-  else cout << "No";
-  cout << endl;
+  cout << num << endl;
   
 }

@@ -15,7 +15,7 @@
 
 using namespace std;
 
-#define int long long
+// #define int long long
 
 #define ALL(v) begin(v), end(v)
 #define RALL(v) rbegin(v), rend(v)
@@ -29,26 +29,11 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int num = 0;
-  int n; cin >> n;
+  int k, x; cin >> k >> x;
 
-  int i = 1;
-  while(i <= n) {
-
-    ++num;
-    
-    if (i == 9) {
-      i = 100;
-    } else if (i == 999) {
-      i = 10000;
-    } else if (i == 99999) {
-      i = 1000000;
-    } else {
-      ++i;
-    }
-    
-
+  for (int i = max(-1000000,x - k + 1); i < min(1000000 + 1, x + k); ++i) {
+    cout << i << " ";
   }
-    cout << num << endl;
+  cout << endl;
   
 }

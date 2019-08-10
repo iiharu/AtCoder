@@ -29,7 +29,7 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int a, b, c; cin >> a >> b >> c;
-  cout << max(0, c - (a - b)) << endl;
+  int a, b; cin >> a >> b;
+  cout << max(a + b, max(a - b, a * b)) << endl;
   
 }
