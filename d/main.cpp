@@ -10,6 +10,7 @@
 #include <limits>
 #include <map>
 #include <numeric>
+#include <queue>
 #include <string>
 #include <vector>
 
@@ -29,27 +30,24 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int n; cin >> n;
-  vector<int> a(n);
-  vector<int> x(n);
-  int sum = 0;
-  x[0] = sum;
+  int num;
+  int n, m; cin >> n >> m;
+  vector<vector<int>> v(m);
   for (int i = 0; i < n; ++i) {
-    cin >> a[i];
-    sum += a[i];
-    if (i % 2 == 1) {
-      x[0] -= 2 * a[i];
-    }
+    int a, b; cin >> a >> b;
+    if (a <= m)
+      v[a - 1].push_back(b);
   }
 
-  x[0] += sum;
-
-  for (int i = 0; i < n; ++i) {
-    if (i != 0) {
-      x[i] = 2 * a[i - 1] - x[i - 1];
+  num = 0;
+  priority_queue<int> q;
+  for (int i = 0; i < m; ++i) {
+    for (int j = 0; j < v[i].size(); ++j) {
+      q.push(v[i][j]);
     }
-    cout << x[i];
-    cout << " ";
+    if (q.empty()) continue;
+    num += q.top();
+    q.pop();
   }
-
+  cout << num << endl;
 }
