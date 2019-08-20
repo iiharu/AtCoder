@@ -33,23 +33,37 @@ template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
 signed main(void)
 {
-  int num = 0;
   int n; cin >> n;
-  // vector<string> s(n);
-  // string t;
-  string s;
-  map<string, int> mem;
+
+  vector<pair<int, vector<int>>> v(n);
   for (int i = 0; i < n; ++i) {
-    cin >> s;
-    sort(begin(s), end(s));
-    ++mem[s];
+    v[i] = make_pair(1, vector<int>());
+    if (i != 0) {
+      int b; cin >> b;
+      v[b - 1].second.push_back(i);
+    }
   }
 
-  for (auto it = begin(mem); it != end(mem); ++it) {
-    int val = (*it).second;
-    if (val > 1) num += val * (val - 1) / 2;
+  for (int i = n - 1; i >= 0; --i) {
+    if (v[i].second.size() == 1) {
+      v[i].first =  2 * v[v[i].second[0]].first + 1;
+    } else if (v[i].second.size() > 1) {
+      int m;
+      int M;
+      for (int j = 0; j < v[i].second.size(); ++j) {
+        if (j == 0) {
+          m = v[v[i].second[j]].first;
+          M = v[v[i].second[j]].first;
+        } else {
+          m = min(m, v[v[i].second[j]].first);
+          M = max(M, v[v[i].second[j]].first);
+        }
+      }
+      
+      v[i].first = M + m + 1;
+    }
   }
 
-  cout << num << endl;
+  cout << v[0].first << endl;
   
 }
