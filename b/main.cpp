@@ -30,11 +30,14 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int k, x; cin >> k >> x;
+  int n; cin >> n;
+  vector<int> a(n);
+  for (int i = 0; i < n; ++i) cin >> a[i];
 
-  for (int i = max(-1000000,x - k + 1); i < min(1000000 + 1, x + k); ++i) {
-    cout << i << " ";
+  double ans = 0.;
+  for (int i = 0; i < n; ++i) {
+    ans += 1. / static_cast<double>(a[i]);
   }
-  cout << endl;
-  
+  ans = 1. / ans;
+  cout << ans << endl;
 }

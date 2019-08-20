@@ -30,7 +30,10 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int a, b; cin >> a >> b;
-  cout << max(a + b, max(a - b, a * b)) << endl;
+  int a; cin >> a;
+  string s; cin >> s;
+  if (a < 3200) cout << "red";
+  else cout << s;
+  cout << endl;
   
 }
