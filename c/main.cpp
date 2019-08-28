@@ -33,18 +33,31 @@ template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
 signed main(void)
 {
-  int n; cin >> n;
-  priority_queue<double, vector<double>, greater<double>> q;
-  for (int i = 0; i < n; ++i) {
-    double v; cin >> v;
-    q.push(v);
+  int num;
+  int N, T; cin >> N >> T;
+  vector<int> t(N);
+  // for (int i = 0; i < N; ++i) {
+  //   cin >> t[i];
+  // }
+  num = 0;
+  for (int i = 0; i < N; ++i) {
+    cin >> t[i];
+    if (i != 0) {
+      int d = t[i] - t[i - 1];
+      if (d <= T) num += d;
+      else num += T;
+    }
   }
-
-  for (int i = 1; i < n; ++i) {
-    double x = q.top(); q.pop();
-    double y = q.top(); q.pop();
-    double z = (x + y) / 2.;
-    q.push(z);
-  }
-  cout << q.top() << endl;
+  num += T;
+  // num = 0;
+  // for (int i = 0; i < N; ++i) {
+  //   if (i == N - 1) {
+  //     num += T;
+  //   } else {
+  //     int d = t[i + 1] - t[i];
+  //     if (d <= T) num += d;
+  //     else num += T;
+  //   }
+  // }
+  cout << num << endl;
 }
