@@ -33,31 +33,7 @@ template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
 signed main(void)
 {
-  int num;
-  int N, T; cin >> N >> T;
-  vector<int> t(N);
-  // for (int i = 0; i < N; ++i) {
-  //   cin >> t[i];
-  // }
-  num = 0;
-  for (int i = 0; i < N; ++i) {
-    cin >> t[i];
-    if (i != 0) {
-      int d = t[i] - t[i - 1];
-      if (d <= T) num += d;
-      else num += T;
-    }
-  }
-  num += T;
-  // num = 0;
-  // for (int i = 0; i < N; ++i) {
-  //   if (i == N - 1) {
-  //     num += T;
-  //   } else {
-  //     int d = t[i + 1] - t[i];
-  //     if (d <= T) num += d;
-  //     else num += T;
-  //   }
-  // }
-  cout << num << endl;
+  int n; cin >> n;
+  vector<int> a = {32, 1, 6, 0, 2, 4,7,13,11,5};
+  cout << a[n] << endl;
 }
