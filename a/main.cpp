@@ -30,10 +30,10 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int a; cin >> a;
+  int num;
   string s; cin >> s;
-  if (a < 3200) cout << "red";
-  else cout << s;
-  cout << endl;
-  
+  string t; cin >> t;
+  num = 0;
+  for (int i = 0; i < 3; ++i) if (s[i] == t[i]) ++num;
+  cout << num << endl;
 }
