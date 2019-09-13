@@ -30,10 +30,6 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int num;
-  string s; cin >> s;
-  string t; cin >> t;
-  num = 0;
-  for (int i = 0; i < 3; ++i) if (s[i] == t[i]) ++num;
-  cout << num << endl;
+  int n; cin >> n;
+  cout << pow(n, 3) << endl;
 }
