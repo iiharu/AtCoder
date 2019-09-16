@@ -30,31 +30,22 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int a, b; cin >> a >> b;
+  int num;
+  int n; cin >> n;
+  vector<int> a(n);
+  for (int i = 0; i < n; ++i) cin >> a[i];
+  vector<int> b(n);
+  for (int i = 0; i < n; ++i) cin >> b[i];
+  vector<int> c(n - 1);
+  for (int i = 0; i < n - 1; ++i) cin >> c[i];
 
-  int num = 0;
-  int sum = 0;
-  vector<int> v = {1};
-  sum = 1;
+  num = 0;
 
-  if (sum >= b) {
-    
+  for (int i = 0; i < n; ++i) {
+    num += b[a[i] - 1];
+    if (i != n -1 && a[i] + 1 == a[i + 1]) num += c[a[i] - 1];
   }
 
-  while (sum < b) {
-    if (v.size() != a) {
-      while (v.size() != a) v.push_back(1);
-      sum = a;
-      num = 1;
-    } else {
-      int n = v.back();
-      v.pop_back();
-      v.push_back(n - 1 + a);
-      sum += a - 1;
-      num += 1;
-    }
-    
-  }
   cout << num << endl;
   
 }
