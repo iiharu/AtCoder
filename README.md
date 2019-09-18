@@ -8,12 +8,12 @@
 
 ## Requirements
 - C++ Compiler
-  - GNU Compiler Collection (g++)
-  - LLVM Clang Compiler (clang++)
+  - GNU Compiler Collection (`g++`)
+  - LLVM Clang Compiler (`clang++`)
 
 ### Optional Requirements
-- CMake (cmake)
-- GNU Make (make)
+- CMake (`cmake`)
+- GNU Make (`make`)
 
 ## Reference
 - [C++ Reference](https://en.eppreference.com)
