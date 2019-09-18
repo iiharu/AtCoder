@@ -30,6 +30,13 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int n; cin >> n;
-  cout << pow(n, 3) << endl;
+  string s;
+  cin >> s;
+  if (s == "Sunny")
+    cout << "Cloudy";
+  else if (s == "Rainy")
+    cout << "Sunny";
+  else if (s == "Cloudy")
+    cout << "Rainy";
+  cout << endl;
 }
