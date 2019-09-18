@@ -30,22 +30,19 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  int num;
-  int n; cin >> n;
-  vector<int> a(n);
-  for (int i = 0; i < n; ++i) cin >> a[i];
-  vector<int> b(n);
-  for (int i = 0; i < n; ++i) cin >> b[i];
-  vector<int> c(n - 1);
-  for (int i = 0; i < n - 1; ++i) cin >> c[i];
+  string s; cin >> s;
+  vector<bool> v(s.length(), false);
 
-  num = 0;
-
-  for (int i = 0; i < n; ++i) {
-    num += b[a[i] - 1];
-    if (i != n -1 && a[i] + 1 == a[i + 1]) num += c[a[i] - 1];
+  for (int i = 0; i < s.length(); ++i) {
+        if ((i % 2 == 0 && s[i] == 'R')
+            || (i % 2 == 1 && s[i] == 'L')
+            || s[i] == 'U'
+            || s[i] == 'D')
+          v[i] = true;
   }
 
-  cout << num << endl;
-  
+  bool flag = accumulate(v.begin(), v.end(),true, [](bool acc, bool i) { return acc & i;});
+  if (flag) cout << "Yes";
+  else cout << "No";
+  cout << endl;
 }
