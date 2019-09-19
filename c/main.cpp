@@ -28,12 +28,27 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 
-template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
-template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
+template <typename T>
+T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
+template <typename T>
+T lcm(T m, T n) { return n * m / gcd(n, m); }
 
 signed main(void)
 {
-  int n; cin >> n;
-  vector<int> a = {32, 1, 6, 0, 2, 4,7,13,11,5};
-  cout << a[n] << endl;
+  int n;
+  cin >> n;
+  vector<int> h(n);
+  for (int i = 0; i < n; ++i)
+    cin >> h[i];
+
+  vector<int> dp(n);
+  dp[n - 1] = 0;
+  for (int i = n - 2; i >= 0; --i)
+  {
+    if (h[i] >= h[i + 1])
+      dp[i] = dp[i + 1] + 1;
+    else
+      dp[i] = 0;
+  }
+  cout << *max_element(dp.begin(), dp.end()) << endl;
 }
