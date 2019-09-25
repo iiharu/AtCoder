@@ -28,27 +28,25 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 
-template <typename T>
-T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
-template <typename T>
-T lcm(T m, T n) { return n * m / gcd(n, m); }
+template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
+template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
-signed main(void)
-{
-  int n;
-  cin >> n;
-  vector<int> h(n);
-  for (int i = 0; i < n; ++i)
-    cin >> h[i];
+signed main(void) {
+  int n; cin >> n;
+  vector<int> b(n - 1);
+  for (int i = 0; i < n - 1; ++i) cin >> b[i];
 
-  vector<int> dp(n);
-  dp[n - 1] = 0;
-  for (int i = n - 2; i >= 0; --i)
-  {
-    if (h[i] >= h[i + 1])
-      dp[i] = dp[i + 1] + 1;
-    else
-      dp[i] = 0;
+  vector<int> a(n);
+  for (int i = 0; i <= n - 1; ++i) {
+    if (i == 0) a[i] = b[i];
+    if (i == n - 1) a[i] = b[i - 1];
+    else {
+      if (a[i] > b[i]) a[i] = b[i];
+      a[i + 1] = min(b[i], b[i + 1]);
+    }
   }
-  cout << *max_element(dp.begin(), dp.end()) << endl;
+
+  // for (int i = 0; i < n; ++i) cout << a[i] << endl;
+
+  cout << accumulate(a.begin(), a.end(), 0) << endl;
 }
