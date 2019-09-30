@@ -37,18 +37,17 @@ signed main(void)
 {
   int n;
   cin >> n;
-  vector<int> h(n);
+  vector<int> s(n);
   for (int i = 0; i < n; ++i)
-    cin >> h[i];
-
-  vector<int> dp(n);
-  dp[n - 1] = 0;
-  for (int i = n - 2; i >= 0; --i)
   {
-    if (h[i] >= h[i + 1])
-      dp[i] = dp[i + 1] + 1;
-    else
-      dp[i] = 0;
+    int a;
+    cin >> a;
+    s[a - 1] = i + 1;
   }
-  cout << *max_element(dp.begin(), dp.end()) << endl;
+
+  for (int i = 0; i < n; ++i)
+  {
+    cout << s[i] << " ";
+  }
+  cout << endl;
 }
