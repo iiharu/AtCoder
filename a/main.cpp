@@ -30,13 +30,7 @@ const int MOD = 1e9 + 7;
 
 signed main(void)
 {
-  string s;
-  cin >> s;
-  if (s == "Sunny")
-    cout << "Cloudy";
-  else if (s == "Rainy")
-    cout << "Sunny";
-  else if (s == "Cloudy")
-    cout << "Rainy";
-  cout << endl;
+  int n;
+  cin >> n;
+  cout << (double(n / 2) + (double)(n % 2)) / (double)n << endl;
 }
