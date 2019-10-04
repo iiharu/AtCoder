@@ -26,6 +26,14 @@ using namespace std;
 
 #define debug(x) cerr << #x << ": " << x << endl;
 
+template <typename T>
+T gcd(T m, T n)
+{
+  return n == 0 ? m : gcd(n, m % n);
+}
+template <typename T>
+T lcm(T m, T n) { return n * m / gcd(n, m); }
+
 const int MOD = 1e9 + 7;
 
 signed main(void)

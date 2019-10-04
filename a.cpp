@@ -28,10 +28,14 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 
+template <typename T>
+T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
+template <typename T>
+T lcm(T m, T n) { return n * m / gcd(n, m); }
+
 signed main(void)
 {
   int n;
   cin >> n;
-  cout << "int" << endl;
   cout << (double(n / 2) + (double)(n % 2)) / (double)n << endl;
 }
