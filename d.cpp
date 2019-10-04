@@ -36,36 +36,41 @@ T lcm(T m, T n) { return n * m / gcd(n, m); }
 signed main(void)
 {
   int num;
-  int n, m;
-  cin >> n >> m;
+  bool flag;
 
-  priority_queue<int> q;
+  int n;
+  cin >> n;
+
+  // priority_queue<pair<int, int>> q;
+  auto compare = [](pair<int, int> l, pair<int, int> r) { return l.second >= r.second; };
+  priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(compare)> q(compare);
+
   for (int i = 0; i < n; ++i)
   {
-    int a;
-    cin >> a;
-    q.push(a);
+    int a, b;
+    cin >> a >> b;
+    // q.emplace(b, a);
+    q.emplace(a, b);
   }
 
-  while (m > 0)
-  {
-    int a = q.top();
-    q.pop();
-    a /= 2;
-    q.push(a);
-    --m;
-  }
-
-  // while (!q.empty())
-  // {
-  //   cout << q.top() << endl;
-  //   q.pop();
-  // }
+  flag = true;
   num = 0;
   while (!q.empty())
   {
-    num += q.top();
+    pair<int, int> p = q.top();
     q.pop();
+    int a = p.first;
+    int b = p.second;
+
+    num += a;
+    if (num > b)
+      flag = false;
+    if (!flag)
+      break;
   }
-  cout << num << endl;
+  if (flag)
+    cout << "Yes";
+  else
+    cout << "No";
+  cout << endl;
 }
