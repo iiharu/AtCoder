@@ -32,5 +32,6 @@ signed main(void)
 {
   int n;
   cin >> n;
+  cout << "int" << endl;
   cout << (double(n / 2) + (double)(n % 2)) / (double)n << endl;
 }

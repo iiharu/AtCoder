@@ -1,4 +1,17 @@
 # .gitignore
 
+# C++
+a
+b
+c
+d
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+compile_commands.json
+
 # Emacs
 !.dir-locals.el
