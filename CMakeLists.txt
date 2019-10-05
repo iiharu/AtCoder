@@ -1,6 +1,7 @@
 # CMakeLists.txt
 
 cmake_minimum_required(VERSION 3.1)
+project(AtCoderTry)
 enable_language(CXX)
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
