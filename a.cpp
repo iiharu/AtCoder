@@ -35,7 +35,47 @@ T lcm(T m, T n) { return n * m / gcd(n, m); }
 
 signed main(void)
 {
-  int n;
-  cin >> n;
-  cout << (double(n / 2) + (double)(n % 2)) / (double)n << endl;
+  int x, y;
+  cin >> x >> y;
+
+  int num = -1;
+
+  if (x <= y)
+  {
+    int tmp = y - x;
+    if (num == -1)
+    {
+      num = tmp;
+    }
+    else
+    {
+      num = min(num, tmp);
+    }
+  }
+  if (-x <= y)
+  {
+    int tmp = 1 + y - (-x);
+
+    if (num == -1)
+      num = tmp;
+    else
+      num = min(num, tmp);
+  }
+  if (x <= -y)
+  {
+    int tmp = 1 + (-y) - x;
+    if (num == -1)
+      num = tmp;
+    else
+      num = min(num, tmp);
+  }
+  if (-x <= -y)
+  {
+    int tmp = 1 + (-y) - (-x) + 1;
+    if (num == -1)
+      num = tmp;
+    else
+      num = min(num, tmp);
+  }
+  cout << num << endl;
 }
