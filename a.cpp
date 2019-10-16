@@ -35,47 +35,45 @@ T lcm(T m, T n) { return n * m / gcd(n, m); }
 
 signed main(void)
 {
-  int x, y;
-  cin >> x >> y;
+  int num;
+  int n;
+  cin >> n;
+  vector<int> a(n);
 
-  int num = -1;
+  for (int i = 0; i < n; ++i)
+    cin >> a[i];
 
-  if (x <= y)
+  int m = 0;
+  num = 1;
+  for (int i = 0; i < n; ++i)
   {
-    int tmp = y - x;
-    if (num == -1)
+    if (i == 0)
+      continue;
+
+    if (a[i - 1] < a[i])
     {
-      num = tmp;
+      if (m < 0)
+      {
+        ++num;
+        m = 0;
+      }
+      else
+      {
+        ++m;
+      }
     }
-    else
+    if (a[i - 1] > a[i])
     {
-      num = min(num, tmp);
+      if (m > 0)
+      {
+        ++num;
+        m = 0;
+      }
+      else
+      {
+        --m;
+      }
     }
-  }
-  if (-x <= y)
-  {
-    int tmp = 1 + y - (-x);
-
-    if (num == -1)
-      num = tmp;
-    else
-      num = min(num, tmp);
-  }
-  if (x <= -y)
-  {
-    int tmp = 1 + (-y) - x;
-    if (num == -1)
-      num = tmp;
-    else
-      num = min(num, tmp);
-  }
-  if (-x <= -y)
-  {
-    int tmp = 1 + (-y) - (-x) + 1;
-    if (num == -1)
-      num = tmp;
-    else
-      num = min(num, tmp);
   }
   cout << num << endl;
 }
