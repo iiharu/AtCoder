@@ -16,7 +16,7 @@
 
 using namespace std;
 
-// #define int long long
+#define int long long
 
 #define ALL(v) begin(v), end(v)
 #define RALL(v) rbegin(v), rend(v)
@@ -39,17 +39,25 @@ const int MOD = 1e9 + 7;
 signed main(void)
 {
   int num;
+
   int n;
-  cin >> n;
-  int k;
-  cin >> k;
-  num = 0;
-  for (int i = 0; i < n; ++i)
+  string s;
+  cin >> s;
+  n = s.length();
+
+  num = 2 * (n - 1);
+  for (int i = 1; i < n - 1; ++i)
   {
-    int h;
-    cin >> h;
-    if (h >= k)
-      ++num;
+    if (s[i] == 'U')
+    {
+      num += n - (i + 1);
+      num += 2 * i;
+    }
+    else
+    { // s[j] == 'D'
+      num += i;
+      num += 2 * (n - (i + 1));
+    }
   }
 
   cout << num << endl;
