@@ -41,22 +41,17 @@ signed main(void)
   int num;
 
   int n;
-  string s;
-  cin >> s;
-  n = s.length();
+  cin >> n;
+  vector<int> d(n);
+  for (int i = 0; i < n; ++i)
+    cin >> d[i];
 
-  num = 2 * (n - 1);
-  for (int i = 1; i < n - 1; ++i)
+  num = 0;
+  for (int i = 0; i < n; ++i)
   {
-    if (s[i] == 'U')
+    for (int j = i + 1; j < n; ++j)
     {
-      num += n - (i + 1);
-      num += 2 * i;
-    }
-    else
-    { // s[j] == 'D'
-      num += i;
-      num += 2 * (n - (i + 1));
+      num += d[i] * d[j];
     }
   }
 

@@ -37,17 +37,17 @@ signed main(void)
 {
   int n;
   cin >> n;
-  vector<int> s(n);
-  for (int i = 0; i < n; ++i)
+  string s;
+  cin >> s;
+
+  vector<int> c(n);
+  c[0] = 1;
+
+  for (int i = 1; i < n; ++i)
   {
-    int a;
-    cin >> a;
-    s[a - 1] = i + 1;
+    if (s[i - 1] != s[i])
+      c[i] = 1;
   }
 
-  for (int i = 0; i < n; ++i)
-  {
-    cout << s[i] << " ";
-  }
-  cout << endl;
+  cout << accumulate(c.begin(), c.end(), 0) << endl;
 }
