@@ -15,26 +15,20 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 
-template <typename T>
-T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
-template <typename T>
-T lcm(T m, T n) { return n * m / gcd(n, m); }
+template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
+template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
-signed main(void)
-{
+signed main(void) {
+  int num;
   int n;
   cin >> n;
-  string s;
-  cin >> s;
 
-  vector<int> c(n);
-  c[0] = 1;
+  num = n - 1;
 
-  for (int i = 1; i < n; ++i)
-  {
-    if (s[i - 1] != s[i])
-      c[i] = 1;
+  for (int i = 2; i <= sqrt(n); ++i) {
+    if (n % i == 0) {
+      num = min(num, i - 1 + n / i - 1);
+    }
   }
-
-  cout << accumulate(c.begin(), c.end(), 0) << endl;
+  cout << num << endl;
 }

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// #define int long long
+#define int long long
 
 #define ALL(v) begin(v), end(v)
 #define RALL(v) rbegin(v), rend(v)
@@ -15,14 +15,15 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 
-template <typename T>
-T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
-template <typename T>
-T lcm(T m, T n) { return n * m / gcd(n, m); }
+template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
+template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
-signed main(void)
-{
+signed main(void) {
   int a, b;
   cin >> a >> b;
-  cout << max(a - 2 * b, 0) << endl;
+
+  if (1 <= a && a <= 9 && 1 <= b && b <= 9)
+    cout << a * b << endl;
+  else
+    cout << -1 << endl;
 }

@@ -4,6 +4,7 @@
 using namespace std;
 
 #define int long long
+#define double long double
 
 #define ALL(v) begin(v), end(v)
 #define RALL(v) rbegin(v), rend(v)
@@ -15,49 +16,28 @@ using namespace std;
 
 const int MOD = 1e9 + 7;
 
-template <typename T>
-T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
-template <typename T>
-T lcm(T m, T n) { return n * m / gcd(n, m); }
+template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
+template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
-signed main(void)
-{
-  int num;
-  bool flag;
-
-  int n;
-  cin >> n;
-
-  // priority_queue<pair<int, int>> q;
-  auto compare = [](pair<int, int> l, pair<int, int> r) { return l.second >= r.second; };
-  priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(compare)> q(compare);
-
-  for (int i = 0; i < n; ++i)
-  {
-    int a, b;
-    cin >> a >> b;
-    // q.emplace(b, a);
-    q.emplace(a, b);
+signed main(void) {
+  //  double a, b, x;
+  int a, b, x;
+  cin >> a >> b >> x;
+  //  cin >> a >> b >> x;
+  cout << setprecision(10);
+  if (a * a * b == x) {
+    cout << 0 << endl;
+  } else {
+    if (a * a * b / 2. > x) {
+      double val = 2. * x / (a * b * b);
+      double rad = atan(val);
+      double r = (M_PI / 2. - rad) * 180. / M_PI;
+      cout << r << endl;
+    } else {
+      double val = (2. * a * a * b - 2. * x) / (a * a * a);
+      double rad = atan(val);
+      double r = rad * 180. / M_PI;
+      cout << r << endl;
+    }
   }
-
-  flag = true;
-  num = 0;
-  while (!q.empty())
-  {
-    pair<int, int> p = q.top();
-    q.pop();
-    int a = p.first;
-    int b = p.second;
-
-    num += a;
-    if (num > b)
-      flag = false;
-    if (!flag)
-      break;
-  }
-  if (flag)
-    cout << "Yes";
-  else
-    cout << "No";
-  cout << endl;
 }
