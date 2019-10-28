@@ -1,24 +1,39 @@
 
 FROM debian:10
 
-# Configure APT
+# Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update \
- && apt-get -y install --no-install-recommends apt-utils \
- && apt-get -y clean \
- && rm -rf /var/lib/apt/lists
 
-# Install git, process tools, lsb-release (common in install instructions for CLIs)
+# This Dockerfile adds a non-root 'vscode' user with sudo access. However, for Linux,
+# this user's GID/UID must match your local user UID/GID to avoid permission issues
+# with bind mounts. Update USER_UID / USER_GID if yours is not 1000. See
+# https://aka.ms/vscode-remote/containers/non-root-user for details.
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+# Configure apt and install packages
 RUN apt-get update \
- && apt-get -y install bash-completion git procps lsb-release \
+ && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
+ #
+ # Verify git, process tools, lsb-release (useful for CLI installs) installed
+ && apt-get -y install git procps lsb-release \
+ #
+ # Install C++ tools
+ && apt-get -y install build-essential cmake clang-format cppcheck valgrind \
+ #
+ # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
+ && groupadd --gid $USER_GID $USERNAME \
+ && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
+ # [Optional] Add sudo support for the non-root user
+ && apt-get install -y sudo \
+ && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+ && chmod 0440 /etc/sudoers.d/$USERNAME \
+ #
+ # Clean up
+ && apt-get -y autoremove \
  && apt-get -y clean \
  && rm -rf /var/lib/apt/lists/*
 
-# Install C++ tools
-RUN apt-get update \
- && apt-get -y install --no-install-recommends make cmake clang clang-format lldb \
- && apt-get -y clean \
- && rm -rf /var/lib/apt/lists/*
-
-# Set the default shell to bash instead of sh
-ENV SHELL /bin/bash
+# Switch back to dialog for any ad-hoc use of apt-get
+ENV DEBIAN_FRONTEND=
