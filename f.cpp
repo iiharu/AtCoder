@@ -23,11 +23,11 @@ signed main(void) {
   int n;
   cin >> n;
   vector<int> a(n);
-  for (auto e : a)
+  for (auto &e : a)
     cin >> e;
 
   num = 0;
-  for (auto e : a)
+  for (auto &e : a)
     if (e % 2 == 0)
       num += e;
   cout << num << endl;
