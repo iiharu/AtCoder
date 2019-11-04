@@ -1,4 +1,5 @@
 {
   "C_Cpp.clang_format_path": "/usr/bin/clang-format",
   "C_Cpp.clang_format_style": "LLVM",
+  "C_Cpp.default.cppStandard": "c++14",
 }
