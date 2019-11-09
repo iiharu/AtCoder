@@ -19,19 +19,15 @@ template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
 template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
 signed main(void) {
-  int a, k;
-  cin >> a >> k;
+  int n;
+  cin >> n;
+  int num;
 
-  int n = 0;
+  num = 0;
 
-  if (k > 0) {
-    while (a < 2 * pow(10, 12)) {
-      a += 1 + k * a;
-      ++n;
-    }
-  } else {
-    n = 2 * pow(10, 12) - a;
+  for (int i = 1; i <= n / 2; ++i) {
+    if (i != n - i) ++num;
   }
 
-  cout << n << endl;
+  cout << num << endl;
 }
