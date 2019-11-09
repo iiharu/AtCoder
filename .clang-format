@@ -1,0 +1,14 @@
+---
+Language:                             Cpp
+BasedOnStyle:                         LLVM
+AllowShortBlocksOnASingleLine:        true
+AllowShortCaseLabelsOnASingleLine:    true
+AllowShortFunctionsOnASingleLine:     All
+AllowShortIfStatementsOnASingleLine:  true
+AllowShortLoopsOnASingleLine:         true
+ColumnLimit:                          80
+IndentWidth:                          2
+SortIncludes:                         true
+Standard:                             Cpp11
+UseTab:                               Never
+...

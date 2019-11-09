@@ -20,7 +20,7 @@ RUN apt-get update \
  && apt-get -y install git procps lsb-release \
  #
  # Install C++ tools
- && apt-get -y install build-essential cmake clang-format cppcheck valgrind \
+ && apt-get -y install build-essential cmake clang-format cppcheck valgrind\
  #
  # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
  && groupadd --gid $USER_GID $USERNAME \
