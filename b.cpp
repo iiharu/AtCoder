@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// #define int long long
+#define int long long
 
 #define ALL(v) begin(v), end(v)
 #define RALL(v) rbegin(v), rend(v)
@@ -16,26 +16,44 @@ using namespace std;
 template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
 template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
 
+template <typename T> T fact(T n) { return (n == 0 ? 1 : n * fact(n - 1)); }
+template <typename T> T combi(T n, T r) {
+  return (n == r || r == 0 && n != 0
+              ? 1
+              : (n * fact(n - 1)) / fact(n - 1) * fact(n - r));
+}
+
 const int MOD = 1e9 + 7;
 
 signed main(void) {
-  int n, m;
-  cin >> n >> m;
+  int n;
+  cin >> n;
+  vector<int> d(n);
 
-  vector<int> music(m);
-  for (int i = 0; i < m; ++i)
-    cin >> music[i];
-
-  vector<int> cases(n + 1);
-  for (int i = 0; i < n + 1; ++i)
-    cases[i] = i;
-  for (int i = 0; i < m; ++i) {
-    auto it = find(cases.begin(), cases.end(), music[i]);
-    if (it != cases.end())
-      swap(cases[0], *(find(cases.begin(), cases.end(), music[i])));
+  int M = 0;
+  vector<int> c(n);
+  for (int i = 0; i < n; ++i) {
+    cin >> d[i];
+    M = max(M, d[i]);
+    ++c[d[i]];
   }
 
-  for (auto it = cases.cbegin() + 1; it != cases.cend(); ++it) {
-    cout << *it << endl;
+  if (d[0] != 0 || c[0] != 1) {
+    cout << 0 << endl;
+    return 0;
   }
+
+  int num = 1;
+  int mod = 998244353;
+  for (int i = 1; i <= M; ++i) {
+    // num *= (int)pow(c[i - 1], c[i]) % mod;
+    for (int j = 0; j < c[i]; ++j) {
+      num *= c[i - 1];
+      num %= mod;
+    }
+    num %= mod;
+  }
+
+  cout << num << endl;
+  return 0;
 }
