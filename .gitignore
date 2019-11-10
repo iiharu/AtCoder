@@ -1,10 +1,7 @@
 # .gitignore
 
 # C++
-a
-b
-c
-d
+*.out
 
 # CMake
 CMakeCache.txt
