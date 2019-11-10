@@ -1,43 +1,22 @@
 
-#include "bits/stdc++.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 #define int long long
-#define double long double
-
-#define ALL(v) begin(v), end(v)
-#define RALL(v) rbegin(v), rend(v)
-
-#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define REP(i, n) for (int i = 0; i < (n); ++i)
-
-#define debug(x) cerr << #x << ": " << x << endl;
-
-const int MOD = 1e9 + 7;
 
 template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
 template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
+template <typename T> T fact(T n) { return (n == 0 ? 1 : n * fact(n - 1)); }
+template <typename T> T modpow(T a, T e, T m) { return (e == (T)0 ? 1 : ((a % m) * modpow((a % m), e - 1, m)) % m); }
+
+constexpr int MOD = 1e9 + 7;
 
 signed main(void) {
-  //  double a, b, x;
-  int a, b, x;
-  cin >> a >> b >> x;
-  //  cin >> a >> b >> x;
-  cout << setprecision(10);
-  if (a * a * b == x) {
-    cout << 0 << endl;
-  } else {
-    if (a * a * b / 2. > x) {
-      double val = 2. * x / (a * b * b);
-      double rad = atan(val);
-      double r = (M_PI / 2. - rad) * 180. / M_PI;
-      cout << r << endl;
-    } else {
-      double val = (2. * a * a * b - 2. * x) / (a * a * a);
-      double rad = atan(val);
-      double r = rad * 180. / M_PI;
-      cout << r << endl;
-    }
-  }
+  int n;
+  cin >> n;
+  vector<int> a(n);
+  for (auto &e : a) cin >> e;
+
+  cout << accumulate(a.cbegin(), a.cend(), 0) << endl;
 }
