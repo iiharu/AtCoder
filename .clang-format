@@ -6,7 +6,7 @@ AllowShortCaseLabelsOnASingleLine:    true
 AllowShortFunctionsOnASingleLine:     All
 AllowShortIfStatementsOnASingleLine:  true
 AllowShortLoopsOnASingleLine:         true
-ColumnLimit:                          80
+ColumnLimit:                          120
 IndentWidth:                          2
 SortIncludes:                         true
 Standard:                             Cpp11
