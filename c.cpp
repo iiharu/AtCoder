@@ -13,32 +13,23 @@ template <typename T> T modpow(T a, T e, T m) { return (e == (T)0 ? 1 : ((a % m)
 constexpr int MOD = 1e9 + 7;
 
 signed main(void) {
-  int num;
-  int n;
-  cin >> n;
+  vector<int> a(5);
+  for (auto &e : a) cin >> e;
 
-  map<int, int> mem;
-  for (int i = 0; i < n; ++i) {
-    int a; cin >> a;
-    if (a < 3200)
-      mem[a / 400]++;
-    else
-      mem[8]++;
+  vector<int> m;
+  for (int i = 0; i < pow(2, 5); ++i) {
+    bitset<5> bs(i);
+
+    if (bs.count() == 3) {
+      int b = 0;
+      for (int j = 0; j < 5; ++j) {
+        if (bs.test(j)) b += a[j];
+      }
+      m.push_back(b);
+    }
   }
 
-  num = 0;
-  for (int j = 0; j < 8; ++j) {
-    if (mem[j] > 0) ++num;
-  }
+  sort(m.begin(), m.end(), greater<int>());
 
-  int m = num;
-  int M = num;
-  if (mem[8] > 0) {
-    if (m == 0) ++m;
-    M += mem[8];
-    num = min(M, (int)8);
-  }
-
-  cout << m << " " << M << endl;
-
+  cout << m[2] << endl;
 }
