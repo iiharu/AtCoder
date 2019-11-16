@@ -16,16 +16,8 @@ template <typename T> T modpow(T a, T e, T m) { return (e == (T)0 ? 1 : ((a % m)
 constexpr int MOD = 1e9 + 7;
 
 signed main(void) {
-  int num;
-  int m, d;
-  cin >> m >> d;
-  num = 0;
-  for (int i = 1; i <= m; ++i) {
-    for (int j = 1; j <= d; ++j) {
-      int d1 = j % 10;
-      int d2 = j / 10;
-      if (d1 >= 2 && d2 >= 2 && d1 * d2 == i) ++num;
-    }
-  }
-  cout << num << endl;
+  int n;
+  cin >> n;
+
+  cout << n * n << endl;
 }
