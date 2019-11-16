@@ -13,23 +13,28 @@ template <typename T> T modpow(T a, T e, T m) { return (e == (T)0 ? 1 : ((a % m)
 constexpr int MOD = 1e9 + 7;
 
 signed main(void) {
-  vector<int> a(5);
-  for (auto &e : a) cin >> e;
+  int n;
+  cin >> n;
 
-  vector<int> m;
-  for (int i = 0; i < pow(2, 5); ++i) {
-    bitset<5> bs(i);
-
-    if (bs.count() == 3) {
-      int b = 0;
-      for (int j = 0; j < 5; ++j) {
-        if (bs.test(j)) b += a[j];
-      }
-      m.push_back(b);
-    }
+  vector<pair<int, int>> p(n);
+  for (int i = 0; i < n; ++i) {
+    int x, y;
+    cin >> x >> y;
+    p[i] = make_pair(x, y);
   }
 
-  sort(m.begin(), m.end(), greater<int>());
+  sort(p.begin(), p.end());
 
-  cout << m[2] << endl;
+  double dist = 0;
+  do {
+    for (int i = 1; i < n; ++i) {
+      double d = (p[i - 1].first - p[i].first) * (p[i - 1].first - p[i].first) +
+                 (p[i - 1].second - p[i].second) * (p[i - 1].second - p[i].second);
+      dist += sqrt(d);
+    }
+  } while (next_permutation(p.begin(), p.end()));
+
+  dist /= (double)(fact(n));
+
+  cout << setprecision(10) << dist << endl;
 }
