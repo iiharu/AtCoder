@@ -15,8 +15,22 @@ constexpr int MOD = 1e9 + 7;
 signed main(void) {
   int n;
   cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
+  string s;
+  cin >> s;
 
-  cout << accumulate(a.cbegin(), a.cend(), 0) << endl;
+  bool flag = true;
+
+  if (n % 2 != 0) flag = false;
+
+  if (flag) {
+    for (int i = 0; i < n / 2; ++i) {
+      if (s[i] != s[n / 2 + i]) flag = false;
+      if (!flag) break;
+    }
+  }
+
+  if (flag)
+    cout << "Yes" << endl;
+  else
+    cout << "No" << endl;
 }
