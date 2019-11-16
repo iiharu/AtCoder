@@ -20,4 +20,9 @@
 - [C++ 日本語リファレンス](https://cpprefjp.github.io)
 
 ## TODO
-- Mod計算の充実
+- Mod計算の充実 (末尾再起最適化が可能ならばそれが通るように)
+  - modfact
+  - modpow
+  - modinv
+  - modchoose (MOD上の組み合わせ総数)
+  
