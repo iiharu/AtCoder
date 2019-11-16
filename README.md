@@ -18,3 +18,6 @@
 ## Reference
 - [C++ Reference](https://en.eppreference.com)
 - [C++ 日本語リファレンス](https://cpprefjp.github.io)
+
+## TODO
+- Mod計算の充実
