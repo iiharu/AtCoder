@@ -24,5 +24,4 @@
   - modfact
   - modpow
   - modinv
-  - modchoose (MOD上の組み合わせ総数)
-  
+  - modchoose (MOD上の組み合わせ総数) (nCk (mod M)の実装)
