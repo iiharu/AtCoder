@@ -17,13 +17,13 @@ constexpr int MOD = 1e9 + 7;
 
 signed main(void) {
 
-  int n;
-  cin >> n;
-  int k;
-  cin >> k;
+  int a, b, c;
+  cin >> a >> b >> c;
 
-  if (n / 2 >= k)
-    cout << "YES" << endl;
-  else
-    cout << "NO" << endl;
+  if (a + b + c <= 21) {
+    cout << "win";
+  } else {
+    cout << "bust";
+  }
+  cout << endl;
 }
