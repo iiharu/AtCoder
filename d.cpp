@@ -12,53 +12,32 @@ template <typename T> T modpow(T a, T e, T m) { return (e == (T)0 ? 1 : ((a % m)
 
 constexpr int MOD = 1e9 + 7;
 
-const int MAX = 999999;
-long long fac[MAX], finv[MAX], inv[MAX];
-
-// テーブルを作る前処理
-void COMinit() {
-  fac[0] = fac[1] = 1;
-  finv[0] = finv[1] = 1;
-  inv[1] = 1;
-  for (int i = 2; i < MAX; i++) {
-    fac[i] = fac[i - 1] * i % MOD;
-    inv[i] = MOD - inv[MOD % i] * (MOD / i) % MOD;
-    finv[i] = finv[i - 1] * inv[i] % MOD;
-  }
-}
-
-// 二項係数計算
-long long COM(int n, int k) {
-  if (n < k) return 0;
-  if (n < 0 || k < 0) return 0;
-  return fac[n] * (finv[k] * finv[n - k] % MOD) % MOD;
-}
-
-int X;
-int Y;
-
 signed main(void) {
-  int num;
-  cin >> X >> Y;
+  int n;
+  cin >> n;
+  vector<int> a(n);
 
-  COMinit();
+  bool flag = false;
+  for (int i = 0; i < n; ++i) {
+    int a_i;
+    cin >> a_i;
+    if (a_i == 1) flag = true;
+    a[i] = a_i;
+  }
 
-  int d;
-  for (d = 0;; ++d) {
-    if (X + d == 2 * (Y - d)) { break; }
-
-    if (Y - d <= 0) {
-      d = -1;
-      break;
+  int i = 1;
+  int offset = 0;
+  while (i - 1 + offset < n) {
+    if (a[i - 1 + offset] == i) {
+      i++;
+      continue;
+    } else {
+      offset++;
     }
   }
 
-  if (d == -1) {
-    num = 0;
-  } else {
-
-    num = COM(Y - d, d);
-  }
-
-  cout << num << endl;
+  if (flag) {
+    cout << offset << endl;
+  } else
+    cout << -1 << endl;
 }
