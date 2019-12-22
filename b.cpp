@@ -13,15 +13,10 @@ template <typename T> T modpow(T a, T e, T m) { return (e == (T)0 ? 1 : ((a % m)
 constexpr int MOD = 1e9 + 7;
 
 signed main(void) {
-  string s;
-  cin >> s;
-
-  int num = 0;
-  // s[i] s[s.length - (i + 1)]
-
-  
-  for (int i = 0; i < s.length() / 2; ++i) {
-    if (*(s.begin() + i) != *(s.rbegin() + i)) { ++num; }
-  }
-  cout << num << endl;
+  int n;
+  cin >> n;
+  string s, t;
+  cin >> s >> t;
+  for (int i = 0; i < n; ++i) { cout << s[i] << t[i]; }
+  cout << endl;
 }
