@@ -16,11 +16,8 @@ template <typename T> T modpow(T a, T e, T m) { return (e == (T)0 ? 1 : ((a % m)
 constexpr int MOD = 1e9 + 7;
 
 signed main(void) {
-  int k, x;
-  cin >> k >> x;
-  if (500 * k >= x) {
-    cout << "Yes" << endl;
 
-  } else
-    cout << "No" << endl;
+  char c;
+  cin >> c;
+  cout << (char)((int)c + 1) << endl;
 }
