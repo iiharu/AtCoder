@@ -1,22 +1,95 @@
-
 #include <bits/stdc++.h>
-
+#define rep(i, n) for (int i = 0; i < (n); ++i)
 using namespace std;
+typedef long long ll;
 
-#define int long long
+ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
+ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
+const int mod = 1000000007;
 
-template <typename T> T gcd(T m, T n) { return n == 0 ? m : gcd(n, m % n); }
-template <typename T> T lcm(T m, T n) { return n * m / gcd(n, m); }
-template <typename T> T fact(T n) { return (n == 0 ? 1 : n * fact(n - 1)); }
-template <typename T> T modpow(T a, T e, T m) { return (e == (T)0 ? 1 : ((a % m) * modpow((a % m), e - 1, m)) % m); }
+struct mint {
+  ll x; // typedef long long ll;
+  mint(ll x = 0) : x((x % mod + mod) % mod) {}
+  mint operator-() const { return mint(-x); }
+  mint &operator+=(const mint a) {
+    if ((x += a.x) >= mod) x -= mod;
+    return *this;
+  }
+  mint &operator-=(const mint a) {
+    if ((x += mod - a.x) >= mod) x -= mod;
+    return *this;
+  }
+  mint &operator*=(const mint a) {
+    (x *= a.x) %= mod;
+    return *this;
+  }
+  mint operator+(const mint a) const {
+    mint res(*this);
+    return res += a;
+  }
+  mint operator-(const mint a) const {
+    mint res(*this);
+    return res -= a;
+  }
+  mint operator*(const mint a) const {
+    mint res(*this);
+    return res *= a;
+  }
+  mint pow(ll t) const {
+    if (!t) return 1;
+    mint a = pow(t >> 1);
+    a *= a;
+    if (t & 1) a *= *this;
+    return a;
+  }
+  mint inv() const { return pow(mod - 2); }
+  mint &operator/=(const mint a) { return (*this) *= a.inv(); }
+  mint operator/(const mint a) const {
+    mint res(*this);
+    return res /= a;
+  }
+  friend ostream &operator<<(ostream &os, const mint &a) {
+    os << a.x;
+    return os;
+  }
+  friend istream &operator>>(istream &is, mint &a) {
+    is >> a.x;
+    return is;
+  }
+};
+struct combination {
+  vector<mint> fact, ifact;
+  combination(int n) : fact(n + 1), ifact(n + 1) {
+    assert(n < mod);
+    fact[0] = 1;
+    for (int i = 1; i <= n; ++i) fact[i] = fact[i - 1] * i;
+    ifact[n] = fact[n].inv();
+    for (int i = n; i >= 1; --i) ifact[i - 1] = ifact[i] * i;
+  }
+  mint operator()(int n, int k) {
+    if (k < 0 || k > n) return 0;
+    return fact[n] * ifact[k] * ifact[n - k];
+  }
+};
 
-constexpr int MOD = 1e9 + 7;
-
-signed main(void) {
-  int n;
-  cin >> n;
+int main() {
+  int n, k;
+  cin >> n >> k;
   vector<int> a(n);
-  for (auto &e : a) cin >> e;
+  for (int i = 0; i < n; ++i) cin >> a[i];
+  sort(a.begin(), a.end());
 
-  cout << accumulate(a.cbegin(), a.cend(), 0) << endl;
+  mint num = 0;
+  combination combi(n);
+
+  for (int i = n - 1; i >= 0; --i) {
+    // cout << "max: " << a[i] << " " << combi(i, k - 1) << endl;
+    num += combi(i, k - 1) * a[i];
+  }
+  for (int i = 0; i < n; ++i) {
+    // cout << "min: " << a[i] << " " << combi(n - (i + 1), k - 1) << endl;
+    num -= combi(n - (i + 1), k - 1) * a[i];
+  }
+
+  cout << num << endl;
 }
