@@ -16,8 +16,7 @@ template <typename T> T modpow(T a, T e, T m) { return (e == (T)0 ? 1 : ((a % m)
 constexpr int MOD = 1e9 + 7;
 
 signed main(void) {
-
-  char c;
-  cin >> c;
-  cout << (char)((int)c + 1) << endl;
+  string s, t;
+  cin >> s >> t;
+  cout << t << s << endl;
 }
