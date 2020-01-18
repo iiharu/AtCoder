@@ -18,6 +18,7 @@
 ## Reference
 - [C++ Reference](https://en.eppreference.com)
 - [C++ 日本語リファレンス](https://cpprefjp.github.io)
+- [AtCoder解説放送ライブラリ集](https://github.com/atcoder-live/library)
 
 ## TODO
 - Mod計算の充実 (末尾再起最適化が可能ならばそれが通るように)

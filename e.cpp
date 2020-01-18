@@ -5,57 +5,29 @@ typedef long long ll;
 
 ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
 ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
-const int mod = 1000000007;
+constexpr int mod = 1e9 + 7;
 
+// clang-format off
 struct mint {
   ll x; // typedef long long ll;
   mint(ll x = 0) : x((x % mod + mod) % mod) {}
   mint operator-() const { return mint(-x); }
-  mint &operator+=(const mint a) {
-    if ((x += a.x) >= mod) x -= mod;
-    return *this;
-  }
-  mint &operator-=(const mint a) {
-    if ((x += mod - a.x) >= mod) x -= mod;
-    return *this;
-  }
-  mint &operator*=(const mint a) {
-    (x *= a.x) %= mod;
-    return *this;
-  }
-  mint operator+(const mint a) const {
-    mint res(*this);
-    return res += a;
-  }
-  mint operator-(const mint a) const {
-    mint res(*this);
-    return res -= a;
-  }
-  mint operator*(const mint a) const {
-    mint res(*this);
-    return res *= a;
-  }
+  mint &operator+=(const mint a) { if ((x += a.x) >= mod) x -= mod; return *this; }
+  mint &operator-=(const mint a) { if ((x += mod - a.x) >= mod) x -= mod; return *this; }
+  mint &operator*=(const mint a) { (x *= a.x) %= mod; return *this; }
+  mint operator+(const mint a) const { mint res(*this); return res += a; }
+  mint operator-(const mint a) const { mint res(*this); return res -= a; }
+  mint operator*(const mint a) const { mint res(*this); return res *= a; }
   mint pow(ll t) const {
     if (!t) return 1;
     mint a = pow(t >> 1);
-    a *= a;
-    if (t & 1) a *= *this;
-    return a;
-  }
+    a *= a; if (t & 1) a *= *this;
+    return a; }
   mint inv() const { return pow(mod - 2); }
   mint &operator/=(const mint a) { return (*this) *= a.inv(); }
-  mint operator/(const mint a) const {
-    mint res(*this);
-    return res /= a;
-  }
-  friend ostream &operator<<(ostream &os, const mint &a) {
-    os << a.x;
-    return os;
-  }
-  friend istream &operator>>(istream &is, mint &a) {
-    is >> a.x;
-    return is;
-  }
+  mint operator/(const mint a) const { mint res(*this); return res /= a; }
+  friend ostream &operator<<(ostream &os, const mint &a) { os << a.x; return os; }
+  friend istream &operator>>(istream &is, mint &a) { is >> a.x; return is; }
 };
 struct combination {
   vector<mint> fact, ifact;
@@ -66,30 +38,14 @@ struct combination {
     ifact[n] = fact[n].inv();
     for (int i = n; i >= 1; --i) ifact[i - 1] = ifact[i] * i;
   }
-  mint operator()(int n, int k) {
-    if (k < 0 || k > n) return 0;
-    return fact[n] * ifact[k] * ifact[n - k];
-  }
+  mint operator()(int n, int k) { if (k < 0 || k > n) return 0; return fact[n] * ifact[k] * ifact[n - k]; }
 };
+// clang-format on
 
 int main() {
-  int n, k;
-  cin >> n >> k;
+  int n;
+  cin >> n;
   vector<int> a(n);
-  for (int i = 0; i < n; ++i) cin >> a[i];
-  sort(a.begin(), a.end());
-
-  mint num = 0;
-  combination combi(n);
-
-  for (int i = n - 1; i >= 0; --i) {
-    // cout << "max: " << a[i] << " " << combi(i, k - 1) << endl;
-    num += combi(i, k - 1) * a[i];
-  }
-  for (int i = 0; i < n; ++i) {
-    // cout << "min: " << a[i] << " " << combi(n - (i + 1), k - 1) << endl;
-    num -= combi(n - (i + 1), k - 1) * a[i];
-  }
-
-  cout << num << endl;
+  for (auto &e : a) cin >> e;
+  cout << accumulate(a.begin(), a.end(), 0) << endl;
 }
