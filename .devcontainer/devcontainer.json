@@ -12,8 +12,10 @@
         "seccomp=unconfined"
     ],
     "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash",
-        "C_Cpp.clang_format_path": "/usr/bin/clang-format"
+        "terminal.integrated.shell.linux": "/bin/ash",
+        "terminal.integrated.shellArgs.linux": [
+            "--login"
+        ]
     },
     // Uncomment the next line if you want to publish any ports.
     // "appPort": [],
