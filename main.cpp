@@ -49,12 +49,6 @@ struct mint {
     return res /= a;
   }
   friend ostream &operator<<(ostream &os, const mint &a) { return (os << a.x); }
-  friend istream &operator>>(istream &is, mint &a) {
-    ll x;
-    is >> x;
-    a = mint(x);
-    return is;
-  }
 };
 struct combination {
   vector<mint> fact, ifact;
@@ -72,12 +66,9 @@ struct combination {
 };
 
 int main() {
-  mint a;
-  cin >> a;
-  cout << a << endl;
-  // int n;
-  // cin >> n;
-  // vector<int> a(n);
-  // for (auto &e : a) cin >> e;
-  // cout << accumulate(a.begin(), a.end(), 0) << endl;
+  int n;
+  cin >> n;
+  vector<int> a(n);
+  for (auto &e : a) cin >> e;
+  cout << accumulate(a.begin(), a.end(), 0) << endl;
 }
