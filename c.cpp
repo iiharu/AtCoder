@@ -45,7 +45,14 @@ struct combination {
 int main() {
   int n;
   cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
-  cout << accumulate(a.begin(), a.end(), 0) << endl;
+  vector<int> p(n);
+  for (int i = 0; i < n; ++i) cin >> p[i];
+
+  int num = 1;
+  int m = p[0];
+  for (int i = 1; i < n; ++i) {
+    if (p[i] <= m) ++num;
+    m = min(m, p[i]);
+  }
+  cout << num << endl;
 }

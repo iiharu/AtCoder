@@ -43,9 +43,14 @@ struct combination {
 // clang-format on
 
 int main() {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
-  cout << accumulate(a.begin(), a.end(), 0) << endl;
+  int a, b;
+  cin >> a >> b;
+  string s, t;
+  for (int i = 0; i < b; ++i) s += to_string(a);
+  for (int i = 0; i < a; ++i) t += to_string(b);
+  if (s < t)
+    cout << s << endl;
+  else
+    cout << t << endl;
+  return 0;
 }
