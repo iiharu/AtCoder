@@ -7,9 +7,7 @@
 - コードは自分で解いたものと解説を見て解いたものがごちゃごちゃ
 
 ## Requirements
-- C++ Compiler
-  - GNU Compiler Collection (`g++`)
-  - LLVM Clang Compiler (`clang++`)
+- GNU Compiler Collection (`g++`)
 
 ### Optional Requirements
 - CMake (`cmake`)
@@ -21,8 +19,4 @@
 - [AtCoder解説放送ライブラリ集](https://github.com/atcoder-live/library)
 
 ## TODO
-- Mod計算の充実 (末尾再起最適化が可能ならばそれが通るように)
-  - modfact
-  - modpow
-  - modinv
-  - modchoose (MOD上の組み合わせ総数) (nCk (mod M)の実装)
+- [AtCoder解説放送ライブラリ集](https://github.com/atcoder-live/library)
