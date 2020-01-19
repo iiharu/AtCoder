@@ -42,10 +42,28 @@ struct combination {
 };
 // clang-format on
 
+int top(int n) {
+  while (n >= 10) { n /= 10; }
+  return n;
+}
+int last(int n) { return (n % 10); }
+
 int main() {
   int n;
   cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
-  cout << accumulate(a.begin(), a.end(), 0) << endl;
+
+  vector<vector<int>> c(10, vector<int>(10, 0));
+  for (int k = 1; k <= n; ++k) {
+    string s = to_string(k);
+    int i = s.front() - '0';
+    int j = s.back() - '0';
+    c[i][j]++;
+  }
+
+  ll num = 0;
+  for (int i = 0; i < 10; ++i) {
+    for (int j = 0; j < 10; ++j) { num += c[i][j] * c[j][i]; }
+  }
+
+  cout << num << endl;
 }
