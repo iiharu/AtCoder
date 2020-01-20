@@ -66,9 +66,16 @@ struct combination {
 };
 
 int main() {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
-  cout << accumulate(a.begin(), a.end(), 0) << endl;
+
+  vector<vector<char>> c(4, vector<char>(4));
+  for (int i = 0; i < 4; ++i) {
+    for (int j = 0; j < 4; ++j) { cin >> c[i][j]; }
+  }
+  for (int i = 4; i > 0; --i) {
+    for (int j = 3; j >= 0; --j) {
+      cout << c[i - 1][j];
+      if (j != 0) cout << " ";
+    }
+    cout << endl;
+  }
 }
