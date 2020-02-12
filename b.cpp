@@ -66,16 +66,19 @@ struct combination {
 };
 
 int main() {
-
-  vector<vector<char>> c(4, vector<char>(4));
-  for (int i = 0; i < 4; ++i) {
-    for (int j = 0; j < 4; ++j) { cin >> c[i][j]; }
+  int m;
+  cin >> m;
+  int v;
+  if (m < 100) {
+    v = 0;
+  } else if (m <= 5000) {
+    v = 10 * m / 1000;
+  } else if (m <= 30000) {
+    v = m / 1000 + 50;
+  } else if (m <= 70000) {
+    v = (m / 1000 - 30) / 5 + 80;
+  } else {
+    v = 89;
   }
-  for (int i = 4; i > 0; --i) {
-    for (int j = 3; j >= 0; --j) {
-      cout << c[i - 1][j];
-      if (j != 0) cout << " ";
-    }
-    cout << endl;
-  }
+  cout << setw(2) << setfill('0') << v << endl;
 }
