@@ -66,19 +66,18 @@ struct combination {
 };
 
 int main() {
-  int m;
-  cin >> m;
-  int v;
-  if (m < 100) {
-    v = 0;
-  } else if (m <= 5000) {
-    v = 10 * m / 1000;
-  } else if (m <= 30000) {
-    v = m / 1000 + 50;
-  } else if (m <= 70000) {
-    v = (m / 1000 - 30) / 5 + 80;
-  } else {
-    v = 89;
+  int num;
+
+  int n;
+  cin >> n;
+
+  string s;
+  cin >> s;
+
+  num = 0;
+  for (int i = 0; i + 2 < n; ++i) {
+    if (s.substr(i, 3) == "ABC") ++num;
   }
-  cout << setw(2) << setfill('0') << v << endl;
+
+  cout << num << endl;
 }
