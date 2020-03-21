@@ -65,10 +65,43 @@ struct combination {
   }
 };
 
+vector<vector<int>> ship;
+vector<bool> visited;
+
+bool dfs(int s, int d, int c) {
+  if (s == d) return true;
+
+  if (visited[s]) return false;
+
+  if (c >= 2) return false;
+
+  visited[s] = true;
+
+  vector<int> _ship = ship[s];
+
+  for (auto it = _ship.cbegin(); it != _ship.cend(); ++it) {
+    if (dfs(*it, d, c + 1)) return true;
+  }
+
+  return false;
+}
+
 int main() {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
-  cout << accumulate(a.begin(), a.end(), 0) << endl;
+  int n, m;
+  cin >> n >> m;
+  ship = vector<vector<int>>(n + 1);
+  visited = vector<bool>(n + 1, false);
+
+  for (int i = 0; i < m; ++i) {
+    int a, b;
+    cin >> a >> b;
+
+    ship[a].push_back(b);
+    ship[b].push_back(a);
+  }
+
+  if (dfs(1, n, 0))
+    cout << "POSSIBLE" << endl;
+  else
+    cout << "IMPOSSIBLE" << endl;
 }
