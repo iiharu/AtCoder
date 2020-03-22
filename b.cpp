@@ -66,18 +66,26 @@ struct combination {
 };
 
 int main() {
-  int num;
-
   int n;
   cin >> n;
+  bool flag = true;
+  vector<string> w(n);
 
-  string s;
-  cin >> s;
+  for (auto &s : w) cin >> s;
 
-  num = 0;
-  for (int i = 0; i + 2 < n; ++i) {
-    if (s.substr(i, 3) == "ABC") ++num;
+  for (int i = 1; i < n; ++i) {
+    if (w[i - 1].back() != w[i].front()) flag = false;
+    for (int j = 0; j < i; ++j) {
+      if (w[j] == w[i]) flag = false;
+      if (!flag) break;
+    }
+    if (!flag) {
+      if (i % 2 == 0)
+        cout << "LOSE" << endl;
+      else
+        cout << "WIN" << endl;
+      break;
+    }
   }
-
-  cout << num << endl;
+  if (flag) cout << "DRAW" << endl;
 }
