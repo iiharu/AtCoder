@@ -2,6 +2,8 @@
 
 # C++
 *.out
+[a-f]
+
 
 # CMake
 CMakeCache.txt
