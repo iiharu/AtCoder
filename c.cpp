@@ -65,43 +65,49 @@ struct combination {
   }
 };
 
-vector<vector<int>> ship;
-vector<bool> visited;
+int n;
+int k;
+vector<vector<bitset<7>>> t;
 
-bool dfs(int s, int d, int c) {
-  if (s == d) return true;
+bool f(int i, bitset<7> bs) {
 
-  if (visited[s]) return false;
+  bool flag = true;
 
-  if (c >= 2) return false;
-
-  visited[s] = true;
-
-  vector<int> _ship = ship[s];
-
-  for (auto it = _ship.cbegin(); it != _ship.cend(); ++it) {
-    if (dfs(*it, d, c + 1)) return true;
+  if (i == n) {
+    if (bs.count() == 0) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
-  return false;
+  for (int j = 0; j < k; ++j) {
+    if (i != 0)
+      flag = f(i + 1, bs ^ t[i][j]);
+    else
+      flag = f(i + 1, t[i][j]);
+    if (!flag) break;
+  }
+
+  return flag;
 }
 
 int main() {
-  int n, m;
-  cin >> n >> m;
-  ship = vector<vector<int>>(n + 1);
-  visited = vector<bool>(n + 1, false);
 
-  for (int i = 0; i < m; ++i) {
-    int a, b;
-    cin >> a >> b;
+  cin >> n >> k;
+  t = vector<vector<bitset<7>>>(n, vector<bitset<7>>(k));
 
-    ship[a].push_back(b);
-    ship[b].push_back(a);
+  for (int i = 0; i < n; ++i) {
+    for (int j = 0; j < k; ++j) {
+      int tij;
+      cin >> tij;
+      t[i][j] = bitset<7>(tij);
+    }
   }
 
-  if (dfs(1, n, 0))
-    cout << "POSSIBLE" << endl;
+  if (f(0, bitset<7>(0)))
+    cout << "Nothing";
   else
-    cout << "IMPOSSIBLE" << endl;
+    cout << "Found";
+  cout << endl;
 }
