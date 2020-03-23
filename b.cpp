@@ -68,24 +68,15 @@ struct combination {
 int main() {
   int n;
   cin >> n;
-  bool flag = true;
-  vector<string> w(n);
 
-  for (auto &s : w) cin >> s;
-
-  for (int i = 1; i < n; ++i) {
-    if (w[i - 1].back() != w[i].front()) flag = false;
-    for (int j = 0; j < i; ++j) {
-      if (w[j] == w[i]) flag = false;
-      if (!flag) break;
-    }
-    if (!flag) {
-      if (i % 2 == 0)
-        cout << "LOSE" << endl;
-      else
-        cout << "WIN" << endl;
-      break;
-    }
+  map<string, int> mem;
+  for (int i = 0; i < n; ++i) {
+    string s;
+    cin >> s;
+    ++mem[s];
   }
-  if (flag) cout << "DRAW" << endl;
+
+  auto p = *max_element(begin(mem), end(mem), [](const auto &p1, const auto p2) { return p1.second < p2.second; });
+
+  cout << p.first << endl;
 }
