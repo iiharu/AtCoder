@@ -69,45 +69,14 @@ int n;
 int k;
 vector<vector<bitset<7>>> t;
 
-bool f(int i, bitset<7> bs) {
-
-  bool flag = true;
-
-  if (i == n) {
-    if (bs.count() == 0) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  for (int j = 0; j < k; ++j) {
-    if (i != 0)
-      flag = f(i + 1, bs ^ t[i][j]);
-    else
-      flag = f(i + 1, t[i][j]);
-    if (!flag) break;
-  }
-
-  return flag;
-}
-
 int main() {
+  ll num;
+  ll a, b;
+  cin >> a >> b;
 
-  cin >> n >> k;
-  t = vector<vector<bitset<7>>>(n, vector<bitset<7>>(k));
+  a--;
 
-  for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < k; ++j) {
-      int tij;
-      cin >> tij;
-      t[i][j] = bitset<7>(tij);
-    }
-  }
-
-  if (f(0, bitset<7>(0)))
-    cout << "Nothing";
-  else
-    cout << "Found";
-  cout << endl;
+  num = b / 4 + b / 400 - b / 100;
+  num -= (a / 4 + a / 400 - a / 100);
+  cout << num << endl;
 }
