@@ -66,17 +66,19 @@ struct combination {
 };
 
 int main() {
+  int num;
   int n;
   cin >> n;
 
-  map<string, int> mem;
+  map<int, int> mem;
+
+  num = 0;
   for (int i = 0; i < n; ++i) {
-    string s;
-    cin >> s;
-    ++mem[s];
+    int a;
+    cin >> a;
+
+    if (mem[a] > 0) ++num;
+    ++mem[a];
   }
-
-  auto p = *max_element(begin(mem), end(mem), [](const auto &p1, const auto p2) { return p1.second < p2.second; });
-
-  cout << p.first << endl;
+  cout << num << endl;
 }
