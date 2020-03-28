@@ -66,14 +66,8 @@ struct combination {
 };
 
 int main() {
-  int num;
-  int x;
-  cin >> x;
-
-  num = 0;
-  num += (x / 500) * 1000;
-  x -= (x / 500) * 500;
-
-  num += (x / 5) * 5;
-  cout << num << endl;
+  string s;
+  cin >> s;
+  for (int i = 0; i < s.length(); ++i) s[i] = 'x';
+  cout << s << endl;
 }

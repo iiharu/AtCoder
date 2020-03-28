@@ -66,9 +66,57 @@ struct combination {
 };
 
 int main() {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
-  cout << accumulate(a.begin(), a.end(), 0) << endl;
+
+  int x, y, a, b, c;
+  cin >> x >> y >> a >> b >> c;
+  priority_queue<int> p;
+  priority_queue<int> q;
+  priority_queue<int> r;
+  for (int i = 0; i < a; ++i) {
+    int in;
+    cin >> in;
+    p.push(in);
+  }
+  for (int i = 0; i < b; ++i) {
+    int in;
+    cin >> in;
+    q.push(in);
+  }
+  for (int i = 0; i < c; ++i) {
+    int in;
+    cin >> in;
+    r.push(in);
+  }
+
+  ll num = 0;
+  int na = 0;
+  int nb = 0;
+  int nc = 0;
+
+  while (na + nb + nc < x + y) {
+    int M = 0;
+    if (p.size() > 0 && na < x) M = max(M, p.top());
+    if (q.size() > 0 && nb < y) M = max(M, q.top());
+    if (r.size() > 0) M = max(M, r.top());
+
+    if (p.size() > 0 && na < x && M == p.top()) {
+      num += p.top();
+      p.pop();
+      na++;
+      continue;
+    }
+    if (q.size() > 0 && nb < y && M == q.top()) {
+      num += q.top();
+      q.pop();
+      nb++;
+      continue;
+    }
+    if (r.size() > 0 && M == r.top()) {
+      num += r.top();
+      r.pop();
+      nc++;
+      continue;
+    }
+  }
+  cout << num << endl;
 }
