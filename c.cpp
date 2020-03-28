@@ -70,13 +70,15 @@ int k;
 vector<vector<bitset<7>>> t;
 
 int main() {
-  ll num;
-  ll a, b;
-  cin >> a >> b;
+  int k, n;
+  cin >> k >> n;
+  vector<int> a(n);
+  vector<int> d(n);
+  for (int i = 0; i < n; ++i) {
+    cin >> a[i];
+    if (i > 0) d[i] = a[i] - a[i - 1];
+  }
+  d[0] = a[0] + (k - a[n - 1]);
 
-  a--;
-
-  num = b / 4 + b / 400 - b / 100;
-  num -= (a / 4 + a / 400 - a / 100);
-  cout << num << endl;
+  cout << k - *max_element(d.cbegin(), d.cend()) << endl;
 }

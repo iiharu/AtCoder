@@ -66,26 +66,11 @@ struct combination {
 };
 
 int main() {
-  ll num;
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  num = 0;
-  ll s = 0;
-  map<ll, ll> mem;
-  for (int i = 0; i < n; ++i) {
-    cin >> a[i];
-    s += a[i];
-    mem[s]++;
-  }
-
-  for (auto it = mem.begin(); it != mem.end(); ++it) {
-    if ((*it).first == 0) {
-      num += ((*it).second + 1) * (*it).second / 2;
-    } else {
-      num += (*it).second * ((*it).second - 1) / 2;
-    }
-  }
-
-  cout << num << endl;
+  string s;
+  cin >> s;
+  if (s[2] == s[3] && s[4] == s[5])
+    cout << "Yes";
+  else
+    cout << "No";
+  cout << endl;
 }

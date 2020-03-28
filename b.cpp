@@ -67,18 +67,13 @@ struct combination {
 
 int main() {
   int num;
-  int n;
-  cin >> n;
-
-  map<int, int> mem;
+  int x;
+  cin >> x;
 
   num = 0;
-  for (int i = 0; i < n; ++i) {
-    int a;
-    cin >> a;
+  num += (x / 500) * 1000;
+  x -= (x / 500) * 500;
 
-    if (mem[a] > 0) ++num;
-    ++mem[a];
-  }
+  num += (x / 5) * 5;
   cout << num << endl;
 }
