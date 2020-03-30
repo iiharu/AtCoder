@@ -70,15 +70,20 @@ int k;
 vector<vector<bitset<7>>> t;
 
 int main() {
-  int k, n;
-  cin >> k >> n;
+  int n;
+  cin >> n;
   vector<int> a(n);
-  vector<int> d(n);
-  for (int i = 0; i < n; ++i) {
-    cin >> a[i];
-    if (i > 0) d[i] = a[i] - a[i - 1];
+  map<int, int> mem;
+  for (auto &i : a) {
+    cin >> i;
+    mem[i]++;
   }
-  d[0] = a[0] + (k - a[n - 1]);
 
-  cout << k - *max_element(d.cbegin(), d.cend()) << endl;
+  vector<int> c;
+  for (auto it = mem.cbegin(); it != mem.cend(); ++it) { c.push_back((*it).first); }
+  sort(c.begin(), c.end());
+  mem.clear();
+  for (int i = 0; i < c.size(); ++i) { mem[c[i]] = i; }
+
+  for (auto i : a) { cout << mem[i] << endl; }
 }
