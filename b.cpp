@@ -66,8 +66,13 @@ struct combination {
 };
 
 int main() {
+  int n;
+  cin >> n;
   string s;
   cin >> s;
-  for (int i = 0; i < s.length(); ++i) s[i] = 'x';
+  for (int i = 0; i < s.length(); ++i) {
+    s[i] = s[i] + n;
+    if (s[i] > 'Z') s[i] -= 'Z' - 'A' + 1;
+  }
   cout << s << endl;
 }
