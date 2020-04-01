@@ -68,11 +68,12 @@ struct combination {
 int main() {
   int n;
   cin >> n;
-  string s;
-  cin >> s;
-  for (int i = 0; i < s.length(); ++i) {
-    s[i] = s[i] + n;
-    if (s[i] > 'Z') s[i] -= 'Z' - 'A' + 1;
+  for (int i = 0; i <= n; ++i) {
+    int j = static_cast<int>(static_cast<double>(i) * 1.08);
+    if (j == n) {
+      cout << i << endl;
+      return 0;
+    }
   }
-  cout << s << endl;
+  cout << ":(" << endl;
 }
