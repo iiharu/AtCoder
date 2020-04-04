@@ -66,11 +66,7 @@ struct combination {
 };
 
 int main() {
-  string s;
-  cin >> s;
-  if (s[2] == s[3] && s[4] == s[5])
-    cout << "Yes";
-  else
-    cout << "No";
-  cout << endl;
+  int x, y, z;
+  cin >> x >> y >> z;
+  cout << z << " " << x << " " << y << endl;
 }

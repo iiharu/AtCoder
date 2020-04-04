@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #define rep(i, n) for (int i = 0; i < (n); ++i)
+#define all(a) (a).begin(), (a).end()
 using namespace std;
 typedef long long ll;
 
@@ -66,14 +67,16 @@ struct combination {
 };
 
 int main() {
-  int n;
-  cin >> n;
-  for (int i = 0; i <= n; ++i) {
-    int j = static_cast<int>(static_cast<double>(i) * 1.08);
-    if (j == n) {
-      cout << i << endl;
-      return 0;
-    }
-  }
-  cout << ":(" << endl;
+  int n, m;
+  cin >> n >> m;
+  vector<int> a(n);
+  for (auto &e : a) cin >> e;
+  sort(all(a), greater<int>());
+  float acc = accumulate(all(a), 0);
+
+  if (static_cast<float>(a[m - 1]) >= acc / (4.0 * m))
+    cout << "Yes";
+  else
+    cout << "No";
+  cout << endl;
 }

@@ -65,25 +65,13 @@ struct combination {
   }
 };
 
-int n;
-int k;
-vector<vector<bitset<7>>> t;
-
 int main() {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  map<int, int> mem;
-  for (auto &i : a) {
-    cin >> i;
-    mem[i]++;
-  }
+  ll n, k;
+  cin >> n >> k;
 
-  vector<int> c;
-  for (auto it = mem.cbegin(); it != mem.cend(); ++it) { c.push_back((*it).first); }
-  sort(c.begin(), c.end());
-  mem.clear();
-  for (int i = 0; i < c.size(); ++i) { mem[c[i]] = i; }
+  if (n > k) n %= k;
 
-  for (auto i : a) { cout << mem[i] << endl; }
+  while (n > abs(n - k)) { n = abs(n - k); }
+
+  cout << n << endl;
 }

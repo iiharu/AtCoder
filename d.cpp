@@ -2,6 +2,7 @@
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 using namespace std;
 typedef long long ll;
+typedef unsigned long long ull;
 
 ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
 ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
@@ -65,22 +66,25 @@ struct combination {
   }
 };
 
-vector<vector<int>> t;
-
 int main() {
-  int num;
-  int n, x, y;
-  cin >> n >> x >> y;
+  int k;
+  cin >> k;
+  queue<ll> q;
+  for (int i = 1; i < 10; ++i) q.push(i);
 
-  t = vector<vector<int>>(n + 1, vector<int>(n + 1));
-  vector<int> k(n + 1, 0);
-  for (int i = 1; i <= n; ++i) {
-    for (int j = i + 1; j <= n; ++j) {
-      int d = min(j - i, abs(x - i) + abs(y - j) + 1);
-      t[i][j] = d;
-      // t[j][i] = d;
-      k[d]++;
+  ll x = 0;
+  int c = 0;
+  while (c < k) {
+    x = q.front();
+    q.pop();
+    ++c;
+
+    for (int i = -1; i <= 1; ++i) {
+      int d = x % 10 + i;
+      if (d < 0 || d > 9) continue;
+      q.push(x * 10 + d);
     }
   }
-  for (int i = 1; i < n; ++i) { cout << k[i] << endl; }
+
+  cout << x << endl;
 }
