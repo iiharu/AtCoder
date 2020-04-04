@@ -1,14 +1,10 @@
 #include <bits/stdc++.h>
-#define rep(i, n) for (int i = 0; i < (n); ++i)
-using namespace std;
-typedef long long ll;
 
-ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
-ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 constexpr int mod = 1e9 + 7;
 
 struct mint {
-  ll x; // typedef long long ll;
+  using ll = long long;
+  ll x;
   mint(ll x = 0) : x((x % mod + mod) % mod) {}
   mint operator-() const { return mint(-x); }
   mint &operator+=(const mint a) {
@@ -48,10 +44,11 @@ struct mint {
     mint res(*this);
     return res /= a;
   }
-  friend ostream &operator<<(ostream &os, const mint &a) { return (os << a.x); }
+  friend std::ostream &operator<<(std::ostream &os, const mint &a) { return (os << a.x); }
 };
+
 struct combination {
-  vector<mint> fact, ifact;
+  std::vector<mint> fact, ifact;
   combination(int n) : fact(n + 1), ifact(n + 1) {
     assert(n < mod);
     fact[0] = 1;
@@ -64,11 +61,3 @@ struct combination {
     return fact[n] * ifact[k] * ifact[n - k];
   }
 };
-
-int main() {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
-  cout << accumulate(a.begin(), a.end(), 0) << endl;
-}
