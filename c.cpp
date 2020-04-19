@@ -7,28 +7,20 @@ int main() {
   int n;
   cin >> n;
   vector<int> x(n);
-  for (int i = 0; i < n; ++i) cin >> x[i];
+  vector<int> l(n);
+  for (int i = 0; i < n; ++i) {
+    cin >> x[i];
+    l[i] = i;
+  }
 
-  vector<int> b = x;
-  sort(b.begin(), b.end());
+  sort(l.begin(), l.end(), [&x](const auto &a, const auto &b) { return x[a] < x[b]; });
+  // for (int i = 0; i < n; ++i) { cout << x[l[i]] << endl; }
 
   for (int i = 0; i < n; ++i) {
-    if (x[i] < b[n / 2 - 1]) {
-      cout // << "1 "
-          << b[n / 2];
-    } else if (x[i] == b[n / 2 - 1]) {
-      cout // << "2 "
-          << b[n / 2];
-    } else if (x[i] > b[n / 2 - 1] && x[i] < b[n / 2]) {
-      cout // << "3 "
-          << b[n / 2];
-    } else if (x[i] == b[n / 2]) {
-      cout // << "4 "
-          << b[n / 2 - 1];
-    } else if (x[i] > b[n / 2]) {
-      cout // << "5 "
-          << b[n / 2 - 1];
+    if (x[i] <= x[l[n / 2 - 1]]) {
+      cout << x[l[n / 2]] << endl;
+    } else {
+      cout << x[l[n / 2 - 1]] << endl;
     }
-    cout << endl;
   }
 }
