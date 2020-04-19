@@ -6,7 +6,11 @@ typedef long long ll;
 int main() {
   int n;
   cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
-  cout << accumulate(a.begin(), a.end(), 0) << endl;
+  vector<int> b(n + 1, 0);
+  for (int i = 1; i < n; ++i) {
+    int a;
+    cin >> a;
+    b[a]++;
+  }
+  for (int i = 1; i <= n; ++i) { cout << b[i] << endl; }
 }

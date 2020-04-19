@@ -6,7 +6,5 @@ typedef long long ll;
 int main() {
   int n;
   cin >> n;
-  vector<int> a(n);
-  for (auto &e : a) cin >> e;
-  cout << accumulate(a.begin(), a.end(), 0) << endl;
+  cout << 2 * M_PI * (double)n << endl;
 }
