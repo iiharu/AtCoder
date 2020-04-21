@@ -1,0 +1,112 @@
+{
+  "main": {
+    "prefix": "main",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "#define rep(i, n) for (int i = 0; i < (n); ++i)",
+      "using namespace std;",
+      "using ll = long long;",
+      "using P = pair<int, int>;",
+      "",
+      "signed main() {",
+      "\tint n;",
+      "\tcin >> n;",
+      "\t$2",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "main function",
+    "scope": ""
+  },
+  "mod": {
+    "prefix": "mod",
+    "body": "constexpr int mod = 1e9 + 7;",
+    "description": "mod constexpr",
+  },
+  "mint": {
+    "prefix": [
+      "mint",
+      "modint"
+    ],
+    "body": [
+      "constexpr int mod = 1e9 + 7;",
+      "",
+      "\tstruct mint {",
+      "\tusing ll = long long;",
+      "\tll x;",
+      "\tmint(ll x = 0) : x((x % mod + mod) % mod) {}",
+      "\tmint operator-() const { return mint(-x); }",
+      "\tmint &operator+=(const mint a) {",
+      "\t\tif ((x += a.x) >= mod) x -= mod;",
+      "\t\treturn *this;",
+      "\t}",
+      "\tmint &operator-=(const mint a) {",
+      "\t\tif ((x += mod - a.x) >= mod) x -= mod;",
+      "\treturn *this;",
+      "\t}",
+      "\tmint &operator*=(const mint a) {",
+      "\t\t(x *= a.x) %= mod;",
+      "\t\treturn *this;",
+      "\t}",
+      "\tmint operator+(const mint a) const {",
+      "\t\tmint res(*this);",
+      "\t\treturn res += a;",
+      "\t}",
+      "\tmint operator-(const mint a) const {",
+      "\t\tmint res(*this);",
+      "\t\treturn res -= a;",
+      "\t}",
+      "\tmint operator*(const mint a) const {",
+      "\t\tmint res(*this);",
+      "\t\treturn res *= a;",
+      "\t}",
+      "\tmint pow(ll t) const {",
+      "\t\tif (!t) return 1;",
+      "\t\tmint a = pow(t >> 1);",
+      "\t\ta *= a;",
+      "\t\tif (t & 1) a *= *this;",
+      "\t\treturn a;",
+      "\t}",
+      "\tmint inv() const { return pow(mod - 2);}",
+      "\tmint &operator/=(const mint a) { return (*this) *= a.inv(); }",
+      "\tmint operator/(const mint a) const {",
+      "\t\tmint res(*this);",
+      "\t\treturn res /= a;",
+      "\t}",
+      "\tfriend ostream &operator<<(ostream &os, const mint &a) { return (os << a.x); }",
+      "};"
+    ],
+    "description": "mod int struct",
+  },
+  "combination": {
+    "prefix": "combi",
+    "body": [
+      "struct combination {",
+      "\tvector<mint> fact, ifact;",
+      "\tcombination(int n) : fact(n + 1), ifact(n + 1) {",
+      "\t\tassert(n < mod);",
+      "\t\tfact[0] = 1;",
+      "\t\tfor (int i = 1; i <= n; ++i) fact[i] = fact[i - 1] * i;",
+      "\t\tifact[n] = fact[n].inv();",
+      "\t\tfor(int i = n; i >= 1; --i) ifact[i - 1] = ifact[i] * i;",
+      "\t}",
+      "\tmint operator()(int n, int k) {",
+      "\t\tif (k < 0 || k > n) return 0;",
+      "\t\treturn fact[n] * ifact[k] * ifact[n - k];",
+      "\t}",
+      "};"
+    ],
+    "description": "mod int combination struct"
+  },
+  "gcd": {
+    "prefix": [
+      "gcd",
+      "lcm"
+    ],
+    "body": [
+      "template<typename T> gcd(T a, T b) { return b ? gcd(b, a % b) : a; }",
+      "template<typename T> lcm(T a, T b) { return a / gcd(a, b) * b; }"
+    ],
+    "description": "GCD (greatest common divisor) and LCM (least common multiple)"
+  }
+}
