@@ -5,30 +5,24 @@ using ll = long long;
 using P = pair<int, int>;
 
 signed main() {
-  int n, m;
-  cin >> n >> m;
-
-  vector<bitset<10>> f(n, bitset<10>());
-
-  for (int i = 0; i < m; ++i) {
-    int a, b;
-    cin >> a >> b;
-    f[a - 1].set(b - 1);
-    f[b - 1].set(a - 1);
-  }
-
+  int n;
+  cin >> n;
+  int k;
+  cin >> k;
+  vector<int> a(n);
+  for (auto &e : a) cin >> e;
+  ll num = 0;
+  ll tmp = 0;
+  queue<int> q;
   for (int i = 0; i < n; ++i) {
-    bitset<10> bs(0);
-    for (int j = 0; j < n; ++j) {
-      if (f[i].test(j)) { bs |= f[j]; }
+    q.push(a[i]);
+    tmp += a[i];
+    if (q.size() == k) {
+      num += tmp;
+      tmp -= q.front();
+      q.pop();
     }
-    bs.reset(i);
-    for (int j = 0; j < n; ++j) {
-      if (f[i].test(j)) bs.reset(j);
-    }
-
-    cout << bs.count() << endl;
   }
-
+  cout << num << endl;
   return 0;
 }
