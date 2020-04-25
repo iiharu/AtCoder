@@ -1,63 +1,30 @@
 #include <bits/stdc++.h>
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 using namespace std;
-typedef long long ll;
+using ll = long long;
+using P = pair<int, int>;
 
-constexpr int mod = 1e9 + 7;
-
-struct mint {
-  using ll = long long;
-  ll x;
-  mint(ll x = 0) : x((x % mod + mod) % mod) {}
-  mint operator-() const { return mint(-x); }
-  mint &operator+=(const mint a) {
-    if ((x += a.x) >= mod) x -= mod;
-    return *this;
-  }
-  mint &operator-=(const mint a) {
-    if ((x += mod - a.x) >= mod) x -= mod;
-    return *this;
-  }
-  mint &operator*=(const mint a) {
-    (x *= a.x) %= mod;
-    return *this;
-  }
-  mint operator+(const mint a) const {
-    mint res(*this);
-    return res += a;
-  }
-  mint operator-(const mint a) const {
-    mint res(*this);
-    return res -= a;
-  }
-  mint operator*(const mint a) const {
-    mint res(*this);
-    return res *= a;
-  }
-  mint pow(ll t) const {
-    if (!t) return 1;
-    mint a = pow(t >> 1);
-    a *= a;
-    if (t & 1) a *= *this;
-    return a;
-  }
-  mint inv() const { return pow(mod - 2); }
-  mint &operator/=(const mint a) { return (*this) *= a.inv(); }
-  mint operator/(const mint a) const {
-    mint res(*this);
-    return res /= a;
-  }
-  friend std::ostream &operator<<(std::ostream &os, const mint &a) { return (os << a.x); }
-};
-
-constexpr int N = 2 * 100000;
-
-int main() {
-  int n, k;
+signed main() {
+  int n;
+  ll k;
   cin >> n >> k;
+  vector<int> a(n);
+  for (auto &e : a) cin >> e;
 
-  mint num = 0;
-  for (int i = k; i <= n + 1; ++i) { num += (mint)i * ((mint)n - (mint)i + 1) + 1; }
+  int l = 0, r = 0;
+  ll num = 0, s = 0;
+  while (true) {
+    while (r < n && s < k) {
+      s += a[r];
+      ++r;
+    }
+
+    if (s < k) break;
+    num += n - r + 1;
+    s -= a[l];
+    ++l;
+  }
+
   cout << num << endl;
-
+  return 0;
 }
