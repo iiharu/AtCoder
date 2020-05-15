@@ -6,21 +6,18 @@ typedef long long ll;
 #include <bits/stdc++.h>
 
 int main() {
-  string s;
-  cin >> s;
-  if (s == "SUN")
-    cout << 7;
-  else if (s == "MON")
-    cout << 6;
-  else if (s == "TUE")
-    cout << 5;
-  else if (s == "WED")
-    cout << 4;
-  else if (s == "THU")
-    cout << 3;
-  else if (s == "FRI")
-    cout << 2;
-  else if (s == "SAT")
-    cout << 1;
-  cout << endl;
+  int n, m; cin >> n >> m;
+  vector<int> a(m);
+  vector<int> b(n + 1, false);
+  for (auto & e : a) cin >> e;
+  
+  for (auto it = a.rbegin(); it != a.rend(); ++it) {
+    if (!b[*it]) {
+      cout << *it << endl;
+      b[*it] = true;
+    }
+  }
+  for (int i = 1; i <= n; ++i) {
+    if (!b[i]) cout << i << endl;
+  }
 }
