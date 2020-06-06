@@ -4,22 +4,22 @@ using namespace std;
 typedef long long ll;
 
 int main() {
-  int n; cin >> n;
-  vector<ll> a(n);
-  for (auto & e : a) cin >> e;
-  sort(a.begin(), a.end());
+  ll a, b, k;
+  cin >> a >> b >> k;
 
-  ll s = a[0];
-  int c = 1;
-  for (int i = 1; i < n; ++i) {
-    if (s * 2 < a[i]) {
-      c = 1;
-    } else {
-      ++c;
-    }
-    s += a[i];
+  if (a >= k) {
+    a -= k;
+    k = 0;
+  } else {
+    k -= a;
+    a = 0;
   }
-
-  cout << c << endl;
-  
+  if (b >= k) {
+    b -= k;
+    k = 0;
+  } else {
+    k -= b;
+    b = 0;
+  }
+  cout << a << " " << b << endl;
 }
