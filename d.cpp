@@ -6,25 +6,24 @@ using P = pair<int, int>;
 
 signed main() {
   int n;
-  ll k;
-  cin >> n >> k;
+  cin >> n;
+
   vector<int> a(n);
-  for (auto &e : a) cin >> e;
+  for (auto &e : a) { cin >> e; }
+  sort(a.begin(), a.end());
 
-  int l = 0, r = 0;
-  ll num = 0, s = 0;
-  while (true) {
-    while (r < n && s < k) {
-      s += a[r];
-      ++r;
+  int m = a[n - 1];
+  int k = a[0];
+  int d = abs(m - 2 * a[0]);
+  for (int i = 1; i < n - 1; ++i) {
+    int _d = abs(m - 2 * a[i]);
+    if (d > _d) {
+      d = _d;
+      k = a[i];
+    } else {
+      break;
     }
-
-    if (s < k) break;
-    num += n - r + 1;
-    s -= a[l];
-    ++l;
   }
 
-  cout << num << endl;
-  return 0;
+  cout << m << " " << k << endl;
 }
