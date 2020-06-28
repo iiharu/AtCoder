@@ -5,25 +5,10 @@ using ll = long long;
 using P = pair<int, int>;
 
 signed main() {
-  int n;
-  cin >> n;
+  ll n, k;
+  cin >> n >> k;
 
-  vector<int> a(n);
-  for (auto &e : a) { cin >> e; }
-  sort(a.begin(), a.end());
-
-  int m = a[n - 1];
-  int k = a[0];
-  int d = abs(m - 2 * a[0]);
-  for (int i = 1; i < n - 1; ++i) {
-    int _d = abs(m - 2 * a[i]);
-    if (d > _d) {
-      d = _d;
-      k = a[i];
-    } else {
-      break;
-    }
-  }
-
-  cout << m << " " << k << endl;
+  double num = 1 + 3 * (n - 1) + 6 * (k - 1) * (n - k);
+  num /= (n * n * n);
+  cout << setprecision(20) << num << endl;
 }
