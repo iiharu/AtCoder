@@ -1,25 +1,30 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <utility>
+#define int long long
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 using namespace std;
-typedef long long ll;
+// typedef long long ll;
 
-int main() {
-  ll a, b, k;
-  cin >> a >> b >> k;
+signed main() {
+  string s; cin >> s;
 
-  if (a >= k) {
-    a -= k;
-    k = 0;
-  } else {
-    k -= a;
-    a = 0;
+  vector<pair<char,int>> v;
+
+  for (auto it = s.begin(); it != s.end(); ++it) {
+    // !v.empty && v.last.first = *it
+    if (!v.empty() && v.back().first == *it) {
+      ++v.back().second;
+    } else {
+      v.push_back({*it, 1});
+    }
   }
-  if (b >= k) {
-    b -= k;
-    k = 0;
-  } else {
-    k -= b;
-    b = 0;
+
+  for (auto it = v.begin(); it != v.end(); ++it) {
+    cout << (*it).first << to_string((*it).second);
   }
-  cout << a << " " << b << endl;
+  cout << endl;
+
 }
