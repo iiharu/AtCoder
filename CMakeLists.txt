@@ -14,6 +14,8 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
+include_directories(.)
+
 add_executable(a a.cpp)
 add_executable(b b.cpp)
 add_executable(c c.cpp)
