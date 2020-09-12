@@ -1,16 +1,6 @@
-# .gitignore
 
-# C++
-*.out
-[a-f]
-
-
-# CMake
 CMakeCache.txt
 CMakeFiles/
 Makefile
 cmake_install.cmake
 compile_commands.json
-
-# Emacs
-!.dir-locals.el
